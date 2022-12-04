@@ -6,6 +6,7 @@ package model;
  */
 public class ChessboardPoint {
     private int x, y;
+    protected int t;
 
     /**
      *
