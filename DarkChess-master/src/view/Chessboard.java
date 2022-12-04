@@ -87,6 +87,11 @@ public class Chessboard extends JComponent {
         chess2.repaint();
     }
 
+    /**
+     * 将所有的棋子初始化
+     *
+
+     */
 
     private void initAllChessOnBoard() {
         Random random = new Random();
