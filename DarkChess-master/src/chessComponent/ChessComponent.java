@@ -74,7 +74,7 @@ public class ChessComponent extends SquareComponent{
         g.drawOval(spacingLength, spacingLength, getWidth() - 2 * spacingLength, getHeight() - 2 * spacingLength);
 
 
-        
+
 
         if (isReversal) {
             //绘制棋子文字
