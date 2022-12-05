@@ -17,18 +17,11 @@ public class AceGameFrame extends JFrame{
         setVisible(true);
         setTitle("Ace Attorney: Dark Chess Apollo vs Klavier");
         //加按钮
-        /*
-        URL buttonURL = Data.class.getResource("Pictures/button.jpg");
-        Icon button = new ImageIcon(buttonURL);
-        JButton button1 = new JButton();
-        button1.setIcon(button);
-        add(button1);
-        button1.setVisible(true);
-        button1.setBounds(500,300,100,100);//仅是测试
-        草！！怎么变成只有图片了！！我背景出现了一帧然后就消失了！
+
         //还没加鼠标判定和命令
 
-         */
+
+
     }
 
 }
