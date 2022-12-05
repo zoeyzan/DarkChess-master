@@ -9,4 +9,8 @@ public class Data {
     public static ImageIcon Title = new ImageIcon(TitleURL);
     public static ImageIcon background = new ImageIcon(backgroundURL);
     public static ImageIcon backgroundCheat = new ImageIcon(backgroundCheatURL);
+    public static URL buttonURL = Data.class.getResource("Pictures/button.jpg");
+    public static Icon button = new ImageIcon(buttonURL);
 }
+
+
