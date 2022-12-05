@@ -13,5 +13,6 @@ public class StartGame {
         frame.add(new GamePanel());
         frame.setVisible(true);
         frame.setTitle("Ace Attorney: Dark Chess Apollo vs Klavier");
+
     }
 }
