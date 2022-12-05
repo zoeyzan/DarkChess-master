@@ -2,6 +2,8 @@ package PicturesAndBackground;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URL;
 
 public class AceGameFrame extends JFrame{
@@ -40,10 +42,30 @@ public class AceGameFrame extends JFrame{
         buttonPanel.setOpaque(false);
         buttonPanel.setLayout(null);
         add(buttonPanel);
+        ButtonAction Action1 = new ButtonAction(1);
+        button1.addActionListener(Action1);
 
 
 
+    }
+    class ButtonAction implements ActionListener {
+        int buttonType;
+        public ButtonAction(int n) {
+            buttonType = n;
+        }
 
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(buttonType==1){
+                ImageIcon backGround1 = Data.background;
+                JLabel label2 = new JLabel(backGround1);
+                gamePanel.removeAll();
+                gamePanel.add(label2);
+                buttonPanel.removeAll();
+                gamePanel.updateUI();
+                //可以切换页面了，接下来就是把这一个按钮切换成谁先打，然后接一个开始游戏的方法，在那个方法里面放上棋子。
+            }
+        }
     }
 
 }

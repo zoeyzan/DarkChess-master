@@ -61,7 +61,7 @@ public class ChessComponent extends SquareComponent{
         super(chessboardPoint, location, chessColor, clickController, size);
     }
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g) {//如果我用label放在panel上的方法画棋子，那鼠标监听就是点到label？
         super.paintComponent(g);
         //绘制棋子填充色
         g.setColor(Color.ORANGE);
@@ -69,6 +69,7 @@ public class ChessComponent extends SquareComponent{
        //绘制棋子边框
         g.setColor(Color.DARK_GRAY);
         g.drawOval(spacingLength, spacingLength, getWidth() - 2 * spacingLength, getHeight() - 2 * spacingLength);
+
 
         if (isReversal) {
             //绘制棋子文字
