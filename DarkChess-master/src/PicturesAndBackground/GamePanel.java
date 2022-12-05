@@ -9,6 +9,7 @@ import java.net.URL;
 public class GamePanel extends JPanel {
 
     private Graphics g;
+    JPanel tmp = this;
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         this.g = g;
@@ -42,13 +43,13 @@ public class GamePanel extends JPanel {
         public void actionPerformed(ActionEvent e) {
             if(buttonType ==1){
                 System.out.println("asd");
-                removeAll();
-//                repaint();
-                updateUI();
+                tmp.removeAll();
+                tmp.repaint();
 //                revalidate();
 
 //                paintComponent2(g);
 //                repaint();
+                //paintComponent2(g);
             }
         }
     }
