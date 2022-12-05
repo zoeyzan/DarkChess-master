@@ -1,9 +1,11 @@
 package chessComponent;
 
+import PicturesAndBackground.Data;
 import controller.ClickController;
 import model.ChessColor;
 import model.ChessboardPoint;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -14,7 +16,7 @@ public class ChessComponent extends SquareComponent{
     protected int priority;// 棋子的优先级，判断能不能吃别的棋子
     protected int points;//棋子的得分
     protected int number;//棋子的个数
-
+    private JPanel chessPanel;
     public ChessComponent(ChessboardPoint chessboardPoint, Point location, ChessColor chessColor, ClickController clickController, int size, String name, int priority, int points, int number) {
         super(chessboardPoint, location, chessColor, clickController, size);
         this.name = name;
@@ -63,6 +65,7 @@ public class ChessComponent extends SquareComponent{
     @Override
     protected void paintComponent(Graphics g) {//如果我用label放在panel上的方法画棋子，那鼠标监听就是点到label？
         super.paintComponent(g);
+
         //绘制棋子填充色
         g.setColor(Color.ORANGE);
         g.fillOval(spacingLength, spacingLength, this.getWidth() - 2 * spacingLength, this.getHeight() - 2 * spacingLength);
@@ -71,18 +74,33 @@ public class ChessComponent extends SquareComponent{
         g.drawOval(spacingLength, spacingLength, getWidth() - 2 * spacingLength, getHeight() - 2 * spacingLength);
 
 
+        
+
         if (isReversal) {
             //绘制棋子文字
+
             g.setColor(this.getChessColor().getColor());
             g.setFont(CHESS_FONT);
             g.drawString(this.name, this.getWidth() / 4, this.getHeight() * 2 / 3);
+             /*
+             以下是我试图修改成图片的代码
+            chessPanel = new JPanel();
+            add(chessPanel);
+            ImageIcon emptyImageIcon = Data.empty;
+            JLabel labelEmpty = new JLabel(emptyImageIcon);
+            chessPanel.add(labelEmpty);
+            chessPanel.setBounds(500,10,300,300);
 
+              */
             //绘制棋子被选中时状态
             if (isSelected()) {
+
                 g.setColor(Color.RED);
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setStroke(new BasicStroke(4f));
                 g2.drawOval(spacingLength, spacingLength, getWidth() - 2 * spacingLength, getHeight() - 2 * spacingLength);
+
+
             }
         }
     }
