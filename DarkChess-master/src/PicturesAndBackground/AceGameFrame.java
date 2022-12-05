@@ -1,5 +1,4 @@
 package PicturesAndBackground;
-import PicturesAndBackground.GamePanel;
 
 import javax.swing.*;
 import java.awt.*;
