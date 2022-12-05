@@ -46,7 +46,7 @@ public class GamePanel extends JPanel {
 //                repaint();
                 updateUI();
 //                revalidate();
-                
+
 //                paintComponent2(g);
 //                repaint();
             }
