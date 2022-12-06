@@ -122,85 +122,157 @@ public class ChessComponent extends SquareComponent {
             } else if (this instanceof CannonChessComponent) {
                 if(isSelected()){
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RPaoSII = Data.RPaoS;
+                        JLabel labelRPaoS = new JLabel(RPaoSII);
+                        chessPanel.add(labelRPaoS);
+                        labelRPaoS.setVisible(true);
                     }else{
-
+                        ImageIcon BPaoSII = Data.BPaoS;
+                        JLabel labelBPaoS = new JLabel(BPaoSII);
+                        chessPanel.add(labelBPaoS);
+                        labelBPaoS.setVisible(true);
                     }
                 }else{
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RPaoII = Data.RPao;
+                        JLabel labelRPao = new JLabel(RPaoII);
+                        chessPanel.add(labelRPao);
+                        labelRPao.setVisible(true);
                     }else{
-
+                        ImageIcon BPaoII = Data.BPao;
+                        JLabel labelBPao = new JLabel(BPaoII);
+                        chessPanel.add(labelBPao);
+                        labelBPao.setVisible(true);
                     }
                 }
-            } else if (this instanceof ChariotChessComponent) {
+            } else if (this instanceof ChariotChessComponent) {//车
                 if(isSelected()){
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RCheSII = Data.RCheS;
+                        JLabel labelRCheS = new JLabel(RCheSII);
+                        chessPanel.add(labelRCheS);
+                        labelRCheS.setVisible(true);
                     }else{
-
+                        ImageIcon BCheSII = Data.BCheS;
+                        JLabel labelBCheS = new JLabel(BCheSII);
+                        chessPanel.add(labelBCheS);
+                        labelBCheS.setVisible(true);
                     }
                 }else{
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RCheII = Data.RChe;
+                        JLabel labelRChe = new JLabel(RCheII);
+                        chessPanel.add(labelRChe);
+                        labelRChe.setVisible(true);
                     }else{
-
+                        ImageIcon BCheII = Data.BChe;
+                        JLabel labelBChe = new JLabel(BCheII);
+                        chessPanel.add(labelBChe);
+                        labelBChe.setVisible(true);
                     }
                 }
-            } else if (this instanceof GeneralChessComponent) {
+            } else if (this instanceof GeneralChessComponent) {//红帅黑将
                 if(isSelected()){
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RShuaiSII = Data.RShuaiS;
+                        JLabel labelRShuaiS = new JLabel(RShuaiSII);
+                        chessPanel.add(labelRShuaiS);
+                        labelRShuaiS.setVisible(true);
                     }else{
-
+                        ImageIcon BJiangSII = Data.BJiangS;
+                        JLabel labelBJiangS = new JLabel(BJiangSII);
+                        chessPanel.add(labelBJiangS);
+                        labelBJiangS.setVisible(true);
                     }
                 }else{
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RShuaiII = Data.RShuai;
+                        JLabel labelRShuai = new JLabel(RShuaiII);
+                        chessPanel.add(labelRShuai);
+                        labelRShuai.setVisible(true);
                     }else{
-
+                        ImageIcon BJiangII = Data.BJiang;
+                        JLabel labelBJiang = new JLabel(BJiangII);
+                        chessPanel.add(labelBJiang);
+                        labelBJiang.setVisible(true);
                     }
                 }
             } else if (this instanceof HorseChessComponent) {
                 if(isSelected()){
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RMaSII = Data.RMaS;
+                        JLabel labelRMaS = new JLabel(RMaSII);
+                        chessPanel.add(labelRMaS);
+                        labelRMaS.setVisible(true);
                     }else{
-
+                        ImageIcon BMaSII = Data.BMaS;
+                        JLabel labelBMaS = new JLabel(BMaSII);
+                        chessPanel.add(labelBMaS);
+                        labelBMaS.setVisible(true);
                     }
                 }else{
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RMaII = Data.RMa;
+                        JLabel labelRMa = new JLabel(RMaII);
+                        chessPanel.add(labelRMa);
+                        labelRMa.setVisible(true);
                     }else{
-
+                        ImageIcon BMaII = Data.BMa;
+                        JLabel labelBMa = new JLabel(BMaII);
+                        chessPanel.add(labelBMa);
+                        labelBMa.setVisible(true);
                     }
                 }
-            } else if (this instanceof MinisterChessComponent) {
+            } else if (this instanceof MinisterChessComponent) {//Xiang
                 if(isSelected()){
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RXiangSII = Data.RXiangS;
+                        JLabel labelRXiangS = new JLabel(RXiangSII);
+                        chessPanel.add(labelRXiangS);
+                        labelRXiangS.setVisible(true);
                     }else{
-
+                        ImageIcon BXiangSII = Data.BXiangS;
+                        JLabel labelBXiangS = new JLabel(BXiangSII);
+                        chessPanel.add(labelBXiangS);
+                        labelBXiangS.setVisible(true);
                     }
                 }else{
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RXiangII = Data.RXiang;
+                        JLabel labelRXiang = new JLabel(RXiangII);
+                        chessPanel.add(labelRXiang);
+                        labelRXiang.setVisible(true);
                     }else{
-
+                        ImageIcon BXiangII = Data.BXiang;
+                        JLabel labelBXiang = new JLabel(BXiangII);
+                        chessPanel.add(labelBXiang);
+                        labelBXiang.setVisible(true);
                     }
                 }
-            } else if (this instanceof SoldierChessComponent) {
+            } else if (this instanceof SoldierChessComponent) {//红兵黑卒
                 if(isSelected()){
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RBingSII = Data.RBingS;
+                        JLabel labelRBingS = new JLabel(RBingSII);
+                        chessPanel.add(labelRBingS);
+                        labelRBingS.setVisible(true);
                     }else{
-
+                        ImageIcon BZuSII = Data.BZuS;
+                        JLabel labelBZuS = new JLabel(BZuSII);
+                        chessPanel.add(labelBZuS);
+                        labelBZuS.setVisible(true);
                     }
                 }else{
                     if (this.getChessColor() == ChessColor.RED){
-
+                        ImageIcon RBingII = Data.RBing;
+                        JLabel labelRBing = new JLabel(RBingII);
+                        chessPanel.add(labelRBing);
+                        labelRBing.setVisible(true);
                     }else{
-
+                        ImageIcon BZuII = Data.BZu;
+                        JLabel labelBZu = new JLabel(BZuII);
+                        chessPanel.add(labelBZu);
+                        labelBZu.setVisible(true);
                     }
                 }
             }
