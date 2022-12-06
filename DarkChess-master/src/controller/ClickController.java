@@ -72,7 +72,6 @@ public class ClickController {
 
     private boolean handleSecond(SquareComponent squareComponent) {
 
-        //没翻开或空棋子，进入if
 
         if (!squareComponent.isReversal()) {
             //没翻开且非空棋子不能走
