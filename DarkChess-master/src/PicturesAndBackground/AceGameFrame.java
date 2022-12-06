@@ -88,5 +88,8 @@ public class AceGameFrame extends JFrame{
         statusLabel.setFont(new Font("宋体", Font.BOLD, 20));
         add(statusLabel);
     }
+    public static JLabel getStatusLabel() {
+        return statusLabel;
+    }
 
 }

@@ -1,6 +1,7 @@
 package controller;
 
 
+import PicturesAndBackground.AceGameFrame;
 import chessComponent.CannonChessComponent;
 import chessComponent.ChessComponent;
 import chessComponent.SquareComponent;
@@ -85,8 +86,15 @@ public class ClickController {
                 first.canMoveTo(chessboard.getChessComponents(), squareComponent.getChessboardPoint());
     }
 
+    /*    老师写的
     public void swapPlayer() {
         chessboard.setCurrentColor(chessboard.getCurrentColor() == ChessColor.BLACK ? ChessColor.RED : ChessColor.BLACK);
         ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
+    }
+
+     */
+    public void swapPlayer() {
+        chessboard.setCurrentColor(chessboard.getCurrentColor() == ChessColor.BLACK ? ChessColor.RED : ChessColor.BLACK);
+        AceGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
     }
 }
