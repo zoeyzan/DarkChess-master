@@ -13,6 +13,7 @@ public class AceGameFrame extends JFrame{
     private JPanel gamePanel;
     private JPanel buttonPanel;
     private GameController gameController;
+    private static JLabel statusLabel;
 
 
     public AceGameFrame() {
@@ -64,10 +65,11 @@ public class AceGameFrame extends JFrame{
                 ImageIcon backGround1 = Data.background;
                 JLabel label2 = new JLabel(backGround1);
                 gamePanel.removeAll();
-                gamePanel.add(label2);
+                gamePanel.add(label2,new Integer(Integer.MIN_VALUE));
                 buttonPanel.removeAll();
                 gamePanel.updateUI();
                 addChessboard(1);
+                addLabel();
                 gamePanel.updateUI();
                 //可以切换页面了，接下来就是把这一个按钮切换成谁先打，然后接一个开始游戏的方法，在那个方法里面放上棋子。
             }
@@ -78,6 +80,13 @@ public class AceGameFrame extends JFrame{
         gameController = new GameController(chessboard);
         chessboard.setLocation(376,40);//数据测试中
         add(chessboard);
+    }
+    private void addLabel() {
+        statusLabel = new JLabel("BLACK's TURN");
+        statusLabel.setBounds(450,10,300,300);
+        statusLabel.setSize(200, 60);
+        statusLabel.setFont(new Font("宋体", Font.BOLD, 20));
+        add(statusLabel);
     }
 
 }

@@ -77,10 +77,7 @@ public class ChessComponent extends SquareComponent {
  */
         chessPanel = new JPanel();
         add(chessPanel);
-        ImageIcon emptyImageIcon = Data.empty;
-        JLabel labelEmpty = new JLabel(emptyImageIcon);
-        labelEmpty.setVisible(true);
-        chessPanel.add(labelEmpty);
+
         chessPanel.setBounds(500, 10, 300, 300);
 
 
@@ -287,6 +284,11 @@ public class ChessComponent extends SquareComponent {
                     }
 
                      */
+        }else{
+            ImageIcon emptyImageIcon = Data.empty;
+            JLabel labelEmpty = new JLabel(emptyImageIcon);
+            labelEmpty.setVisible(true);
+            chessPanel.add(labelEmpty);
         }
     }
 }
