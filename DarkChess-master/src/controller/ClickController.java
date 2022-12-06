@@ -86,17 +86,20 @@ public class ClickController {
                 first.canMoveTo(chessboard.getChessComponents(), squareComponent.getChessboardPoint());
     }
 
-    //  老师写的
+    //  老师写的，需要测试逻辑的时候取消注释，把我的加上注释
+    /*
     public void swapPlayer() {
         chessboard.setCurrentColor(chessboard.getCurrentColor() == ChessColor.BLACK ? ChessColor.RED : ChessColor.BLACK);
         ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
     }
 
-     /*
+
+     */
+
     public void swapPlayer() {
         chessboard.setCurrentColor(chessboard.getCurrentColor() == ChessColor.BLACK ? ChessColor.RED : ChessColor.BLACK);
         AceGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
     }
 
-      */
+
 }
