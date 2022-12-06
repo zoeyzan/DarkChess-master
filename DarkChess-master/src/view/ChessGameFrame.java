@@ -47,6 +47,9 @@ public class ChessGameFrame extends JFrame {
         add(chessboard);
     }
 
+
+
+
     /**
      * 在游戏窗体中添加标签
      */

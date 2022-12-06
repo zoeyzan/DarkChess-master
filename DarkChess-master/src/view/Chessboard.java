@@ -38,6 +38,16 @@ public class Chessboard extends JComponent {
 
         initAllChessOnBoard();
     }
+    public Chessboard(int width,int height,int n){//我重载的
+        setLayout(null); // Use absolute layout.
+        setSize(width,height);
+        CHESS_SIZE = (height - 6) / 8;
+        SquareComponent.setSpacingLength(CHESS_SIZE / 12);
+        System.out.printf("chessboard [%d * %d], chess size = %d\n", width, height, CHESS_SIZE);
+
+        initAllChessOnBoard();
+        System.out.println("yes i do get in this shit");
+    }
 
     public SquareComponent[][] getChessComponents() {
         return squareComponents;

@@ -1,5 +1,8 @@
 package PicturesAndBackground;
 
+import controller.GameController;
+import view.Chessboard;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +12,7 @@ import java.net.URL;
 public class AceGameFrame extends JFrame{
     private JPanel gamePanel;
     private JPanel buttonPanel;
+    private GameController gameController;
 
 
     public AceGameFrame() {
@@ -63,9 +67,17 @@ public class AceGameFrame extends JFrame{
                 gamePanel.add(label2);
                 buttonPanel.removeAll();
                 gamePanel.updateUI();
+                addChessboard(1);
+                gamePanel.updateUI();
                 //可以切换页面了，接下来就是把这一个按钮切换成谁先打，然后接一个开始游戏的方法，在那个方法里面放上棋子。
             }
         }
+    }
+    public void addChessboard(int n) {
+        Chessboard chessboard = new Chessboard(260,500,1);
+        gameController = new GameController(chessboard);
+        chessboard.setLocation(376,40);//数据测试中
+        add(chessboard);
     }
 
 }
