@@ -217,4 +217,22 @@ public class Chessboard extends JComponent {
     public void loadGame(List<String> chessData) {
         chessData.forEach(System.out::println);
     }
+    /*
+    red:c s
+    black:C S
+    把每一个棋子用代号表示
+     */
+    public void initialBoardByChar(char[][] symbols){
+        for (int i = 0; i < squareComponents.length; i++) {
+            for (int j = 0; j < squareComponents.length; j++) {
+                SquareComponent squareComponent=null;
+                switch (symbols[i][j]){
+                    case 'c':
+                        break;
+
+                }
+            }
+        }
+
+    }
 }
