@@ -68,75 +68,69 @@ public class ChessComponent extends SquareComponent {
     public ChessComponent(ChessboardPoint chessboardPoint, Point location, ChessColor chessColor, ClickController clickController, int size) {
         super(chessboardPoint, location, chessColor, clickController, size);
     }
-
+/*
     @Override
     protected void paintComponent(Graphics g) {//如果我用label放在panel上的方法画棋子，那鼠标监听就是点到label？
         super.paintComponent(g);
-
-        //绘制棋子填充色
-        g.setColor(Color.ORANGE);
-        g.fillOval(spacingLength, spacingLength, this.getWidth() - 2 * spacingLength, this.getHeight() - 2 * spacingLength);
-       //绘制棋子边框
-        g.setColor(Color.DARK_GRAY);
-        g.drawOval(spacingLength, spacingLength, getWidth() - 2 * spacingLength, getHeight() - 2 * spacingLength);
-
-        ///chessPanel = new JPanel();
-        //AceGameFrame.add(chessPanel); 错的
-
-        //chessPanel.setBounds(500, 10, 300, 300);
-
-
+     chessPanel = new JPanel();
+    AceGameFrame.add(chessPanel); 错的
+//
+    chessPanel.setBounds(500, 10, 300, 300);
         if (isReversal) {
-
-            //绘制棋子文字
+//
+    绘制棋子文字
             g.setColor(this.getChessColor().getColor());
             g.setFont(CHESS_FONT);
             g.drawString(this.name, this.getWidth() / 4, this.getHeight() * 2 / 3);
-
-
+//
+//
             System.out.println("get in jhutfhujyt");
-            //改！！
-
-//            if (this instanceof AdvisorChessComponent) {
-//                if (isSelected()) {//选中
-//                    加图片然后用上面的方法
-//                    if (this.getChessColor() == ChessColor.RED) {
-//                        ImageIcon RShiSII = Data.RShiS;
+    改！！
+//
+            if (this instanceof AdvisorChessComponent) {
+                if (isSelected()) {//选中
+                    加图片然后用上面的方法
+                    if (this.getChessColor() == ChessColor.RED) {
+                        ImageIcon RShiSII = Data.RShiS;
                         /*JLabel labelRShiS = new JLabel(RShiSII);
                         chessPanel.add(labelRShiS);
                         labelRShiS.setVisible(true);
 
                          */
-//                        g.drawImage(RShiSII.getImage(),0,0,60,60,this);
+                   /*     g.drawImage(RShiSII.getImage(),0,0,60,60,this);
                         System.out.println("get here");
-//                        g.drawString("123345",this.getWidth() / 4, this.getHeight() * 2 / 3);
-//                    } else {
-//                        ImageIcon BShiSII = Data.BShiS;
-//                        /*JLabel labelBShiS = new JLabel(BShiSII);
-//                        chessPanel.add(labelBShiS);
-//                        labelBShiS.setVisible(true);*/
-//                        g.drawImage(BShiSII.getImage(),0,0,60,60,this);
-//                    }
-//                } else {
-//                    if (this.getChessColor() == ChessColor.RED) {
-//                        ImageIcon RShiII = Data.RShi;
-//                        /*JLabel labelRShi = new JLabel(RShiII);
-//                        chessPanel.add(labelRShi);
-//                        labelRShi.setVisible(true);
+                        g.drawString("123345",this.getWidth() / 4, this.getHeight() * 2 / 3);
+                    } else {
+                        ImageIcon BShiSII = Data.BShiS;
+                        /*JLabel labelBShiS = new JLabel(BShiSII);
+                        chessPanel.add(labelBShiS);
+                        labelBShiS.setVisible(true);*/
+                       /*
+                        g.drawImage(BShiSII.getImage(),0,0,60,60,this);
+                    }
+                } else {
+                    if (this.getChessColor() == ChessColor.RED) {
+                        ImageIcon RShiII = Data.RShi;
+                        /*JLabel labelRShi = new JLabel(RShiII);
+                        chessPanel.add(labelRShi);
+                        labelRShi.setVisible(true);
 
-
-//                        g.drawImage(RShiII.getImage(),0,0,60,60,this);
-//                    } else {
-//                        ImageIcon BShiII = Data.BShi;
+                        */
+//
+/*
+                        g.drawImage(RShiII.getImage(),0,0,60,60,this);
+                    } else {
+                        ImageIcon BShiII = Data.BShi;
                         /*JLabel labelBShi = new JLabel(BShiII);
                         chessPanel.add(labelBShi);
                         labelBShi.setVisible(true);
 
                          */
-//                        g.drawImage(BShiII.getImage(),0,0,60,60,this);
-//                    }
-//                }
-            /*
+    /*
+                        g.drawImage(BShiII.getImage(),0,0,60,60,this);
+                    }
+                }
+
             } else if (this instanceof CannonChessComponent) {
                 if(isSelected()){
                     if (this.getChessColor() == ChessColor.RED){
@@ -349,11 +343,11 @@ public class ChessComponent extends SquareComponent {
                         labelBZu.setVisible(true);*/
 //                        g.drawImage(BZuII.getImage(),0,0,60,60,this);
 
-//                    }
+    //                    }
 //                }
 //            }
 //            绘制棋子被选中时状态
-                    if (isSelected()) {
+                    /*if (isSelected()) {
 
                         g.setColor(Color.RED);
                         Graphics2D g2 = (Graphics2D) g;
@@ -370,14 +364,42 @@ public class ChessComponent extends SquareComponent {
             chessPanel.add(labelEmpty);
 
 
-//            System.out.println("get in else");
-//            g.setColor(this.getChessColor().getColor());
-//            g.setFont(CHESS_FONT);
-//            g.drawString(this.name, this.getWidth() / 4, this.getHeight() * 2 / 3);
-//            g.drawString("123",this.getWidth() / 4, this.getHeight() * 2 / 3);
-//            g.drawImage(emptyImageIcon.getImage(),0,0,60,60,this);
+
+
+            System.out.println("get in else");
+            g.setColor(this.getChessColor().getColor());
+            g.setFont(CHESS_FONT);
+            g.drawString(this.name, this.getWidth() / 4, this.getHeight() * 2 / 3);
+            g.drawString("123",this.getWidth() / 4, this.getHeight() * 2 / 3);
+            g.drawImage(emptyImageIcon.getImage(),0,0,60,60,this);
 
         }
     }
-}
 
+                     */
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        //绘制棋子填充色
+        g.setColor(Color.ORANGE);
+        g.fillOval(spacingLength, spacingLength, this.getWidth() - 2 * spacingLength, this.getHeight() - 2 * spacingLength);
+        //绘制棋子边框
+        g.setColor(Color.DARK_GRAY);
+        g.drawOval(spacingLength, spacingLength, getWidth() - 2 * spacingLength, getHeight() - 2 * spacingLength);
+
+        if (isReversal) {
+            //绘制棋子文字
+            g.setColor(this.getChessColor().getColor());
+            g.setFont(CHESS_FONT);
+            g.drawString(this.name, this.getWidth() / 4, this.getHeight() * 2 / 3);
+
+            //绘制棋子被选中时状态
+            if (isSelected()) {
+                g.setColor(Color.RED);
+                Graphics2D g2 = (Graphics2D) g;
+                g2.setStroke(new BasicStroke(4f));
+                g2.drawOval(spacingLength, spacingLength, getWidth() - 2 * spacingLength, getHeight() - 2 * spacingLength);
+            }
+        }
+    }
+}
