@@ -9,6 +9,8 @@ import model.ChessboardPoint;
 import javax.swing.*;
 import java.awt.*;
 
+import static PicturesAndBackground.Data.emptyI;
+
 /**
  * 表示棋盘上非空棋子的格子，是所有非空棋子的父类
  */
@@ -74,6 +76,7 @@ public class ChessComponent extends SquareComponent {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         //绘制棋子填充色
+//        g.drawImage(emptyI,0,0,null);
         g.setColor(Color.ORANGE);
         g.fillOval(spacingLength, spacingLength, this.getWidth() - 2 * spacingLength, this.getHeight() - 2 * spacingLength);
         //绘制棋子边框
@@ -95,4 +98,7 @@ public class ChessComponent extends SquareComponent {
             }
         }
     }
+
+
+
 }

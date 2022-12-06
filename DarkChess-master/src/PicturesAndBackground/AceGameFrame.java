@@ -65,7 +65,7 @@ public class AceGameFrame extends JFrame{
                 ImageIcon backGround1 = Data.background;
                 JLabel label2 = new JLabel(backGround1);
                 gamePanel.removeAll();
-                gamePanel.add(label2,new Integer(Integer.MIN_VALUE));
+//                gamePanel.add(label2,new Integer(Integer.MIN_VALUE));
                 buttonPanel.removeAll();
                 gamePanel.updateUI();
                 addChessboard(1);
@@ -80,6 +80,7 @@ public class AceGameFrame extends JFrame{
         gameController = new GameController(chessboard);
         chessboard.setLocation(376,40);//数据测试中
         add(chessboard);
+        chessboard.setVisible(true);
     }
     private void addLabel() {
         statusLabel = new JLabel("BLACK's TURN");

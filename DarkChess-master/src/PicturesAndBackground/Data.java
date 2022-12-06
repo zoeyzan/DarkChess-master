@@ -1,8 +1,11 @@
 package PicturesAndBackground;
 import javax.swing.*;
+import java.awt.*;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class Data {
+    public static ArrayList<Image> ImageList= new ArrayList<>();
     public static URL titleURL = Data.class.getResource("Pictures/title.png");
     public static URL backgroundURL = Data.class.getResource("Pictures/background.jpg");
     public static URL backgroundCheatURL = Data.class.getResource("Pictures/backgroundCheat.jpg");
@@ -73,6 +76,38 @@ public class Data {
     public static ImageIcon RShiS= new ImageIcon(RShiSURL);
     public static ImageIcon RXiangS= new ImageIcon(RXiangSURL);
     public static ImageIcon RShuaiS= new ImageIcon(RShuaiSURL);
+
+    public static Image BCheI= Toolkit.getDefaultToolkit().getImage(BCheURL);
+    public static Image BCheSI= Toolkit.getDefaultToolkit().getImage(BCheSURL);
+    public static Image BJiangI= Toolkit.getDefaultToolkit().getImage(BJiangURL);
+    public static Image BJiangSI= Toolkit.getDefaultToolkit().getImage(BJiangURL);
+    public static Image BMaI= Toolkit.getDefaultToolkit().getImage(BMaURL);
+    public static Image BMaSI= Toolkit.getDefaultToolkit().getImage(BMaSURL);
+    public static Image BPaoI= Toolkit.getDefaultToolkit().getImage(BPaoURL);
+    public static Image BPaoSI= Toolkit.getDefaultToolkit().getImage(BPaoSURL);
+    public static Image BShiI= Toolkit.getDefaultToolkit().getImage(BShiURL);
+    public static Image BShiSI= Toolkit.getDefaultToolkit().getImage(BShiSURL);
+    public static Image BXiangI= Toolkit.getDefaultToolkit().getImage(BXiangURL);
+    public static Image BXiangSI= Toolkit.getDefaultToolkit().getImage(BXiangSURL);
+    public static Image BZuI= Toolkit.getDefaultToolkit().getImage(BZuURL);
+    public static Image BZuSI= Toolkit.getDefaultToolkit().getImage(BZuSURL);
+
+    public static Image RBingI= Toolkit.getDefaultToolkit().getImage(RBingURL);
+    public static Image RBingSI= Toolkit.getDefaultToolkit().getImage(RBingSURL);
+    public static Image RCheI= Toolkit.getDefaultToolkit().getImage(RCheURL);
+    public static Image RCheSI= Toolkit.getDefaultToolkit().getImage(RCheSURL);
+    public static Image RMaI= Toolkit.getDefaultToolkit().getImage(RMaURL);
+    public static Image RMaSI= Toolkit.getDefaultToolkit().getImage(RMaSURL);
+    public static Image RPaoI= Toolkit.getDefaultToolkit().getImage(RPaoSURL);
+    public static Image RPaoSI= Toolkit.getDefaultToolkit().getImage(RPaoSURL);
+    public static Image RShiI= Toolkit.getDefaultToolkit().getImage(RShiURL);
+    public static Image RShiSI= Toolkit.getDefaultToolkit().getImage(RShiSURL);
+    public static Image RShuaiI= Toolkit.getDefaultToolkit().getImage(RShuaiURL);
+    public static Image RShuaiSI= Toolkit.getDefaultToolkit().getImage(RShuaiSURL);
+    public static Image RXiangI= Toolkit.getDefaultToolkit().getImage(RXiangURL);
+    public static Image RXiangSI= Toolkit.getDefaultToolkit().getImage(RXiangSURL);
+
+    public static Image emptyI= Toolkit.getDefaultToolkit().getImage(emptyURL);
 
 
 }
