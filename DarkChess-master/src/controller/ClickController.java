@@ -1,7 +1,7 @@
 package controller;
 
 
-import PicturesAndBackground.AceGameFrame;
+//import PicturesAndBackground.AceGameFrame;
 import chessComponent.CannonChessComponent;
 import chessComponent.ChessComponent;
 import chessComponent.SquareComponent;
@@ -57,7 +57,6 @@ public class ClickController {
 
     private boolean handleFirst(SquareComponent squareComponent) {
         if (!squareComponent.isReversal()&&squareComponent instanceof ChessComponent) {
-            //没有翻转 且是棋子
             squareComponent.setReversal(true);
             System.out.printf("onClick to reverse a chess [%d,%d]\n", squareComponent.getChessboardPoint().getX(), squareComponent.getChessboardPoint().getY());
             squareComponent.repaint();
@@ -76,8 +75,8 @@ public class ClickController {
 
 
         if (!squareComponent.isReversal()) {
-            //second棋子是没有翻转过来的
-        if(first instanceof CannonChessComponent&&!(squareComponent instanceof EmptySlotComponent))//first棋子是炮 且second棋子非空
+            //没翻开且非空棋子不能走
+            if(first instanceof CannonChessComponent&&!(squareComponent instanceof EmptySlotComponent))
                 return first.canMoveTo(chessboard.getChessComponents(), squareComponent.getChessboardPoint());
             if (!(squareComponent instanceof EmptySlotComponent)) {
                 return false;
@@ -88,14 +87,15 @@ public class ClickController {
     }
 
     //  老师写的，需要测试逻辑的时候取消注释，把我的加上注释
-    /*
+
     public void swapPlayer() {
         chessboard.setCurrentColor(chessboard.getCurrentColor() == ChessColor.BLACK ? ChessColor.RED : ChessColor.BLACK);
         ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
     }
 
 
-     */
+
+    /*
 
     public void swapPlayer() {
         chessboard.setCurrentColor(chessboard.getCurrentColor() == ChessColor.BLACK ? ChessColor.RED : ChessColor.BLACK);
@@ -103,4 +103,6 @@ public class ClickController {
     }
 
 
+
+     */
 }
