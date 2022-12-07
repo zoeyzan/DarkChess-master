@@ -1,5 +1,6 @@
 package view;
 
+
 import PicturesAndBackground.Data;
 import controller.GameController;
 
@@ -15,64 +16,53 @@ import java.net.URL;
  * 2 JLabel:  标签
  * 3 JButton： 按钮
  */
-public class ChessGameFrame extends JFrame {
+public class ChessGameFrame extends JFrame {//JFrame
     private final int WIDTH;
     private final int HEIGHT;
     public final int CHESSBOARD_SIZE;
     private GameController gameController;
     private static JLabel statusLabel;
-    private JPanel gamePanel;
-    private JPanel buttonPanel;
+    JPanel pan;
 
-    public ChessGameFrame(int width,int height) {
-//        gamePanel = new JPanel();
-//        gamePanel.setVisible(true);
-        setBounds(10,10,985,599);
-        setResizable(false);
-        setVisible(true);
-        ImageIcon bg = Data.title;
-        JLabel label = new JLabel(bg);
+    public ChessGameFrame(int width, int height) {
+
+//1.把图片添加到标签里（把标签的大小设为和图片大小相同），把标签放在分层面板的最底层；
+        ImageIcon bg=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\title.png");
+        JLabel label=new JLabel(bg);
+        label.setSize(bg.getIconWidth(),bg.getIconHeight());
         getLayeredPane().add(label,new Integer(Integer.MIN_VALUE));
-        //
-//        add(gamePanel);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //设置程序关闭按键，如果点击右上方的叉就游戏全部关闭了
+//2.把窗口面板设为内容面板并设为透明、流动布局。
+        pan=(JPanel)getContentPane();
+        pan.setOpaque(false);
+        pan.setLayout(null);
+//3.之后把组件和面板添加到窗口面板就可以；
+        JButton btn=new JButton("测试按钮");
 
-        setTitle("Ace Attorney: Dark Chess Apollo vs Klavier");
-        buttonPanel=(JPanel)getContentPane();
-        buttonPanel.setOpaque(false);
-        buttonPanel.setLayout(null);
-        URL buttonURL = Data.class.getResource("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\button.jpg");
+//      URL buttonURL = Data.class.getResource("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\button.jpg");
+        URL buttonURL = Data.class.getResource("Pictures/button.jpg");
         Icon button = new ImageIcon(buttonURL);
+        btn.setIcon(button);
 
-        JButton button1 = new JButton("test");
-        button1.setIcon(button);
-        button1.setVisible(true);
-
-        button1.setBounds(358,445,294,60);
-
-        buttonPanel.add(button1);
-//        add(gamePanel);
-        buttonPanel.setOpaque(false);
-        gamePanel.setOpaque(false);
-        buttonPanel.setLayout(null);
-        add(buttonPanel);
-        ButtonAction Action1 = new ButtonAction(1);
-        button1.addActionListener(Action1);
-
+        Action act = new Action();
+        btn.addActionListener(act);
+        btn.setBounds(358,445,294,60);
+        pan.add(btn);
+        setSize(bg.getIconWidth(),bg.getIconHeight());
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        //-----------------------------------------------------
-//        setTitle("2022 CS109 Project Demo"); //设置标题
 
+
+//        setTitle("2022 CS109 Project Demo"); //设置标题
+        setTitle("Ace Attorney: Dark Chess Apollo vs Klavier");
         this.WIDTH = width;
         this.HEIGHT = height;
         this.CHESSBOARD_SIZE = HEIGHT * 4 / 5;
 
         setSize(WIDTH, HEIGHT);
-//        setLocationRelativeTo(null); // Center the window.
+        setLocationRelativeTo(null); // Center the window.
 //        getContentPane().setBackground(Color.WHITE);
-//        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //设置程序关闭按键，如果点击右上方的叉就游戏全部关闭了
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //设置程序关闭按键，如果点击右上方的叉就游戏全部关闭了
 //        setLayout(null);
 //
 //        addChessboard();
@@ -80,81 +70,50 @@ public class ChessGameFrame extends JFrame {
 //        addHelloButton();
 //        addLoadButton();
     }
-    //---------------------------------------------------------------
-    class ButtonAction implements ActionListener {
-        int buttonType;
-        public ButtonAction(int n) {
-            buttonType = n;
+    private class Action implements ActionListener {
+        public Action(){
         }
+        public void actionPerformed(ActionEvent event){
+//ActionEvent对应按钮点击、菜单选择、选择列表项或在文本框中ENTER
+            pan.removeAll();
+//            pan.setBackground((Color.YELLOW));
+            ImageIcon bg=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
+            JLabel label=new JLabel(bg);
+            label.setSize(bg.getIconWidth(),bg.getIconHeight());
+//            getLayeredPane().removeAll();
+            getLayeredPane().add(label,new Integer(Integer.MIN_VALUE+1));
+//            pan.add(label,new Integer(Integer.MIN_VALUE));
+            setLayout(null);
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if(buttonType==1){
-                System.out.println("duychxsjm");
-
-                buttonPanel.removeAll();
-                ImageIcon backGround1 = Data.background;
-                JLabel label2 = new JLabel(backGround1);
-                label2.setSize(985,599);
-                getLayeredPane().add(label2,new Integer(Integer.MIN_VALUE+1));
-//                this.WIDTH = width;
-//                this.HEIGHT = height;
-//                this.CHESSBOARD_SIZE = HEIGHT * 4 / 5;
-
-//                setSize(WIDTH, HEIGHT);
-//                setLocationRelativeTo(null); // Center the window.
-//                getContentPane().setBackground(Color.WHITE);
-                setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //设置程序关闭按键，如果点击右上方的叉就游戏全部关闭了
-                setLayout(null);
-
-                addChessboard();
-                addLabel();
-                addHelloButton();
-                addLoadButton();
-                repaint();
-                getLayeredPane().repaint();
-
-//                gamePanel.removeAll();
-//                gamePanel.add(label2,new Integer(Integer.MIN_VALUE));
-//                buttonPanel.removeAll();
-//                gamePanel.updateUI();
-//                addChessboard(1);
-//                addLabel();
-//                repaint();
-//                gamePanel.updateUI();
-                //可以切换页面了，接下来就是把这一个按钮切换成谁先打，然后接一个开始游戏的方法，在那个方法里面放上棋子。
-            }
+            addChessboard();
+            addLabel();
+//            addHelloButton();
+            addLoadButton();
+            getLayeredPane().repaint();
         }
     }
 
-//-------------------------------------------------------------
+
     /**
      * 在游戏窗体中添加棋盘
      */
     private void addChessboard() {
-        Chessboard chessboard = new Chessboard(CHESSBOARD_SIZE / 2, CHESSBOARD_SIZE);
+//        Chessboard chessboard = new Chessboard(CHESSBOARD_SIZE / 2, CHESSBOARD_SIZE);
+        Chessboard chessboard = new Chessboard(260,500);
         gameController = new GameController(chessboard);
-        chessboard.setLocation(HEIGHT / 10, HEIGHT / 10);
-        add(chessboard);
+//        chessboard.setLocation(HEIGHT / 10, HEIGHT / 10);
+        chessboard.setLocation(368,28);
+        add(chessboard);//JFrame的方法，一定要记得add
     }
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public void addChessboard(int n) {
-        Chessboard chessboard = new Chessboard(260,500,1);
-        gameController = new GameController(chessboard);
-        chessboard.setLocation(376,40);//数据测试中
-        add(chessboard);
-        chessboard.setVisible(true);
-    }
-
-//------------------------------------------------------------------
-
 
     /**
      * 在游戏窗体中添加标签
      */
     private void addLabel() {
         statusLabel = new JLabel("BLACK's TURN");
-        statusLabel.setLocation(WIDTH * 3 / 5, HEIGHT / 10);
+//        statusLabel.setLocation(WIDTH * 3 / 5, HEIGHT / 10);
+        statusLabel.setLocation(100,500);
+
         statusLabel.setSize(200, 60);
         statusLabel.setFont(new Font("Rockwell", Font.BOLD, 20));
         add(statusLabel);
@@ -170,18 +129,19 @@ public class ChessGameFrame extends JFrame {
 
     private void addHelloButton() {
         JButton button = new JButton("Show Hello Here");
-        button.addActionListener((e) -> JOptionPane.showMessageDialog(this, "Hello, world!"));
+        button.addActionListener((e) -> JOptionPane.showMessageDialog(this, "Hello, world!"));//监听器，一旦被点击则会执行后面语句
         button.setLocation(WIDTH * 3 / 5, HEIGHT / 10 + 120);
         button.setSize(180, 60);
         button.setFont(new Font("Rockwell", Font.BOLD, 20));
         add(button);
-
     }
 
 
     private void addLoadButton() {
         JButton button = new JButton("Load");
-        button.setLocation(WIDTH * 3 / 5, HEIGHT / 10 + 240);
+//        button.setLocation(WIDTH * 3 / 5, HEIGHT / 10 + 240);
+        button.setLocation(100,400);
+
         button.setSize(180, 60);
         button.setFont(new Font("Rockwell", Font.BOLD, 20));
         button.setBackground(Color.LIGHT_GRAY);
