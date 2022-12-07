@@ -57,6 +57,7 @@ public class ClickController {
 
     private boolean handleFirst(SquareComponent squareComponent) {
         if (!squareComponent.isReversal()&&squareComponent instanceof ChessComponent) {
+            //没有翻转 且是棋子
             squareComponent.setReversal(true);
             System.out.printf("onClick to reverse a chess [%d,%d]\n", squareComponent.getChessboardPoint().getX(), squareComponent.getChessboardPoint().getY());
             squareComponent.repaint();
@@ -75,8 +76,8 @@ public class ClickController {
 
 
         if (!squareComponent.isReversal()) {
-            //没翻开且非空棋子不能走
-        if(first instanceof CannonChessComponent&&!(squareComponent instanceof EmptySlotComponent))
+            //second棋子是没有翻转过来的
+        if(first instanceof CannonChessComponent&&!(squareComponent instanceof EmptySlotComponent))//first棋子是炮 且second棋子非空
                 return first.canMoveTo(chessboard.getChessComponents(), squareComponent.getChessboardPoint());
             if (!(squareComponent instanceof EmptySlotComponent)) {
                 return false;
