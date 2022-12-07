@@ -31,8 +31,9 @@ public class Chessboard extends JComponent {
 
     public Chessboard(int width, int height) {
         setLayout(null); // Use absolute layout.
-        setSize(width + 2, height);
-        CHESS_SIZE = (height - 6) / 8;
+//        setSize(width + 2, height);
+        setSize(width , height);
+        CHESS_SIZE = (height-4 ) / 8;
         SquareComponent.setSpacingLength(CHESS_SIZE / 12);
         System.out.printf("chessboard [%d * %d], chess size = %d\n", width, height, CHESS_SIZE);
 
@@ -117,7 +118,7 @@ public class Chessboard extends JComponent {
 
         for (int i = 0; i < squareComponents.length; i++) {
             for (int j = 0; j < squareComponents[i].length; j++) {
-                    int n = random.nextInt(A.size());
+                int n = random.nextInt(A.size());
                 SquareComponent squareComponent;
 
                 if (A.get(n)>=0 && A.get(n)<=3) {
@@ -176,12 +177,12 @@ public class Chessboard extends JComponent {
                     squareComponent.setVisible(true);
                     putChessOnBoard(squareComponent);
                 }
-                    A.remove(n);
-                    B.remove(n);
+                A.remove(n);
+                B.remove(n);
 
-                }
             }
         }
+    }
 
 
 
@@ -194,8 +195,8 @@ public class Chessboard extends JComponent {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.fillRect(0, 0, this.getWidth(), this.getHeight());
-        ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+//        ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
     }
 
     /**
