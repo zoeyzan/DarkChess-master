@@ -113,8 +113,8 @@ public class ChessComponent extends SquareComponent {
 
                          */
                         g.drawImage(RShiSII.getImage(), 0, 0, 60, 60, this);
-                        System.out.println("get here");
-                        g.drawString("123345", this.getWidth() / 4, this.getHeight() * 2 / 3);
+//                        System.out.println("get here");
+//                        g.drawString("123345", this.getWidth() / 4, this.getHeight() * 2 / 3);
                     } else {
                         ImageIcon BShiSII = Data.BShiS;
                         /*JLabel labelBShiS = new JLabel(BShiSII);
