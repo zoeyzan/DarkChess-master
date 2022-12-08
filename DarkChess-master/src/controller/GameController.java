@@ -2,10 +2,13 @@ package controller;
 
 import view.Chessboard;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,6 +32,42 @@ public class GameController {
             e.printStackTrace();
         }
         return null;
+    }
+    public List<String> convertToList() {
+        List<String> lines = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        for (int[] ints : this.chessboard) {
+            sb.setLength(0);
+            for (int anInt : ints) {
+                sb.append(anInt).append(",");
+            }
+            sb.setLength(sb.length() - 1);
+            lines.add(sb.toString());
+        }
+        return lines;
+    }
+
+    public void writeFileByFileWriter(String path) {
+        try {
+            FileWriter fileWriter = new FileWriter(path);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            List<String> lines = this.convertToList();
+            for (String line : lines
+            ) {
+                writer.write(line);
+            }
+            writer.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void writeFileByLib(String path) {
+        try {
+            Files.write(Path.of(path), this.convertToList(), Charset.defaultCharset());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

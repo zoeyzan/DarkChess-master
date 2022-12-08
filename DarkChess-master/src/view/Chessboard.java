@@ -224,9 +224,47 @@ public class Chessboard extends JComponent {
             }
         }
         System.out.println(Arrays.toString(loadChessBoard));
-//        chessData.forEach(System.out::println);
+        chessData.forEach(System.out::println);
         initialBoardByChar(loadChessBoard);
     }
+    public void saveGame(char[][] save){
+        saveBoardInChar(squareComponents);
+    }
+     public void saveBoardInChar(SquareComponent[][] squareComponents){
+        char[][] saveChessBoard=new char[8][4];
+         for (int i = 0; i < squareComponents.length; i++) {
+             for (int j = 0; j < squareComponents[i].length; j++) {
+                 if(squareComponents[i][j] instanceof CannonChessComponent){
+                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='p';
+                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='P';
+                 }
+                 if(squareComponents[i][j] instanceof ChariotChessComponent){
+                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='c';
+                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='C';
+                 }
+                 if(squareComponents[i][j] instanceof SoldierChessComponent){
+                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='s';
+                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='S';
+                 }
+                 if(squareComponents[i][j] instanceof GeneralChessComponent){
+                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='g';
+                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='G';
+                 }
+                 if(squareComponents[i][j] instanceof AdvisorChessComponent){
+                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='a';
+                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='A';
+                 }
+                 if(squareComponents[i][j] instanceof MinisterChessComponent){
+                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='m';
+                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='M';
+                 }
+                 if(squareComponents[i][j] instanceof HorseChessComponent){
+                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='h';
+                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='H';
+                 }
+             }
+         }
+     }
     /**
      * red:  c s a g m h p
      *
