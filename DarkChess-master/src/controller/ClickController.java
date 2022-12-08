@@ -10,6 +10,8 @@ import model.ChessColor;
 import view.ChessGameFrame;
 import view.Chessboard;
 
+import java.awt.*;
+
 public class ClickController {
     private final Chessboard chessboard;
     private SquareComponent first;
@@ -47,16 +49,27 @@ public class ClickController {
                 chessboard.swapChessComponents(first, squareComponent);
                 first.setSelected(false);
                 squareComponent.setSelected(false);
-                first = null;
                 chessboard.clickController.swapPlayer();
-                if(first.getChessColor().getName()=="Black")
-                    BlackPoint+=((ChessComponent)squareComponent).getPoints();
-                if(first.getChessColor().getName()=="Red")
-                    RedPoint+=((ChessComponent)squareComponent).getPoints();
-
+                if(first instanceof CannonChessComponent&&!(squareComponent.isReversal())){
+                    if(first.getChessColor()==squareComponent.getChessColor()){
+                        if(first.getChessColor().getColor()== Color.BLACK)
+                            RedPoint+=((ChessComponent)squareComponent).getPoints();
+                        if(first.getChessColor().getColor()==Color.RED)
+                            BlackPoint+=((ChessComponent)squareComponent).getPoints();
+                    }//写炮打到自己的没翻开的棋子
+                }
+                if(!(first instanceof CannonChessComponent)) {
+                    if (first.getChessColor().getColor() == Color.BLACK)
+                        BlackPoint += ((ChessComponent) squareComponent).getPoints();
+                    if (first.getChessColor().getColor() == Color.RED)
+                        RedPoint += ((ChessComponent) squareComponent).getPoints();
+                }
+                first = null;
 
             }
         }
+        System.out.println(getRedPoint());
+        System.out.println(getBlackPoint());
     }
 
 
@@ -89,6 +102,7 @@ public class ClickController {
             if(first instanceof CannonChessComponent&&!(squareComponent instanceof EmptySlotComponent))
                 //first棋子是炮 且second棋子非空
                 return first.canMoveTo(chessboard.getChessComponents(), squareComponent.getChessboardPoint());
+
             if (!(first instanceof CannonChessComponent)&&!(squareComponent instanceof EmptySlotComponent)) {
                 return false;//second棋子非空
         }
