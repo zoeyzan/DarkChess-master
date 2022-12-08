@@ -4,6 +4,7 @@ import java.awt.*;
 
 /**
  * 这个类主要用于包装Color对象，用于Chess游戏使用。
+ * 指出当前的行棋方
  */
 public enum ChessColor {
     BLACK("Black", Color.BLACK), RED("RED", Color.RED), NONE("No Player", Color.WHITE);
