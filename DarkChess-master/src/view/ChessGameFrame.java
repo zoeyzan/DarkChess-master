@@ -2,6 +2,8 @@ package view;
 
 
 import PicturesAndBackground.Data;
+import chessComponent.ChessComponent;
+import chessComponent.SquareComponent;
 import controller.GameController;
 
 import javax.swing.*;
@@ -26,6 +28,8 @@ public class ChessGameFrame extends JFrame {//JFrame
     private final int HEIGHT;
     public final int CHESSBOARD_SIZE;
     private GameController gameController;
+    private ChessComponent chessComponent;
+    private Chessboard chessboard;
     private static JLabel statusLabel;
     JPanel pan;
 
@@ -82,11 +86,11 @@ public class ChessGameFrame extends JFrame {//JFrame
 //ActionEvent对应按钮点击、菜单选择、选择列表项或在文本框中ENTER
             pan.removeAll();
 //            pan.setBackground((Color.YELLOW));
-            ImageIcon bg=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
-            JLabel label=new JLabel(bg);
-            label.setSize(bg.getIconWidth(),bg.getIconHeight());
+            ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
+            JLabel label1=new JLabel(bg1);
+            label1.setSize(bg1.getIconWidth(),bg1.getIconHeight());
 //            getLayeredPane().removeAll();
-            getLayeredPane().add(label,new Integer(Integer.MIN_VALUE+1));
+            getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+1));
 //            pan.add(label,new Integer(Integer.MIN_VALUE));
             setLayout(null);
 
@@ -94,6 +98,7 @@ public class ChessGameFrame extends JFrame {//JFrame
             addLabel();
 //            addHelloButton();
             addLoadButton();
+            addCheatButton();
             getLayeredPane().repaint();
         }
     }
@@ -139,6 +144,32 @@ public class ChessGameFrame extends JFrame {//JFrame
         button.setSize(180, 60);
         button.setFont(new Font("Rockwell", Font.BOLD, 20));
         add(button);
+    }
+    private void addCheatButton(){
+        JButton CheatButton = new JButton("作弊模式");
+        CheatButton.addActionListener((e -> {
+            ImageIcon bgC = new ImageIcon("C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\Pictures\\backgroundCheat.jpg");
+            JLabel label2 = new JLabel(bgC);
+            label2.setSize(bgC.getIconWidth(),bgC.getIconHeight());
+            getLayeredPane().add(label2,new Integer(Integer.MIN_VALUE+2));
+            getLayeredPane().repaint();
+//            chessComponent.setCheating(true);
+//            chessComponent.repaint();
+
+//            ChessComponent.isCheating
+
+//            for (int i = 0; i < 8; i++) {
+//                for (int j = 0; j < 4; j++) {
+//                    chessboard.getChessComponents()这个语法还是错的，，我想拿到[i][j]里的对象但是也不知道怎么写，，
+//                }
+//            }
+        }));
+        CheatButton.setLocation(100,350);
+
+        CheatButton.setSize(90, 30);
+        CheatButton.setFont(new Font("Rockwell", Font.BOLD, 20));
+        CheatButton.setBackground(Color.LIGHT_GRAY);
+        add(CheatButton);
     }
 
 

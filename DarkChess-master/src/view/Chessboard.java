@@ -22,7 +22,7 @@ public class Chessboard extends JComponent {
     private static final int ROW_SIZE = 8;
     private static final int COL_SIZE = 4;
 
-    private final SquareComponent[][] squareComponents = new SquareComponent[ROW_SIZE][COL_SIZE];
+    public final SquareComponent[][] squareComponents = new SquareComponent[ROW_SIZE][COL_SIZE];
     private ChessColor currentColor = ChessColor.BLACK;
 
     //all chessComponents in this chessboard are shared only one model controller

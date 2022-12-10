@@ -47,29 +47,60 @@ public class Data {
     public static URL RShuaiSURL = Data.class.getResource("Pictures/RShuaiS.png");
     public static URL RXiangURL = Data.class.getResource("Pictures/RXiang.png");
     public static URL RXiangSURL = Data.class.getResource("Pictures/RXiangS.png");
+    //`````````````````````````````````````````````````````````````
+    public static URL BZuCURL = Data.class.getResource("Pictures/BzUC.png");
+    public static URL BCheCURL = Data.class.getResource("Pictures/BCheC.png");
+    public static URL BMaCURL = Data.class.getResource("Pictures/BMaC.png");
+    public static URL BPaoCURL = Data.class.getResource("Pictures/BPaoC.png");
+    public static URL BShiCURL = Data.class.getResource("Pictures/BShiC.png");
+    public static URL BJiangCURL = Data.class.getResource("Pictures/BJiangC.png");
+    public static URL BXiangCURL = Data.class.getResource("Pictures/BXiangC.png");
+
+    public static URL RBingCURL = Data.class.getResource("Pictures/RBingC.png");
+    public static URL RCheCURL = Data.class.getResource("Pictures/RCheC.png");
+    public static URL RMaCURL = Data.class.getResource("Pictures/RMaC.png");
+    public static URL RPaoCURL = Data.class.getResource("Pictures/RPaoC.png");
+    public static URL RShiCURL = Data.class.getResource("Pictures/RShiC.png");
+    public static URL RShuaiCURL = Data.class.getResource("Pictures/RShuaiC.png");
+    public static URL RXiangCURL = Data.class.getResource("Pictures/RXiangC.png");
+
 
     public static ImageIcon BChe = new ImageIcon(BCheURL);
+    public static ImageIcon BCheC = new ImageIcon(BCheCURL);
     public static ImageIcon BCheS = new ImageIcon(BCheSURL);
     public static ImageIcon BJiang = new ImageIcon(BJiangURL);
+    public static ImageIcon BJiangC = new ImageIcon(BJiangCURL);
     public static ImageIcon BJiangS = new ImageIcon(BJiangSURL);
     public static ImageIcon BMa = new ImageIcon(BMaURL);
+    public static ImageIcon BMaC = new ImageIcon(BMaCURL);
     public static ImageIcon BMaS = new ImageIcon(BMaSURL);
     public static ImageIcon BPao = new ImageIcon(BPaoURL);
+    public static ImageIcon BPaoC= new ImageIcon(BPaoCURL);
     public static ImageIcon BPaoS = new ImageIcon(BPaoSURL);
     public static ImageIcon BShi = new ImageIcon(BShiURL);
+    public static ImageIcon BShiC = new ImageIcon(BShiCURL);
     public static ImageIcon BShiS = new ImageIcon(BShiSURL);
     public static ImageIcon BXiang = new ImageIcon(BXiangURL);
+    public static ImageIcon BXiangC = new ImageIcon(BXiangCURL);
     public static ImageIcon BXiangS = new ImageIcon(BXiangSURL);
     public static ImageIcon BZu = new ImageIcon(BZuURL);
+    public static ImageIcon BZuC = new ImageIcon(BZuCURL);
     public static ImageIcon BZuS = new ImageIcon(BZuSURL);
 
     public static ImageIcon RBing = new ImageIcon(RBingURL);
+    public static ImageIcon RBingC = new ImageIcon(RBingCURL);
     public static ImageIcon RChe = new ImageIcon(RCheURL);
+    public static ImageIcon RCheC = new ImageIcon(RCheCURL);
     public static ImageIcon RMa = new ImageIcon(RMaURL);
+    public static ImageIcon RMaC = new ImageIcon(RMaCURL);
     public static ImageIcon RPao = new ImageIcon(RPaoURL);
+    public static ImageIcon RPaoC = new ImageIcon(RPaoCURL);
     public static ImageIcon RShi = new ImageIcon(RShiURL);
+    public static ImageIcon RShiC = new ImageIcon(RShiCURL);
     public static ImageIcon RShuai = new ImageIcon(RShuaiURL);
+    public static ImageIcon RShuaiC = new ImageIcon(RShuaiCURL);
     public static ImageIcon RXiang= new ImageIcon(RXiangURL);
+    public static ImageIcon RXiangC= new ImageIcon(RXiangCURL);
     public static ImageIcon RBingS= new ImageIcon(RBingSURL);
     public static ImageIcon RCheS= new ImageIcon(RCheSURL);
     public static ImageIcon RMaS= new ImageIcon(RMaSURL);

@@ -29,6 +29,7 @@ public abstract class SquareComponent extends JComponent {
     private ChessboardPoint chessboardPoint;
     protected final ChessColor chessColor;
     protected boolean isReversal;
+    public static boolean isCheating;
     private boolean selected;
 
     /**
@@ -45,6 +46,7 @@ public abstract class SquareComponent extends JComponent {
         this.selected = false;
         this.clickController = clickController;
         this.isReversal = false;
+        isCheating = false;
     }
 
 
@@ -79,6 +81,10 @@ public abstract class SquareComponent extends JComponent {
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
+
+    public boolean isCheating() {return isCheating;}
+
+    public void setCheating(boolean cheating) {isCheating = cheating;}
 
     /**
      * @param another 主要用于和另外一个棋子交换位置
