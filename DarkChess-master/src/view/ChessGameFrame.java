@@ -126,9 +126,9 @@ public class ChessGameFrame extends JFrame {//JFrame
     private void addLabel() {
         statusLabel = new JLabel("BLACK's TURN");
 //        statusLabel.setLocation(WIDTH * 3 / 5, HEIGHT / 10);
-        statusLabel.setLocation(100,500);
+        statusLabel.setLocation(420,0);
 
-        statusLabel.setSize(200, 60);
+        statusLabel.setSize(200, 50);
         statusLabel.setFont(new Font("Rockwell", Font.BOLD, 20));
         add(statusLabel);
     }
