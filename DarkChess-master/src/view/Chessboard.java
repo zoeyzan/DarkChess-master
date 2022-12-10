@@ -89,7 +89,7 @@ public class Chessboard extends JComponent {
         }
         chess1.swapLocation(chess2);
         int row1 = chess1.getChessboardPoint().getX(), col1 = chess1.getChessboardPoint().getY();
-        squareComponents[row1][col1] = chess1;
+
         int row2 = chess2.getChessboardPoint().getX(), col2 = chess2.getChessboardPoint().getY();
         squareComponents[row2][col2] = chess2;
 

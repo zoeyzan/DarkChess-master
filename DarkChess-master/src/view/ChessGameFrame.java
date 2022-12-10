@@ -212,7 +212,16 @@ public class ChessGameFrame extends JFrame {//JFrame
 //                    SquareComponent.isCheating=false;
 //                }
 //            }
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 4; j++) {
+                    SquareComponent[][] squareComponents = chessboard.squareComponents;
+                    squareComponents[i][j].isReversal = false;
+                    squareComponents[i][j].setSelected(false);
+                    SquareComponent.isCheating=false;
+                }
+            }
             chessboard.initAllChessOnBoard();
+
             ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
             JLabel label1=new JLabel(bg1);
             label1.setSize(bg1.getIconWidth(),bg1.getIconHeight());
