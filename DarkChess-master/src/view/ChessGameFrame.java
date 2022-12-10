@@ -173,6 +173,7 @@ public class ChessGameFrame extends JFrame {//JFrame
             label2.setSize(bgC.getIconWidth(),bgC.getIconHeight());
             getLayeredPane().add(label2,new Integer(Integer.MIN_VALUE+2));
             getLayeredPane().repaint();
+            chessboard.clickController.isCheating=true;//设置可以点 看棋子
 //            chessComponent.setCheating(true);
 //            chessComponent.repaint();
 
