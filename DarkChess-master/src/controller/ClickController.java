@@ -31,6 +31,7 @@ public class ClickController {
         //判断第一次点击
         if (isCheating) {
             squareComponent.setReversal(true);
+//            System.out.println(squareComponent.isReversal);
             squareComponent.repaint();
         }
         if (!isCheating) {

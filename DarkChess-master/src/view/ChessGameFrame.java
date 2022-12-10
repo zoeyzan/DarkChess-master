@@ -48,7 +48,7 @@ public class ChessGameFrame extends JFrame {//JFrame
         pan.setOpaque(false);
         pan.setLayout(null);
 //3.之后把组件和面板添加到窗口面板就可以；
-        JButton btn=new JButton("测试按钮");
+        JButton btn=new JButton("");
 
 //      URL buttonURL = Data.class.getResource("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\button.jpg");
         URL buttonURL = Data.class.getResource("Pictures/button.jpg");
@@ -170,7 +170,7 @@ public class ChessGameFrame extends JFrame {//JFrame
         add(button);
     }
     private void addCheatButton(){
-        JButton CheatButton = new JButton("Let's cheat!");
+        JButton CheatButton = new JButton();
         CheatButton.addActionListener((e -> {
             ImageIcon bgC = new ImageIcon("C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\Pictures\\backgroundCheat.jpg");
             JLabel label2 = new JLabel(bgC);
@@ -193,9 +193,11 @@ public class ChessGameFrame extends JFrame {//JFrame
                 }
             }
         }));
-        CheatButton.setLocation(100,350);
-
-        CheatButton.setSize(150, 40);
+        URL braceletURL = Data.class.getResource("Pictures/bracelet.png");
+        Icon bracelet = new ImageIcon(braceletURL);
+        CheatButton.setIcon(bracelet);
+        CheatButton.setLocation(10,400);
+        CheatButton.setSize(122, 95);
         CheatButton.setFont(new Font("Rockwell", Font.BOLD, 20));
         CheatButton.setBackground(Color.LIGHT_GRAY);
         add(CheatButton);
@@ -203,13 +205,14 @@ public class ChessGameFrame extends JFrame {//JFrame
     private void addRestartButton(){
         JButton RestartButton = new JButton("Restart");
         RestartButton.addActionListener((e -> {
-            for (int i = 0; i < 8; i++) {
-                for (int j = 0; j < 4; j++) {
-                    SquareComponent[][] squareComponents = chessboard.squareComponents;
-                    squareComponents[i][j].isReversal = false;
-                    SquareComponent.isCheating=false;
-                }
-            }
+//            for (int i = 0; i < 8; i++) {
+//                for (int j = 0; j < 4; j++) {
+//                    SquareComponent[][] squareComponents = chessboard.squareComponents;
+//                    squareComponents[i][j].isReversal = false;
+//                    SquareComponent.isCheating=false;
+//                }
+//            }
+            chessboard.initAllChessOnBoard();
             ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
             JLabel label1=new JLabel(bg1);
             label1.setSize(bg1.getIconWidth(),bg1.getIconHeight());
@@ -228,8 +231,8 @@ public class ChessGameFrame extends JFrame {//JFrame
     private void addLoadButton() {
         JButton button = new JButton("Load");
 //        button.setLocation(WIDTH * 3 / 5, HEIGHT / 10 + 240);
-        button.setLocation(100,400);
-        button.setSize(180, 60);
+        button.setLocation(140,400);
+        button.setSize(100, 60);
         button.setFont(new Font("Rockwell", Font.BOLD, 20));
         button.setBackground(Color.LIGHT_GRAY);
         add(button);

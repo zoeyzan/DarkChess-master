@@ -104,7 +104,7 @@ public class Chessboard extends JComponent {
 
      */
 
-    private void initAllChessOnBoard() {
+    public void initAllChessOnBoard() {
         Random random = new Random();
         ArrayList<Integer>A =new ArrayList<>();
         ArrayList<Integer>B =new ArrayList<>();
