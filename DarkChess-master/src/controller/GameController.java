@@ -34,6 +34,14 @@ public class GameController {
         }
         return null;
     }
+
+    /**
+     * 点击cheatingMode的button 再点击任意一个没翻开的棋子就可以翻开
+     *
+     */
+    public void CheatingMode(){
+
+    }
 //    public List<String> convertToList() {
 //        List<String> lines = new ArrayList<>();
 //        StringBuilder sb = new StringBuilder();
