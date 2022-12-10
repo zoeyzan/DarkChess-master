@@ -46,7 +46,6 @@ public class Chessboard extends JComponent {
         CHESS_SIZE = (height - 6) / 8;
         SquareComponent.setSpacingLength(CHESS_SIZE / 12);
         System.out.printf("chessboard [%d * %d], chess size = %d\n", width, height, CHESS_SIZE);
-
         initAllChessOnBoard();
         System.out.println("yes i do get in this shit");
     }
@@ -217,22 +216,22 @@ public class Chessboard extends JComponent {
      * @param chessData
      */
     public void loadGame(List<String> chessData) {
-        char [][] loadChessBoard =new char[8][4];
+        char [][] loadChessBoard =new char[9][4];
         for (int i = 0; i < chessData.size(); i++) {
             for (int j = 0; j < chessData.get(i).length(); j++) {
                 loadChessBoard[i][j]=chessData.get(i).charAt(j);
             }
         }
         System.out.println(Arrays.toString(loadChessBoard));
-        chessData.forEach(System.out::println);
+        chessData.forEach(System.out::println);//这两行只是看一下有没有导进去
         initialBoardByChar(loadChessBoard);
     }
     public void saveGame(){
         saveBoardInChar(squareComponents);
     }
      public void saveBoardInChar(SquareComponent[][] squareComponents){
-        char[][] saveChessBoard=new char[8][4];
-         for (int i = 0; i < squareComponents.length; i++) {
+        char[][] saveChessBoard=new char[9][4];
+         for (int i = 0; i < squareComponents.length-1; i++) {
              for (int j = 0; j < squareComponents[i].length; j++) {
                  if(squareComponents[i][j] instanceof CannonChessComponent){
                      if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='p';
@@ -264,6 +263,9 @@ public class Chessboard extends JComponent {
                  }
              }
          }
+         if(getCurrentColor().equals(ChessColor.BLACK)) saveChessBoard[8][0]='B';
+         if(getCurrentColor().equals(ChessColor.RED)) saveChessBoard[8][0]='R';
+         //储存当前的行棋方
      }
     /**
      * red:  c s a g m h p
@@ -273,8 +275,11 @@ public class Chessboard extends JComponent {
 
      */
     public void initialBoardByChar(char[][] symbols){
+        if(symbols[8][0]=='R') setCurrentColor(ChessColor.RED);
+        if(symbols[8][0]=='B') setCurrentColor(ChessColor.BLACK);
+        //导入当前的行棋方
         for (int i = 0; i < squareComponents.length; i++) {
-            for (int j = 0; j < squareComponents.length; j++) {
+            for (int j = 0; j < squareComponents[i].length; j++) {
                 SquareComponent squareComponent=null;
                 switch (symbols[i][j]){
                     case 'c':

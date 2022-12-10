@@ -146,12 +146,11 @@ public class ChessGameFrame extends JFrame {//JFrame
         JButton button = new JButton("Load");
 //        button.setLocation(WIDTH * 3 / 5, HEIGHT / 10 + 240);
         button.setLocation(100,400);
-
         button.setSize(180, 60);
         button.setFont(new Font("Rockwell", Font.BOLD, 20));
         button.setBackground(Color.LIGHT_GRAY);
         add(button);
-// TODO: 2022/12/10 修改104 缺少行棋方的错误 105行棋步骤的存储
+// TODO:  105行棋步骤的存储
         button.addActionListener(e -> {
             System.out.println("Click load");
             String path = JOptionPane.showInputDialog(this, "Input Path here");
@@ -184,9 +183,9 @@ public class ChessGameFrame extends JFrame {//JFrame
                                     }
                                 }
                             }
-                            if (!chessData.get(8).equals("w") && !chessData.get(8).equals("b")) {
+                            if (!chessData.get(8).equals("B") && !chessData.get(8).equals("R")) {
                                 JOptionPane.showConfirmDialog(null, "错误代码:104", "提示", JOptionPane.DEFAULT_OPTION);
-                                return;//
+                                return;
                             }
                         } catch (IOException ex) {
                             ex.printStackTrace();
