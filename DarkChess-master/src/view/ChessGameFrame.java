@@ -28,9 +28,11 @@ public class ChessGameFrame extends JFrame {//JFrame
     private final int HEIGHT;
     public final int CHESSBOARD_SIZE;
     private GameController gameController;
-    private ChessComponent chessComponent;
+    private ChessComponent chessComponent ;
     private Chessboard chessboard;
     private static JLabel statusLabel;
+    private static JLabel RedPointLabel;
+    private static JLabel BlackPointLabel;
     JPanel pan;
 
     public ChessGameFrame(int width, int height) {
@@ -96,6 +98,8 @@ public class ChessGameFrame extends JFrame {//JFrame
 
             addChessboard();
             addLabel();
+            addRedPointLabel();
+            addBlackPointLabel();
 //            addHelloButton();
             addLoadButton();
             addCheatButton();
@@ -128,10 +132,26 @@ public class ChessGameFrame extends JFrame {//JFrame
         statusLabel.setFont(new Font("Rockwell", Font.BOLD, 20));
         add(statusLabel);
     }
-
-    public static JLabel getStatusLabel() {
-        return statusLabel;
+    private void addRedPointLabel(){
+        RedPointLabel = new JLabel("Apollo Points:0");
+        RedPointLabel.setLocation(90,10);
+        RedPointLabel.setSize(200,60);
+        RedPointLabel.setFont(new Font("Rockwell",Font.BOLD,20));
+        add(RedPointLabel);
     }
+    private void addBlackPointLabel(){
+        BlackPointLabel = new JLabel("Klavier Points:0");
+        BlackPointLabel.setLocation(700,10);
+        BlackPointLabel.setSize(200,60);
+        BlackPointLabel.setFont(new Font("Rockwell",Font.BOLD,20));
+        add(BlackPointLabel);
+    }
+
+    public static JLabel getStatusLabel() {return statusLabel;}
+    public static JLabel getRedPointLabel() {return RedPointLabel;}
+    public static void setRedPointLabel(JLabel redPointLabel) {RedPointLabel = redPointLabel;}
+    public static JLabel getBlackPointLabel() {return BlackPointLabel;}
+    public static void setBlackPointLabel(JLabel blackPointLabel) {BlackPointLabel = blackPointLabel;}
 
     /**
      * 在游戏窗体中增加一个按钮，如果按下的话就会显示Hello, world!

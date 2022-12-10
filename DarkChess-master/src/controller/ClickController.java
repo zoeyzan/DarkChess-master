@@ -26,6 +26,14 @@ public class ClickController {
         return RedPoint;
     }
 
+    public void setBlackPoint(int blackPoint) {
+        BlackPoint = blackPoint;
+    }
+
+    public void setRedPoint(int redPoint) {
+        RedPoint = redPoint;
+    }
+
     public ClickController(Chessboard chessboard) {
         this.chessboard = chessboard;
     }
@@ -54,15 +62,19 @@ public class ClickController {
                     if(first.getChessColor()==squareComponent.getChessColor()){
                         if(first.getChessColor().getColor()== Color.BLACK)
                             RedPoint+=((ChessComponent)squareComponent).getPoints();
+                            chessboard.clickController.changeRedPoints();
                         if(first.getChessColor().getColor()==Color.RED)
                             BlackPoint+=((ChessComponent)squareComponent).getPoints();
+                            chessboard.clickController.changeBlackPoints();
                     }//写炮打到自己的没翻开的棋子
                 }
                 if(!(first instanceof CannonChessComponent)) {
                     if (first.getChessColor().getColor() == Color.BLACK)
                         BlackPoint += ((ChessComponent) squareComponent).getPoints();
+                    chessboard.clickController.changeBlackPoints();
                     if (first.getChessColor().getColor() == Color.RED)
                         RedPoint += ((ChessComponent) squareComponent).getPoints();
+                    chessboard.clickController.changeRedPoints();
                 }
                 first = null;
 
@@ -70,7 +82,7 @@ public class ClickController {
         }
         System.out.println(getRedPoint());
         System.out.println(getBlackPoint());
-        if(getBlackPoint()>=60) System.out.println("Black win!");//todo:写一个方法让游戏结束
+        if(getBlackPoint()>=60) System.out.println("Black win!");//todo:写一个方法让游戏结束【弹窗】
         if(getRedPoint()>=60) System.out.printf("Red win!");
     }
 
@@ -123,6 +135,12 @@ public class ClickController {
     public void swapPlayer() {
         chessboard.setCurrentColor(chessboard.getCurrentColor() == ChessColor.BLACK ? ChessColor.RED : ChessColor.BLACK);
         ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
+    }
+    public void changeRedPoints(){
+        ChessGameFrame.getRedPointLabel().setText(String.format("Apollo Points:%d",RedPoint));
+    }
+    public void changeBlackPoints(){
+        ChessGameFrame.getBlackPointLabel().setText(String.format("Klavier Points:%d",BlackPoint));
     }
 
 
