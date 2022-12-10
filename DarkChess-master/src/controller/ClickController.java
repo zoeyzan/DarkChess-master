@@ -17,6 +17,7 @@ public class ClickController {
     private SquareComponent first;
 
     protected int BlackPoint,RedPoint;
+    public boolean isCheating;
 
     public int getBlackPoint() {
         return BlackPoint;
@@ -40,6 +41,11 @@ public class ClickController {
 
     public void onClick(SquareComponent squareComponent) {
         //判断第一次点击
+        if(isCheating)
+        {
+            squareComponent.setReversal(true);
+            squareComponent.repaint();
+        }
         if (first == null) {
             if (handleFirst(squareComponent)) {
                 squareComponent.setSelected(true);
@@ -142,6 +148,7 @@ public class ClickController {
     public void changeBlackPoints(){
         ChessGameFrame.getBlackPointLabel().setText(String.format("Klavier Points:%d",BlackPoint));
     }
+
 
 
 
