@@ -46,45 +46,6 @@ public class ClickController {
             squareComponent.setReversal(true);
             squareComponent.repaint();
         }
-<<<<<<< HEAD
-        if (first == null) {
-            if (handleFirst(squareComponent)) {
-                squareComponent.setSelected(true);
-                first = squareComponent;
-                first.repaint();
-            }
-        } else {
-            if (first == squareComponent) { // 再次点击取消选取
-                squareComponent.setSelected(false);
-                SquareComponent recordFirst = first;
-                first = null;
-                recordFirst.repaint();
-            } else if (handleSecond(squareComponent)) {
-                //repaint in swap chess method.
-                chessboard.swapChessComponents(first, squareComponent);
-                first.setSelected(false);
-                squareComponent.setSelected(false);
-                chessboard.clickController.swapPlayer();
-                if(first instanceof CannonChessComponent&&!(squareComponent.isReversal())){
-                    if(first.getChessColor()==squareComponent.getChessColor()){
-                        if(first.getChessColor().getColor()== Color.BLACK){
-                            RedPoint+=((ChessComponent)squareComponent).getPoints();
-                            chessboard.clickController.changeRedPoints();}
-                        if(first.getChessColor().getColor()==Color.RED){
-                            BlackPoint+=((ChessComponent)squareComponent).getPoints();
-                            chessboard.clickController.changeBlackPoints();}
-                    }//写炮打到自己的没翻开的棋子
-                }
-                if(!(first instanceof CannonChessComponent)) {
-                    if (first.getChessColor().getColor() == Color.BLACK)
-                        BlackPoint += ((ChessComponent) squareComponent).getPoints();
-                    chessboard.clickController.changeBlackPoints();
-                    if (first.getChessColor().getColor() == Color.RED)
-                        RedPoint += ((ChessComponent) squareComponent).getPoints();
-                    chessboard.clickController.changeRedPoints();
-                }
-                first = null;
-=======
         if (!isCheating) {
             if (first == null) {
                 if (handleFirst(squareComponent)) {
@@ -138,7 +99,6 @@ public class ClickController {
                         }
                     }
                     first = null;
->>>>>>> 5c007e45c81768dafb66ecec90c7d8e3398e65c5
 
                 }
             }
