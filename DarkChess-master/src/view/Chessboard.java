@@ -227,7 +227,7 @@ public class Chessboard extends JComponent {
         chessData.forEach(System.out::println);
         initialBoardByChar(loadChessBoard);
     }
-    public void saveGame(char[][] save){
+    public void saveGame(){
         saveBoardInChar(squareComponents);
     }
      public void saveBoardInChar(SquareComponent[][] squareComponents){
