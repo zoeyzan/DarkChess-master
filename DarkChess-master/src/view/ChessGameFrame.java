@@ -8,7 +8,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 /**
  * 这个类表示游戏窗体，窗体上包含：
@@ -146,12 +151,56 @@ public class ChessGameFrame extends JFrame {//JFrame
         button.setFont(new Font("Rockwell", Font.BOLD, 20));
         button.setBackground(Color.LIGHT_GRAY);
         add(button);
-
+// TODO: 2022/12/10 修改104 缺少行棋方的错误 105行棋步骤的存储
         button.addActionListener(e -> {
             System.out.println("Click load");
             String path = JOptionPane.showInputDialog(this, "Input Path here");
             gameController.loadGameFromFile(path);
-        });
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setCurrentDirectory(new File("."));
+            fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+            fileChooser.setMultiSelectionEnabled(false);
+            int result = fileChooser.showOpenDialog(this);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                    File file = fileChooser.getSelectedFile();
+                    path = file.getAbsolutePath();
+                    String[] part = path.split("\\.");
+                    if (part[part.length - 1].equals("txt")) {
+                        try {
+                            List<String> chessData = Files.readAllLines(Paths.get(path));
+                            for (int i = 0; i < 8; i++) {
+                                if (chessData.get(i).length() != 4) {
+                                    JOptionPane.showConfirmDialog(null, "错误代码:102", "提示", JOptionPane.DEFAULT_OPTION);
+                                    return;
+                                } else {
+                                    //103
+                                    for (int j = 0; j < 8; j++) {
+                                        char chess = chessData.get(i).charAt(j);
+                                        if (chess != 'c' && chess != 'C' && chess != 'P' && chess != 'p' && chess != 'M' &&
+                                                chess != 'm' && chess != 'A' && chess != 'a' && chess != 'g' && chess != 'G' && chess != 'h' && chess != 'H' && chess != 'k') {
+                                            JOptionPane.showConfirmDialog(null, "错误代码:103", "提示", JOptionPane.DEFAULT_OPTION);
+                                            return;
+                                        }
+                                    }
+                                }
+                            }
+                            if (!chessData.get(8).equals("w") && !chessData.get(8).equals("b")) {
+                                JOptionPane.showConfirmDialog(null, "错误代码:104", "提示", JOptionPane.DEFAULT_OPTION);
+                                return;//
+                            }
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                        gameController.loadGameFromFile(path);
+                    } else {
+                        //不是txt文件
+                        JOptionPane.showConfirmDialog(null, "错误代码:101", "提示", JOptionPane.DEFAULT_OPTION);
+                    }
+                }
+                if (result == JFileChooser.CANCEL_OPTION) {
+                    fileChooser.setVisible(false);
+                }
+            });
 
 
     }
