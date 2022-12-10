@@ -66,12 +66,12 @@ public class ClickController {
                 chessboard.clickController.swapPlayer();
                 if(first instanceof CannonChessComponent&&!(squareComponent.isReversal())){
                     if(first.getChessColor()==squareComponent.getChessColor()){
-                        if(first.getChessColor().getColor()== Color.BLACK)
+                        if(first.getChessColor().getColor()== Color.BLACK){
                             RedPoint+=((ChessComponent)squareComponent).getPoints();
-                            chessboard.clickController.changeRedPoints();
-                        if(first.getChessColor().getColor()==Color.RED)
+                            chessboard.clickController.changeRedPoints();}
+                        if(first.getChessColor().getColor()==Color.RED){
                             BlackPoint+=((ChessComponent)squareComponent).getPoints();
-                            chessboard.clickController.changeBlackPoints();
+                            chessboard.clickController.changeBlackPoints();}
                     }//写炮打到自己的没翻开的棋子
                 }
                 if(!(first instanceof CannonChessComponent)) {
