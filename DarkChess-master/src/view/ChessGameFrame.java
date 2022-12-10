@@ -28,11 +28,11 @@ public class ChessGameFrame extends JFrame {//JFrame
     private final int HEIGHT;
     public final int CHESSBOARD_SIZE;
     private GameController gameController;
-    private ChessComponent chessComponent ;
     private Chessboard chessboard;
     private static JLabel statusLabel;
     private static JLabel RedPointLabel;
     private static JLabel BlackPointLabel;
+    public static int number = 0;
     JPanel pan;
 
     public ChessGameFrame(int width, int height) {
@@ -41,7 +41,8 @@ public class ChessGameFrame extends JFrame {//JFrame
         ImageIcon bg=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\title.png");
         JLabel label=new JLabel(bg);
         label.setSize(bg.getIconWidth(),bg.getIconHeight());
-        getLayeredPane().add(label,new Integer(Integer.MIN_VALUE));
+        getLayeredPane().add(label,new Integer(Integer.MIN_VALUE+number));
+        number=number+1;
 //2.把窗口面板设为内容面板并设为透明、流动布局。
         pan=(JPanel)getContentPane();
         pan.setOpaque(false);
@@ -92,7 +93,8 @@ public class ChessGameFrame extends JFrame {//JFrame
             JLabel label1=new JLabel(bg1);
             label1.setSize(bg1.getIconWidth(),bg1.getIconHeight());
 //            getLayeredPane().removeAll();
-            getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+1));
+            getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
+            number = number+1;
 //            pan.add(label,new Integer(Integer.MIN_VALUE));
             setLayout(null);
 
@@ -103,6 +105,7 @@ public class ChessGameFrame extends JFrame {//JFrame
 //            addHelloButton();
             addLoadButton();
             addCheatButton();
+            addRestartButton();
             getLayeredPane().repaint();
         }
     }
@@ -167,12 +170,13 @@ public class ChessGameFrame extends JFrame {//JFrame
         add(button);
     }
     private void addCheatButton(){
-        JButton CheatButton = new JButton("作弊模式");
+        JButton CheatButton = new JButton("Let's cheat!");
         CheatButton.addActionListener((e -> {
             ImageIcon bgC = new ImageIcon("C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\Pictures\\backgroundCheat.jpg");
             JLabel label2 = new JLabel(bgC);
             label2.setSize(bgC.getIconWidth(),bgC.getIconHeight());
-            getLayeredPane().add(label2,new Integer(Integer.MIN_VALUE+2));
+            getLayeredPane().add(label2,new Integer(Integer.MIN_VALUE+number));
+            number = number+1;
             getLayeredPane().repaint();
 //            chessboard.clickController.isCheating=true;//设置可以点 看棋子
             SquareComponent.isCheating=true;
@@ -186,16 +190,38 @@ public class ChessGameFrame extends JFrame {//JFrame
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 4; j++) {
                     squareComponents[i][j].repaint();
-                //这个语法还是错的，，我想拿到[i][j]里的对象但是也不知道怎么写，，
                 }
             }
         }));
         CheatButton.setLocation(100,350);
 
-        CheatButton.setSize(90, 30);
+        CheatButton.setSize(150, 40);
         CheatButton.setFont(new Font("Rockwell", Font.BOLD, 20));
         CheatButton.setBackground(Color.LIGHT_GRAY);
         add(CheatButton);
+    }
+    private void addRestartButton(){
+        JButton RestartButton = new JButton("Restart");
+        RestartButton.addActionListener((e -> {
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 4; j++) {
+                    SquareComponent[][] squareComponents = chessboard.squareComponents;
+                    squareComponents[i][j].isReversal = false;
+                    SquareComponent.isCheating=false;
+                }
+            }
+            ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
+            JLabel label1=new JLabel(bg1);
+            label1.setSize(bg1.getIconWidth(),bg1.getIconHeight());
+//            getLayeredPane().removeAll();
+            getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
+            number = number+1;
+        }));
+        RestartButton.setLocation(800,400);
+        RestartButton.setSize(90, 30);
+        RestartButton.setFont(new Font("Rockwell", Font.BOLD, 20));
+        RestartButton.setBackground(Color.LIGHT_GRAY);
+        add(RestartButton);
     }
 
 

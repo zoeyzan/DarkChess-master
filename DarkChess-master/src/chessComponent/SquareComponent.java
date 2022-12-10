@@ -28,7 +28,7 @@ public abstract class SquareComponent extends JComponent {
      */
     private ChessboardPoint chessboardPoint;
     protected final ChessColor chessColor;
-    protected boolean isReversal;
+    public boolean isReversal;
     public static boolean isCheating;
     private boolean selected;
 

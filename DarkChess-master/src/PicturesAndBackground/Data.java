@@ -140,7 +140,8 @@ public class Data {
     public static Image RXiangSI= Toolkit.getDefaultToolkit().getImage(RXiangSURL);
 
     public static Image emptyI= Toolkit.getDefaultToolkit().getImage(emptyURL);
-
+    public static int RedPoint = 0;
+    public static int BlackPoint = 0;
 
 }
 

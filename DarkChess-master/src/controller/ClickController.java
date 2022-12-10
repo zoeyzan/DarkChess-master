@@ -3,6 +3,7 @@ package controller;
 
 //import PicturesAndBackground.AceGameFrame;
 
+import PicturesAndBackground.Data;
 import chessComponent.CannonChessComponent;
 import chessComponent.ChessComponent;
 import chessComponent.SquareComponent;
@@ -17,24 +18,10 @@ public class ClickController {
     private final Chessboard chessboard;
     private SquareComponent first;
 
-    protected int BlackPoint, RedPoint;
+
     public boolean isCheating;
 
-    public int getBlackPoint() {
-        return BlackPoint;
-    }
 
-    public int getRedPoint() {
-        return RedPoint;
-    }
-
-    public void setBlackPoint(int blackPoint) {
-        BlackPoint = blackPoint;
-    }
-
-    public void setRedPoint(int redPoint) {
-        RedPoint = redPoint;
-    }
 
     public ClickController(Chessboard chessboard) {
         this.chessboard = chessboard;
@@ -69,32 +56,32 @@ public class ClickController {
                     if (first instanceof CannonChessComponent && !(squareComponent.isReversal())) {
                         if (first.getChessColor() == squareComponent.getChessColor()) {
                             if (first.getChessColor().getColor() == Color.BLACK) {
-                                RedPoint += ((ChessComponent) squareComponent).getPoints();
+                                Data.RedPoint += ((ChessComponent) squareComponent).getPoints();
                                 chessboard.clickController.changeRedPoints();
                             }
                             if (first.getChessColor().getColor() == Color.RED) {
-                                BlackPoint += ((ChessComponent) squareComponent).getPoints();
+                                Data.BlackPoint += ((ChessComponent) squareComponent).getPoints();
                                 chessboard.clickController.changeBlackPoints();
                             }
                         }//写炮打到自己的没翻开的棋子
                         if(first.getChessColor()!=squareComponent.getChessColor()){
                             if (first.getChessColor().getColor() == Color.BLACK) {
-                                BlackPoint += ((ChessComponent) squareComponent).getPoints();
+                                Data.BlackPoint += ((ChessComponent) squareComponent).getPoints();
                                 chessboard.clickController.changeBlackPoints();
                             }
                             if (first.getChessColor().getColor() == Color.RED) {
-                                RedPoint += ((ChessComponent) squareComponent).getPoints();
+                                Data.RedPoint += ((ChessComponent) squareComponent).getPoints();
                                 chessboard.clickController.changeRedPoints();
                             }
                         }
                     }
                     if (squareComponent.isReversal()) {
                         if (first.getChessColor().getColor() == Color.BLACK) {
-                            BlackPoint += ((ChessComponent) squareComponent).getPoints();
+                            Data.BlackPoint += ((ChessComponent) squareComponent).getPoints();
                             chessboard.clickController.changeBlackPoints();
                         }
                         if (first.getChessColor().getColor() == Color.RED) {
-                            RedPoint += ((ChessComponent) squareComponent).getPoints();
+                            Data.RedPoint += ((ChessComponent) squareComponent).getPoints();
                             chessboard.clickController.changeRedPoints();
                         }
                     }
@@ -103,10 +90,10 @@ public class ClickController {
                 }
             }
         }
-        System.out.println(getRedPoint());
-        System.out.println(getBlackPoint());
-        if (getBlackPoint() >= 60) System.out.println("Black win!");//todo:写一个方法让游戏结束【弹窗】
-        if (getRedPoint() >= 60) System.out.printf("Red win!");
+        System.out.println(Data.RedPoint);
+        System.out.println(Data.BlackPoint);
+        if (Data.BlackPoint >= 60) System.out.println("Black win!");//todo:写一个方法让游戏结束【弹窗】
+        if (Data.RedPoint >= 60) System.out.printf("Red win!");
     }
 
 
@@ -160,11 +147,11 @@ public class ClickController {
     }
 
     public void changeRedPoints() {
-        ChessGameFrame.getRedPointLabel().setText(String.format("Apollo Points:%d", RedPoint));
+        ChessGameFrame.getRedPointLabel().setText(String.format("Apollo Points:%d", Data.RedPoint));
     }
 
     public void changeBlackPoints() {
-        ChessGameFrame.getBlackPointLabel().setText(String.format("Klavier Points:%d", BlackPoint));
+        ChessGameFrame.getBlackPointLabel().setText(String.format("Klavier Points:%d", Data.BlackPoint));
     }
 
 
