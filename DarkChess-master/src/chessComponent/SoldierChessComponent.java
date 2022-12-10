@@ -21,8 +21,9 @@ public class SoldierChessComponent extends ChessComponent {
     }
     public boolean canMoveTo(SquareComponent[][] chessboard, ChessboardPoint destination) {
         SquareComponent destinationChess=chessboard[destination.getX()][destination.getY()];
-        SquareComponent currentChess=chessboard[getChessboardPoint().getX()][getChessboardPoint().getY()];
         ChessboardPoint current=getChessboardPoint();
+        SquareComponent currentChess=chessboard[getChessboardPoint().getX()][getChessboardPoint().getY()];
+
         boolean x=true,y=true;//x判断上下左右能不能走，y判断优先级能不能走
         if(destinationChess instanceof EmptySlotComponent){
             x=((Math.abs(current.getX()-destination.getX())==1&&Math.abs(current.getY()-destination.getY())==0)||
@@ -33,11 +34,8 @@ public class SoldierChessComponent extends ChessComponent {
         if(destinationChess instanceof ChessComponent){
             x=((Math.abs(current.getX()-destination.getX())==1&&Math.abs(current.getY()-destination.getY())==0)||
                     (Math.abs(current.getX()-destination.getX())==0&&Math.abs(current.getY()-destination.getY())==1));
-            if(((ChessComponent)destinationChess).getPriority()==6&& destinationChess.isReversal())//兵只能吃将军
-                y=true;
-            else {
-                y=false;
-            }
+            //兵只能吃将军和他自己
+            y= (((ChessComponent) destinationChess).getPriority() == 6 || ((ChessComponent) destinationChess).getPriority() == 1) && destinationChess.isReversal();
         }
         return(x&&y);
     }

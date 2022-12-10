@@ -2,6 +2,7 @@ package controller;
 
 
 //import PicturesAndBackground.AceGameFrame;
+
 import chessComponent.CannonChessComponent;
 import chessComponent.ChessComponent;
 import chessComponent.SquareComponent;
@@ -16,7 +17,7 @@ public class ClickController {
     private final Chessboard chessboard;
     private SquareComponent first;
 
-    protected int BlackPoint,RedPoint;
+    protected int BlackPoint, RedPoint;
     public boolean isCheating;
 
     public int getBlackPoint() {
@@ -41,55 +42,71 @@ public class ClickController {
 
     public void onClick(SquareComponent squareComponent) {
         //判断第一次点击
-        if(isCheating)
-        {
+        if (isCheating) {
             squareComponent.setReversal(true);
             squareComponent.repaint();
         }
-        if (first == null) {
-            if (handleFirst(squareComponent)) {
-                squareComponent.setSelected(true);
-                first = squareComponent;
-                first.repaint();
-            }
-        } else {
-            if (first == squareComponent) { // 再次点击取消选取
-                squareComponent.setSelected(false);
-                SquareComponent recordFirst = first;
-                first = null;
-                recordFirst.repaint();
-            } else if (handleSecond(squareComponent)) {
-                //repaint in swap chess method.
-                chessboard.swapChessComponents(first, squareComponent);
-                first.setSelected(false);
-                squareComponent.setSelected(false);
-                chessboard.clickController.swapPlayer();
-                if(first instanceof CannonChessComponent&&!(squareComponent.isReversal())){
-                    if(first.getChessColor()==squareComponent.getChessColor()){
-                        if(first.getChessColor().getColor()== Color.BLACK)
-                            RedPoint+=((ChessComponent)squareComponent).getPoints();
-                            chessboard.clickController.changeRedPoints();
-                        if(first.getChessColor().getColor()==Color.RED)
-                            BlackPoint+=((ChessComponent)squareComponent).getPoints();
+        if (!isCheating) {
+            if (first == null) {
+                if (handleFirst(squareComponent)) {
+                    squareComponent.setSelected(true);
+                    first = squareComponent;
+                    first.repaint();
+                }
+            } else {
+                if (first == squareComponent) { // 再次点击取消选取
+                    squareComponent.setSelected(false);
+                    SquareComponent recordFirst = first;
+                    first = null;
+                    recordFirst.repaint();
+                } else if (handleSecond(squareComponent)) {
+                    //repaint in swap chess method.
+                    chessboard.swapChessComponents(first, squareComponent);
+                    first.setSelected(false);
+                    squareComponent.setSelected(false);
+                    chessboard.clickController.swapPlayer();
+                    //计分
+                    if (first instanceof CannonChessComponent && !(squareComponent.isReversal())) {
+                        if (first.getChessColor() == squareComponent.getChessColor()) {
+                            if (first.getChessColor().getColor() == Color.BLACK) {
+                                RedPoint += ((ChessComponent) squareComponent).getPoints();
+                                chessboard.clickController.changeRedPoints();
+                            }
+                            if (first.getChessColor().getColor() == Color.RED) {
+                                BlackPoint += ((ChessComponent) squareComponent).getPoints();
+                                chessboard.clickController.changeBlackPoints();
+                            }
+                        }//写炮打到自己的没翻开的棋子
+                        if(first.getChessColor()!=squareComponent.getChessColor()){
+                            if (first.getChessColor().getColor() == Color.BLACK) {
+                                BlackPoint += ((ChessComponent) squareComponent).getPoints();
+                                chessboard.clickController.changeBlackPoints();
+                            }
+                            if (first.getChessColor().getColor() == Color.RED) {
+                                RedPoint += ((ChessComponent) squareComponent).getPoints();
+                                chessboard.clickController.changeRedPoints();
+                            }
+                        }
+                    }
+                    if (squareComponent.isReversal()) {
+                        if (first.getChessColor().getColor() == Color.BLACK) {
+                            BlackPoint += ((ChessComponent) squareComponent).getPoints();
                             chessboard.clickController.changeBlackPoints();
-                    }//写炮打到自己的没翻开的棋子
-                }
-                if(!(first instanceof CannonChessComponent)) {
-                    if (first.getChessColor().getColor() == Color.BLACK)
-                        BlackPoint += ((ChessComponent) squareComponent).getPoints();
-                    chessboard.clickController.changeBlackPoints();
-                    if (first.getChessColor().getColor() == Color.RED)
-                        RedPoint += ((ChessComponent) squareComponent).getPoints();
-                    chessboard.clickController.changeRedPoints();
-                }
-                first = null;
+                        }
+                        if (first.getChessColor().getColor() == Color.RED) {
+                            RedPoint += ((ChessComponent) squareComponent).getPoints();
+                            chessboard.clickController.changeRedPoints();
+                        }
+                    }
+                    first = null;
 
+                }
             }
         }
         System.out.println(getRedPoint());
         System.out.println(getBlackPoint());
-        if(getBlackPoint()>=60) System.out.println("Black win!");//todo:写一个方法让游戏结束【弹窗】
-        if(getRedPoint()>=60) System.out.printf("Red win!");
+        if (getBlackPoint() >= 60) System.out.println("Black win!");//todo:写一个方法让游戏结束【弹窗】
+        if (getRedPoint() >= 60) System.out.printf("Red win!");
     }
 
 
@@ -99,7 +116,7 @@ public class ClickController {
      */
 
     private boolean handleFirst(SquareComponent squareComponent) {
-        if (!squareComponent.isReversal()&&squareComponent instanceof ChessComponent) {
+        if (!squareComponent.isReversal() && squareComponent instanceof ChessComponent) {
             squareComponent.setReversal(true);
             System.out.printf("onClick to reverse a chess [%d,%d]\n", squareComponent.getChessboardPoint().getX(), squareComponent.getChessboardPoint().getY());
             squareComponent.repaint();
@@ -119,17 +136,16 @@ public class ClickController {
 
         if (!squareComponent.isReversal()) {
             //没翻开的棋子
-            if(first instanceof CannonChessComponent&&!(squareComponent instanceof EmptySlotComponent))
+            if (first instanceof CannonChessComponent && !(squareComponent instanceof EmptySlotComponent))
                 //first棋子是炮 且second棋子非空
                 return first.canMoveTo(chessboard.getChessComponents(), squareComponent.getChessboardPoint());
 
-            if (!(first instanceof CannonChessComponent)&&!(squareComponent instanceof EmptySlotComponent)) {
+            if (!(first instanceof CannonChessComponent) && !(squareComponent instanceof EmptySlotComponent)) {
                 return false;//second棋子非空
+            }
         }
-        }
-        if(squareComponent instanceof EmptySlotComponent){
+        if (squareComponent instanceof EmptySlotComponent) {
             return first.canMoveTo(chessboard.getChessComponents(), squareComponent.getChessboardPoint());
-
         }
 
         return squareComponent.getChessColor() != chessboard.getCurrentColor() &&
@@ -142,11 +158,13 @@ public class ClickController {
         chessboard.setCurrentColor(chessboard.getCurrentColor() == ChessColor.BLACK ? ChessColor.RED : ChessColor.BLACK);
         ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
     }
-    public void changeRedPoints(){
-        ChessGameFrame.getRedPointLabel().setText(String.format("Apollo Points:%d",RedPoint));
+
+    public void changeRedPoints() {
+        ChessGameFrame.getRedPointLabel().setText(String.format("Apollo Points:%d", RedPoint));
     }
-    public void changeBlackPoints(){
-        ChessGameFrame.getBlackPointLabel().setText(String.format("Klavier Points:%d",BlackPoint));
+
+    public void changeBlackPoints() {
+        ChessGameFrame.getBlackPointLabel().setText(String.format("Klavier Points:%d", BlackPoint));
     }
 
 
