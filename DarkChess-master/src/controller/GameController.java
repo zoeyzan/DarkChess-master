@@ -18,6 +18,7 @@ import java.util.List;
  */
 public class GameController {
     private Chessboard chessboard;
+    public int[][] chessboardint;
 
     public GameController(Chessboard chessboard) {
         this.chessboard = chessboard;
@@ -36,7 +37,7 @@ public class GameController {
     public List<String> convertToList() {
         List<String> lines = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
-        for (int[] ints : this.chessboard) {
+        for (int[] ints : this.chessboardint) {
             sb.setLength(0);
             for (int anInt : ints) {
                 sb.append(anInt).append(",");
