@@ -70,6 +70,8 @@ public class ClickController {
         }
         System.out.println(getRedPoint());
         System.out.println(getBlackPoint());
+        if(getBlackPoint()>=60) System.out.println("Black win!");//todo:写一个方法让游戏结束
+        if(getRedPoint()>=60) System.out.printf("Red win!");
     }
 
 
@@ -122,6 +124,8 @@ public class ClickController {
         chessboard.setCurrentColor(chessboard.getCurrentColor() == ChessColor.BLACK ? ChessColor.RED : ChessColor.BLACK);
         ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
     }
+
+
 
 
 

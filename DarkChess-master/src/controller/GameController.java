@@ -42,6 +42,9 @@ public class GameController {
     public void CheatingMode(){
 
     }
+    public void deterWinner(){
+
+    }
 //    public List<String> convertToList() {
 //        List<String> lines = new ArrayList<>();
 //        StringBuilder sb = new StringBuilder();
