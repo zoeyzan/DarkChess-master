@@ -113,7 +113,8 @@ public class ChessGameFrame extends JFrame {//JFrame
      */
     private void addChessboard() {
 //        Chessboard chessboard = new Chessboard(CHESSBOARD_SIZE / 2, CHESSBOARD_SIZE);
-        Chessboard chessboard = new Chessboard(260,500);
+//        Chessboard chessboard = new Chessboard(260,500);//写出来是临时变量
+        chessboard = new Chessboard(260,500);//c!!!!!!!!!!!!存下来
         gameController = new GameController(chessboard);
 //        chessboard.setLocation(HEIGHT / 10, HEIGHT / 10);
         chessboard.setLocation(368,28);
@@ -173,17 +174,21 @@ public class ChessGameFrame extends JFrame {//JFrame
             label2.setSize(bgC.getIconWidth(),bgC.getIconHeight());
             getLayeredPane().add(label2,new Integer(Integer.MIN_VALUE+2));
             getLayeredPane().repaint();
-            chessboard.clickController.isCheating=true;//设置可以点 看棋子
+//            chessboard.clickController.isCheating=true;//设置可以点 看棋子
+            SquareComponent.isCheating=true;
 //            chessComponent.setCheating(true);
 //            chessComponent.repaint();
 
 //            ChessComponent.isCheating
 
-//            for (int i = 0; i < 8; i++) {
-//                for (int j = 0; j < 4; j++) {
-//                    chessboard.getChessComponents()这个语法还是错的，，我想拿到[i][j]里的对象但是也不知道怎么写，，
-//                }
-//            }
+            SquareComponent[][] squareComponents = chessboard.squareComponents;
+            System.out.println(squareComponents[0][0].isCheating);
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 4; j++) {
+                    squareComponents[i][j].repaint();
+                //这个语法还是错的，，我想拿到[i][j]里的对象但是也不知道怎么写，，
+                }
+            }
         }));
         CheatButton.setLocation(100,350);
 

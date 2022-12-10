@@ -249,6 +249,7 @@ public class ChessComponent extends SquareComponent {
             }
 
         } else if (isCheating) {
+            System.out.println("123");
             if(this instanceof AdvisorChessComponent){
                 if (this.getChessColor() == ChessColor.RED) {
                     ImageIcon RShiCII = Data.RShiC;
