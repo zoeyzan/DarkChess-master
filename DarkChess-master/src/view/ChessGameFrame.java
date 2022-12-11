@@ -5,6 +5,7 @@ import PicturesAndBackground.Data;
 import chessComponent.ChessComponent;
 import chessComponent.SquareComponent;
 import controller.GameController;
+import model.ChessColor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -49,6 +50,53 @@ public class ChessGameFrame extends JFrame {//JFrame
         pan.setLayout(null);
 //3.之后把组件和面板添加到窗口面板就可以；
         JButton btn=new JButton("");
+        JButton btnR = new JButton("Apollo");
+        JButton btnB = new JButton("Klavier");
+        btnR.setBounds(250,445,100,40);
+        btnB.setBounds(660,445,100,40);
+        btnR.addActionListener((e -> {
+            pan.removeAll();
+            addChessboard();
+            chessboard.setCurrentColor(ChessColor.RED);
+            chessboard.setStartColor(ChessColor.RED);
+            ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
+            JLabel label1=new JLabel(bg1);
+            label1.setSize(bg1.getIconWidth(),bg1.getIconHeight());
+            getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
+            number = number+1;
+            setLayout(null);
+
+            addLabel();
+            addRedPointLabel();
+            addBlackPointLabel();
+            addLoadButton();
+            addCheatButton();
+            addRestartButton();
+            getLayeredPane().repaint();
+        }));
+
+        btnB.addActionListener((e -> {
+            pan.removeAll();
+            addChessboard();
+            chessboard.setCurrentColor(ChessColor.BLACK);
+            chessboard.setStartColor(ChessColor.BLACK);
+            ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
+            JLabel label1=new JLabel(bg1);
+            label1.setSize(bg1.getIconWidth(),bg1.getIconHeight());
+            getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
+            number = number+1;
+            setLayout(null);
+
+            addLabel();
+            addRedPointLabel();
+            addBlackPointLabel();
+            addLoadButton();
+            addCheatButton();
+            addRestartButton();
+            getLayeredPane().repaint();
+        }));
+
+
 
 //      URL buttonURL = Data.class.getResource("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\button.jpg");
         URL buttonURL = Data.class.getResource("Pictures/button.jpg");
@@ -59,6 +107,8 @@ public class ChessGameFrame extends JFrame {//JFrame
         btn.addActionListener(act);
         btn.setBounds(358,445,294,60);
         pan.add(btn);
+        pan.add(btnR);
+        pan.add(btnB);
         setSize(bg.getIconWidth(),bg.getIconHeight());
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,6 +132,17 @@ public class ChessGameFrame extends JFrame {//JFrame
 //        addHelloButton();
 //        addLoadButton();
     }
+    public boolean RedStart(){
+        if(chessboard.getStartColor()==ChessColor.RED){
+            return true;
+        }else return false;
+    }
+    public boolean BlackStart(){
+        if(chessboard.getStartColor()==ChessColor.BLACK){
+            return true;
+        }else return false;
+    }
+
     private class Action implements ActionListener {
         public Action(){
         }
@@ -128,7 +189,8 @@ public class ChessGameFrame extends JFrame {//JFrame
      * 在游戏窗体中添加标签
      */
     private void addLabel() {
-        statusLabel = new JLabel("BLACK's TURN");
+        statusLabel = new JLabel();
+        statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
 //        statusLabel.setLocation(WIDTH * 3 / 5, HEIGHT / 10);
         statusLabel.setLocation(420,0);
 
@@ -226,13 +288,6 @@ public class ChessGameFrame extends JFrame {//JFrame
     private void addRestartButton(){
         JButton RestartButton = new JButton("Restart");
         RestartButton.addActionListener((e -> {
-//            for (int i = 0; i < 8; i++) {
-//                for (int j = 0; j < 4; j++) {
-//                    SquareComponent[][] squareComponents = chessboard.squareComponents;
-//                    squareComponents[i][j].isReversal = false;
-//                    SquareComponent.isCheating=false;
-//                }
-//            }
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 4; j++) {
                     SquareComponent[][] squareComponents = chessboard.squareComponents;
@@ -240,6 +295,13 @@ public class ChessGameFrame extends JFrame {//JFrame
                     squareComponents[i][j].setSelected(false);
                     SquareComponent.isCheating=false;
                 }
+            }
+            if(chessboard.getStartColor()==ChessColor.RED){
+                chessboard.setCurrentColor(ChessColor.RED);
+                statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
+            } else if (chessboard.getStartColor()==ChessColor.BLACK) {
+                chessboard.setCurrentColor(ChessColor.BLACK);
+                statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
             }
             chessboard.initAllChessOnBoard();
 

@@ -140,7 +140,6 @@ public class ClickController {
                 first.canMoveTo(chessboard.getChessComponents(), squareComponent.getChessboardPoint());
     }
 
-    //  老师写的，需要测试逻辑的时候取消注释，把我的加上注释
 
     public void swapPlayer() {
         chessboard.setCurrentColor(chessboard.getCurrentColor() == ChessColor.BLACK ? ChessColor.RED : ChessColor.BLACK);
@@ -155,19 +154,4 @@ public class ClickController {
         ChessGameFrame.getBlackPointLabel().setText(String.format("Klavier Points:%d", Data.BlackPoint));
     }
 
-
-
-
-
-
-    /*
-
-    public void swapPlayer() {
-        chessboard.setCurrentColor(chessboard.getCurrentColor() == ChessColor.BLACK ? ChessColor.RED : ChessColor.BLACK);
-        AceGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
-    }
-
-
-
-     */
 }

@@ -24,6 +24,7 @@ public class Chessboard extends JComponent {
 
     public final SquareComponent[][] squareComponents = new SquareComponent[ROW_SIZE][COL_SIZE];
     private ChessColor currentColor = ChessColor.BLACK;
+    public ChessColor StartColor = ChessColor.BLACK;
 
     //all chessComponents in this chessboard are shared only one model controller
     public final ClickController clickController = new ClickController(this);
@@ -57,9 +58,15 @@ public class Chessboard extends JComponent {
     public ChessColor getCurrentColor() {
         return currentColor;
     }
+    public ChessColor getStartColor(){
+        return StartColor;
+    }
 
     public void setCurrentColor(ChessColor currentColor) {
         this.currentColor = currentColor;
+    }
+    public void setStartColor(ChessColor startColor){
+        this.StartColor = startColor;
     }
 
     /**
