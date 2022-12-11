@@ -306,9 +306,10 @@ public class ChessGameFrame extends JFrame {//JFrame
     private void addRestartButton(){
         JButton RestartButton = new JButton("Restart");
         RestartButton.addActionListener((e -> {
+            SquareComponent[][] squareComponents=new SquareComponent[8][4];
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 4; j++) {
-                    SquareComponent[][] squareComponents = chessboard.squareComponents;
+                    squareComponents[i][j]= chessboard.squareComponents[i][j];
                     squareComponents[i][j].isReversal = false;
                     squareComponents[i][j].setSelected(false);
                     SquareComponent.isCheating=false;
