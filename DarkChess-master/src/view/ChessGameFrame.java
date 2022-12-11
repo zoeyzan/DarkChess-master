@@ -172,26 +172,42 @@ public class ChessGameFrame extends JFrame {//JFrame
     private void addCheatButton(){
         JButton CheatButton = new JButton();
         CheatButton.addActionListener((e -> {
-            ImageIcon bgC = new ImageIcon("C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\Pictures\\backgroundCheat.jpg");
-            JLabel label2 = new JLabel(bgC);
-            label2.setSize(bgC.getIconWidth(),bgC.getIconHeight());
-            getLayeredPane().add(label2,new Integer(Integer.MIN_VALUE+number));
-            number = number+1;
-            getLayeredPane().repaint();
+            if(firstCheat()==true){
+                ImageIcon bgC = new ImageIcon("C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\Pictures\\backgroundCheat.jpg");
+                JLabel label2 = new JLabel(bgC);
+                label2.setSize(bgC.getIconWidth(),bgC.getIconHeight());
+                getLayeredPane().add(label2,new Integer(Integer.MIN_VALUE+number));
+                number = number+1;
+                getLayeredPane().repaint();
 //            chessboard.clickController.isCheating=true;//设置可以点 看棋子
-            SquareComponent.isCheating=true;
+                SquareComponent.isCheating=true;
 //            chessComponent.setCheating(true);
 //            chessComponent.repaint();
-
 //            ChessComponent.isCheating
-
-            SquareComponent[][] squareComponents = chessboard.squareComponents;
-            System.out.println(squareComponents[0][0].isCheating);
-            for (int i = 0; i < 8; i++) {
-                for (int j = 0; j < 4; j++) {
-                    squareComponents[i][j].repaint();
+                SquareComponent[][] squareComponents = chessboard.squareComponents;
+                System.out.println(squareComponents[0][0].isCheating);
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        squareComponents[i][j].repaint();
+                    }
+                }
+            } else if (firstCheat()==false) {
+                ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
+                JLabel label1=new JLabel(bg1);
+                label1.setSize(bg1.getIconWidth(),bg1.getIconHeight());
+//            getLayeredPane().removeAll();
+                getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
+                number = number+1;
+                getLayeredPane().repaint();
+                SquareComponent.isCheating=false;
+                SquareComponent[][] squareComponents = chessboard.squareComponents;
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        squareComponents[i][j].repaint();
+                    }
                 }
             }
+
         }));
         URL braceletURL = Data.class.getResource("Pictures/bracelet.png");
         Icon bracelet = new ImageIcon(braceletURL);
@@ -201,6 +217,11 @@ public class ChessGameFrame extends JFrame {//JFrame
         CheatButton.setFont(new Font("Rockwell", Font.BOLD, 20));
         CheatButton.setBackground(Color.LIGHT_GRAY);
         add(CheatButton);
+    }
+    public boolean firstCheat(){
+        if(SquareComponent.isCheating==false){
+            return true;
+        }else return false;
     }
     private void addRestartButton(){
         JButton RestartButton = new JButton("Restart");
