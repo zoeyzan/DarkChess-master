@@ -322,6 +322,10 @@ public class ChessGameFrame extends JFrame {//JFrame
                 chessboard.setCurrentColor(ChessColor.BLACK);
                 statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
             }
+            Data.RedPoint=0;
+            chessboard.clickController.changeRedPoints();
+            Data.BlackPoint=0;
+            chessboard.clickController.changeBlackPoints();
             chessboard.initAllChessOnBoard();
 
             ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
