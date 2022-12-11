@@ -99,11 +99,23 @@ public class Chessboard extends JComponent {
 
         int row2 = chess2.getChessboardPoint().getX(), col2 = chess2.getChessboardPoint().getY();
         squareComponents[row2][col2] = chess2;
-
+        squareComponents[row1][col1] = chess1;
         //只重新绘制chess1 chess2，其他不变
         chess1.repaint();
         chess2.repaint();
     }
+    /**清除棋子，用于restart功能
+     * */
+     public void clearChessComponents(){
+         for (int i = 0; i < 8; i++) {
+             for (int j = 0; j < 4; j++) {
+                add(squareComponents[i][j]=new EmptySlotComponent(squareComponents[i][j].getChessboardPoint(),
+                        squareComponents[i][j].getLocation(),clickController,CHESS_SIZE));
+                 remove(squareComponents[i][j]);
+                 squareComponents[i][j].repaint();
+             }
+         }
+     }
 
     /**
      * 将所有的棋子初始化

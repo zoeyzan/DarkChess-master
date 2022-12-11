@@ -53,8 +53,8 @@ public class ChessGameFrame extends JFrame {//JFrame
         JButton btn=new JButton("");
         JButton btnR = new JButton("Apollo");
         JButton btnB = new JButton("Klavier");
-        btnR.setBounds(250,445,100,40);
-        btnB.setBounds(660,445,100,40);
+        btnR.setBounds(230,435,128,117);
+        btnB.setBounds(660,435,95,124);
         btnR.addActionListener((e -> {
             pan.removeAll();
             addChessboard();
@@ -103,7 +103,14 @@ public class ChessGameFrame extends JFrame {//JFrame
         URL buttonURL = Data.class.getResource("Pictures/button.jpg");
         Icon button = new ImageIcon(buttonURL);
         btn.setIcon(button);
-
+        URL chooseKlavierURL = Data.class.getResource("Pictures/chooseKlavier2.png");
+        URL chooseApolloURL = Data.class.getResource("Pictures/chooseApollo2.png");
+        Icon ChooseKlavier = new ImageIcon(chooseKlavierURL);
+        Icon ChooseApollo = new ImageIcon(chooseApolloURL);
+        btnR.setIcon(ChooseApollo);
+        btnB.setIcon(ChooseKlavier);
+        btnR.setContentAreaFilled(false);
+        btnB.setContentAreaFilled(false);
         Action act = new Action();
         btn.addActionListener(act);
         btn.setBounds(358,445,294,60);
@@ -307,6 +314,7 @@ public class ChessGameFrame extends JFrame {//JFrame
                     SquareComponent.isCheating=false;
                 }
             }
+            chessboard.clearChessComponents();
             if(chessboard.getStartColor()==ChessColor.RED){
                 chessboard.setCurrentColor(ChessColor.RED);
                 statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
