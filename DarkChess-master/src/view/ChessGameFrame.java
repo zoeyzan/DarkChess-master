@@ -17,6 +17,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Random;
 
 /**
  * 这个类表示游戏窗体，窗体上包含：
@@ -148,6 +149,7 @@ public class ChessGameFrame extends JFrame {//JFrame
         }
         public void actionPerformed(ActionEvent event){
 //ActionEvent对应按钮点击、菜单选择、选择列表项或在文本框中ENTER
+
             pan.removeAll();
 //            pan.setBackground((Color.YELLOW));
             ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
@@ -160,6 +162,15 @@ public class ChessGameFrame extends JFrame {//JFrame
             setLayout(null);
 
             addChessboard();
+            Random r = new Random();
+            int n =r.nextInt(2);
+            if(n==1){
+                chessboard.setCurrentColor(ChessColor.RED);
+                chessboard.setStartColor(ChessColor.RED);
+            }else{
+                chessboard.setCurrentColor(ChessColor.BLACK);
+                chessboard.setStartColor(ChessColor.BLACK);
+            }
             addLabel();
             addRedPointLabel();
             addBlackPointLabel();
