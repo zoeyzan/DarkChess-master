@@ -16,9 +16,9 @@ public class CannonChessComponent extends ChessComponent{
         points=5;
         priority=0;
         if (this.getChessColor() == ChessColor.RED) {
-            name = "炮";
+            name = "p";
         } else {
-            name = "砲";
+            name = "P";
         }
     }
     public boolean canMoveTo(SquareComponent[][] chessboard, ChessboardPoint destination) {

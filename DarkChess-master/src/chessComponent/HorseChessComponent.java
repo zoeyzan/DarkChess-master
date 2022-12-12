@@ -13,9 +13,9 @@ public class HorseChessComponent extends ChessComponent{
         priority=2;
         number=2;
         if (this.getChessColor() == ChessColor.RED) {
-            name = "傌";
+            name = "h";
         } else {
-            name = "馬";
+            name = "H";
         }
     }
 }

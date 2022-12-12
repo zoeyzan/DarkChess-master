@@ -13,9 +13,9 @@ public class GeneralChessComponent extends ChessComponent{
         points=30;
         number=1;
         if (this.getChessColor() == ChessColor.RED) {
-            name = "帥";
+            name = "g";
         } else {
-            name = "將";
+            name = "G";
         }
     }
 }

@@ -14,9 +14,9 @@ public class SoldierChessComponent extends ChessComponent {
         priority=1;
         number=5;
         if (this.getChessColor() == ChessColor.RED) {
-            name = "兵";
+            name = "s";
         } else {
-            name = "卒";
+            name = "S";
         }
     }
     public boolean canMoveTo(SquareComponent[][] chessboard, ChessboardPoint destination) {

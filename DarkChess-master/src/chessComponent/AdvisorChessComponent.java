@@ -13,9 +13,9 @@ public class AdvisorChessComponent extends ChessComponent {
         priority=5;
         number=2;
         if (this.getChessColor() == ChessColor.RED) {
-            name = "仕";
+            name = "a";
         } else {
-            name = "士";
+            name = "A";
         }
     }
 }

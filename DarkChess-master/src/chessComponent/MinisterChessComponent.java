@@ -13,9 +13,9 @@ public class MinisterChessComponent extends ChessComponent{
         priority=4;
         number=2;
         if (this.getChessColor() == ChessColor.RED) {
-            name = "相";
+            name = "m";
         } else {
-            name = "象";
+            name = "M";
         }
     }
 }

@@ -17,9 +17,9 @@ public class ChariotChessComponent extends ChessComponent {
         priority=3;
         number=2;
         if (this.getChessColor() == ChessColor.RED) {
-            name = "俥";
+            name = "c";
         } else {
-            name = "車";
+            name = "C";
         }
     }
 
