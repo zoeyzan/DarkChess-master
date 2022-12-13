@@ -375,7 +375,7 @@ public class ChessGameFrame extends JFrame {//JFrame
                                     return;
                                 } else {
                                     //103
-                                    for (int j = 0; j < 8; j++) {
+                                    for (int j = 0; j < 4; j++) {
                                         char chess = chessData.get(i).charAt(j);
                                         if (chess != 'c' && chess != 'C' && chess != 'P' && chess != 'p' && chess != 'M' &&
                                                 chess != 'm' && chess != 'A' && chess != 'a' && chess != 'g' && chess != 'G' && chess != 'h' && chess != 'H' && chess != 'k') {

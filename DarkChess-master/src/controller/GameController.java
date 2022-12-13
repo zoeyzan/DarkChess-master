@@ -41,7 +41,6 @@ public class GameController {
         }
         return null;
     }
-
     public void saveGame() throws IOException {
         String path;
         JFileChooser fileChooser = new JFileChooser();
