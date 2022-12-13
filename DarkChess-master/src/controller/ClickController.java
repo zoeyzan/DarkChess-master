@@ -17,6 +17,7 @@ import java.awt.*;
 public class ClickController {
     private final Chessboard chessboard;
     private SquareComponent first;
+//    public int clickNumber = 0;
 
 
     public boolean isCheating;
@@ -29,17 +30,44 @@ public class ClickController {
 
     public void onClick(SquareComponent squareComponent) {
         //判断第一次点击
-        if (isCheating) {
-            squareComponent.setReversal(true);
-//            System.out.println(squareComponent.isReversal);
-            squareComponent.repaint();
-        }
-        if (!isCheating) {
+//        if (isCheating) {
+//            clickNumber = clickNumber+1;
+//            if(clickNumber==1){
+//                if(first.getChessColor().getColor()==Color.RED){
+//                    chessboard.setStartColor(ChessColor.RED);
+//                    chessboard.setCurrentColor(ChessColor.BLACK);
+//                    ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
+//                } else if (first.getChessColor().getColor()==Color.BLACK) {
+//                    chessboard.setStartColor(ChessColor.BLACK);
+//                    chessboard.setCurrentColor(ChessColor.RED);
+//                    ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
+//                }
+//            }
+//
+//            squareComponent.setReversal(true);
+////            System.out.println(squareComponent.isReversal);
+//            squareComponent.repaint();
+//        }
+//        if (!isCheating) {
             if (first == null) {
                 if (handleFirst(squareComponent)) {
                     squareComponent.setSelected(true);
                     first = squareComponent;
                     first.repaint();
+//                    Data.clickNumber = Data.clickNumber+1;
+//                    if(Data.clickNumber==1){
+//                        if(first.getChessColor().getColor()==Color.RED){
+//                            chessboard.setStartColor(ChessColor.RED);
+//                            chessboard.setCurrentColor(ChessColor.BLACK);
+//                            System.out.println("I'm in the RED if");
+//                            ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
+//                        } else if (first.getChessColor().getColor()==Color.BLACK) {
+//                            chessboard.setStartColor(ChessColor.BLACK);
+//                            chessboard.setCurrentColor(ChessColor.RED);
+//                            System.out.println("I'm in the Black if");
+//                            ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
+//                        }
+//                    }
                 }
             } else {
                 if (first == squareComponent) { // 再次点击取消选取
@@ -53,6 +81,7 @@ public class ClickController {
                     first.setSelected(false);
                     squareComponent.setSelected(false);
                     chessboard.clickController.swapPlayer();
+                    Data.clickNumber = Data.clickNumber+1;
                     //计分
                     if (first instanceof CannonChessComponent && !(squareComponent.isReversal())) {
                         if (first.getChessColor() == squareComponent.getChessColor()) {
@@ -90,7 +119,7 @@ public class ClickController {
 
                 }
             }
-        }
+//        }
         System.out.println(Data.RedPoint);
         System.out.println(Data.BlackPoint);
         if (Data.BlackPoint >= 60) System.out.println("Black win!");//todo:写一个方法让游戏结束【弹窗】
@@ -106,8 +135,23 @@ public class ClickController {
     private boolean handleFirst(SquareComponent squareComponent) {
         if (!squareComponent.isReversal() && squareComponent instanceof ChessComponent) {
             squareComponent.setReversal(true);
+
             System.out.printf("onClick to reverse a chess [%d,%d]\n", squareComponent.getChessboardPoint().getX(), squareComponent.getChessboardPoint().getY());
             squareComponent.repaint();
+            Data.clickNumber = Data.clickNumber+1;
+                    if(Data.clickNumber==1){
+                        if(squareComponent.getChessColor().getColor()==Color.RED){
+                            chessboard.setStartColor(ChessColor.RED);
+                            chessboard.setCurrentColor(ChessColor.RED);
+                            System.out.println("I'm in the RED if");
+                            ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
+                        } else if (squareComponent.getChessColor().getColor()==Color.BLACK) {
+                            chessboard.setStartColor(ChessColor.BLACK);
+                            chessboard.setCurrentColor(ChessColor.BLACK);
+                            System.out.println("I'm in the Black if");
+                            ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
+                        }
+                    }
             chessboard.clickController.swapPlayer();
             return false;
         }

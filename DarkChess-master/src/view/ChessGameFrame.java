@@ -169,15 +169,19 @@ public class ChessGameFrame extends JFrame {//JFrame
             setLayout(null);
 
             addChessboard();
-            Random r = new Random();
-            int n =r.nextInt(2);
-            if(n==1){
-                chessboard.setCurrentColor(ChessColor.RED);
-                chessboard.setStartColor(ChessColor.RED);
-            }else{
-                chessboard.setCurrentColor(ChessColor.BLACK);
-                chessboard.setStartColor(ChessColor.BLACK);
-            }
+            /**
+             * 就是这个地方搞的随机红蓝
+             */
+//            Random r = new Random();
+//            int n =r.nextInt(2);
+//            if(n==1){
+//                chessboard.setCurrentColor(ChessColor.RED);
+//                chessboard.setStartColor(ChessColor.RED);
+//            }else{
+//                chessboard.setCurrentColor(ChessColor.BLACK);
+//                chessboard.setStartColor(ChessColor.BLACK);
+//            }
+            chessboard.setCurrentColor(ChessColor.NONE);
             addLabel();
             addRedPointLabel();
             addBlackPointLabel();
@@ -186,6 +190,7 @@ public class ChessGameFrame extends JFrame {//JFrame
             addCheatButton();
             addRestartButton();
             getLayeredPane().repaint();
+            Data.clickNumber = 0;
         }
     }
 
@@ -208,7 +213,9 @@ public class ChessGameFrame extends JFrame {//JFrame
      */
     private void addLabel() {
         statusLabel = new JLabel();
-        statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
+//        statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
+        statusLabel.setText(String.format("Decide TURN"));
+        chessboard.setCurrentColor(ChessColor.NONE);
 //        statusLabel.setLocation(WIDTH * 3 / 5, HEIGHT / 10);
         statusLabel.setLocation(420,0);
 
@@ -306,6 +313,9 @@ public class ChessGameFrame extends JFrame {//JFrame
     private void addRestartButton(){
         JButton RestartButton = new JButton("Restart");
         RestartButton.addActionListener((e -> {
+
+            Data.clickNumber=0;
+
             SquareComponent[][] squareComponents=new SquareComponent[8][4];
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 4; j++) {
@@ -316,17 +326,20 @@ public class ChessGameFrame extends JFrame {//JFrame
                 }
             }
 //            chessboard.clearChessComponents();
-            if(chessboard.getStartColor()==ChessColor.RED){
-                chessboard.setCurrentColor(ChessColor.RED);
-                statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
-            } else if (chessboard.getStartColor()==ChessColor.BLACK) {
-                chessboard.setCurrentColor(ChessColor.BLACK);
-                statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
-            }
+//            if(chessboard.getStartColor()==ChessColor.RED){
+//                chessboard.setCurrentColor(ChessColor.RED);
+//                statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
+//            } else if (chessboard.getStartColor()==ChessColor.BLACK) {
+//                chessboard.setCurrentColor(ChessColor.BLACK);
+//                statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
+//            }
+
             Data.RedPoint=0;
             chessboard.clickController.changeRedPoints();
             Data.BlackPoint=0;
             chessboard.clickController.changeBlackPoints();
+            statusLabel.setText(String.format("Decide TURN"));
+            chessboard.setCurrentColor(ChessColor.NONE);
             chessboard.initAllChessOnBoard();
 
             ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");

@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class Data {
+
+    public static int clickNumber = 0;
     public static ArrayList<Image> ImageList= new ArrayList<>();
 
     public static URL titleURL = Data.class.getResource("Pictures/title.png");
