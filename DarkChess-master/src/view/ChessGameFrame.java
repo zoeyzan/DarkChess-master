@@ -187,6 +187,7 @@ public class ChessGameFrame extends JFrame {//JFrame
             addBlackPointLabel();
 //            addHelloButton();
             addLoadButton();
+            addSaveButton();
             addCheatButton();
             addRestartButton();
             getLayeredPane().repaint();
@@ -356,7 +357,20 @@ public class ChessGameFrame extends JFrame {//JFrame
         add(RestartButton);
     }
 
-
+    private void addSaveButton(){
+        JButton SaveButton = new JButton("Save");
+        SaveButton.setBounds(140,450,100,60);
+        SaveButton.setFont(new Font("Rockwell",Font.BOLD,20));
+        SaveButton.setBackground(Color.LIGHT_GRAY);
+        add(SaveButton);
+        SaveButton.addActionListener(e -> {
+            try {
+                gameController.saveGame();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+    }
     private void addLoadButton() {
         JButton button = new JButton("Load");
 //        button.setLocation(WIDTH * 3 / 5, HEIGHT / 10 + 240);
