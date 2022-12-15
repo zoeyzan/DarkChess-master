@@ -7,6 +7,24 @@ import java.util.ArrayList;
 public class Data {
 
     public static int clickNumber = 0;
+    //以下是被吃子的数据存储地方
+    public static int Ae = 0;//Advisor,红小黑大
+    public static int ae = 0;
+    public static int Pe = 0;//炮
+    public static int pe = 0;
+    public static int Ce = 0;//Chariot
+    public static int ce = 0;
+    public static int Ge = 0;//General
+    public static int ge = 0;
+    public static int He = 0;//Horse
+    public static int he = 0;
+    public static int Me = 0;///Minister
+    public static int me = 0;
+    public static int Se = 0;//Soldier
+    public static int se = 0;
+
+
+
     public static ArrayList<Image> ImageList= new ArrayList<>();
 
     public static URL titleURL = Data.class.getResource("Pictures/title.png");

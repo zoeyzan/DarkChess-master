@@ -34,6 +34,20 @@ public class ChessGameFrame extends JFrame {//JFrame
     private static JLabel statusLabel;
     private static JLabel RedPointLabel;
     private static JLabel BlackPointLabel;
+    private static JLabel AeLabel;
+    private static JLabel aeLabel;
+    private static JLabel PeLabel;
+    private static JLabel peLabel;
+    private static JLabel CeLabel;
+    private static JLabel ceLabel;
+    private static JLabel GeLabel;
+    private static JLabel geLabel;
+    private static JLabel HeLabel;
+    private static JLabel heLabel;
+    private static JLabel MeLabel;
+    private static JLabel meLabel;
+    private static JLabel SeLabel;
+    private static JLabel seLabel;
     public static int number = 0;
     JPanel pan;
 
@@ -133,12 +147,7 @@ public class ChessGameFrame extends JFrame {//JFrame
         setLocationRelativeTo(null); // Center the window.
 //        getContentPane().setBackground(Color.WHITE);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //设置程序关闭按键，如果点击右上方的叉就游戏全部关闭了
-//        setLayout(null);
-//
-//        addChessboard();
-//        addLabel();
-//        addHelloButton();
-//        addLoadButton();
+
     }
     public boolean RedStart(){
         if(chessboard.getStartColor()==ChessColor.RED){
@@ -185,6 +194,21 @@ public class ChessGameFrame extends JFrame {//JFrame
             addLabel();
             addRedPointLabel();
             addBlackPointLabel();
+
+            addAeLabel();
+            addPeLabel();
+            addCeLabel();
+            addGeLabel();
+            addHeLabel();
+            addMeLabel();
+            addSeLabel();
+            addaeLabel();
+            addpeLabel();
+            addceLabel();
+            addgeLabel();
+            addheLabel();
+            addmeLabel();
+            addseLabel();
 //            addHelloButton();
             addLoadButton();
             addSaveButton();
@@ -226,7 +250,7 @@ public class ChessGameFrame extends JFrame {//JFrame
     }
     private void addRedPointLabel(){
         RedPointLabel = new JLabel("Apollo Points:0");
-        RedPointLabel.setLocation(90,10);
+        RedPointLabel.setLocation(100,10);
         RedPointLabel.setSize(200,60);
         RedPointLabel.setFont(new Font("Rockwell",Font.BOLD,20));
         add(RedPointLabel);
@@ -238,12 +262,110 @@ public class ChessGameFrame extends JFrame {//JFrame
         BlackPointLabel.setFont(new Font("Rockwell",Font.BOLD,20));
         add(BlackPointLabel);
     }
+    //~~~~~~~~~~~~~~~~~
+    private void addAeLabel(){
+        AeLabel = new JLabel("Advisor:0");
+        AeLabel.setBounds(10,10,150,40);
+        AeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(AeLabel);
+    }
+
+    private void addPeLabel(){
+        PeLabel = new JLabel("Cannon:0");
+        PeLabel.setBounds(10,30,150,40);
+        PeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(PeLabel);
+    }
+    private void addCeLabel(){
+        CeLabel = new JLabel("Chariot:0");
+        CeLabel.setBounds(10,50,150,40);
+        CeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(CeLabel);
+    }
+    private void addGeLabel(){
+        GeLabel = new JLabel("General:0");
+        GeLabel.setBounds(10,70,150,40);
+        GeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(GeLabel);
+    }private void addHeLabel(){
+        HeLabel = new JLabel("Chariot:0");
+        HeLabel.setBounds(10,90,150,40);
+        HeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(HeLabel);
+    }
+    private void addMeLabel(){
+        MeLabel = new JLabel("Minister:0");
+        MeLabel.setBounds(10,110,150,40);
+        MeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(MeLabel);
+    }
+    private void addSeLabel(){
+        SeLabel = new JLabel("Soldier:0");
+        SeLabel.setBounds(10,130,150,40);
+        SeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(SeLabel);
+    }
+    private void addaeLabel(){
+        aeLabel = new JLabel("Advisor:0");
+        aeLabel.setBounds(870,10,150,40);
+        aeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(aeLabel);
+    }
+    private void addpeLabel(){
+        peLabel = new JLabel("Cannon:0");
+        peLabel.setBounds(870,30,150,40);
+        peLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(peLabel);
+    }
+    private void addceLabel(){
+        ceLabel = new JLabel("Chariot:0");
+        ceLabel.setBounds(870,50,150,40);
+        ceLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(ceLabel);
+    }
+    private void addgeLabel(){
+        geLabel = new JLabel("General:0");
+        geLabel.setBounds(870,70,150,40);
+        geLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(geLabel);
+    }private void addheLabel(){
+        heLabel = new JLabel("Chariot:0");
+        heLabel.setBounds(870,90,150,40);
+        heLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(heLabel);
+    }
+    private void addmeLabel(){
+        meLabel = new JLabel("Minister:0");
+        meLabel.setBounds(870,110,150,40);
+        meLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(meLabel);
+    }
+    private void addseLabel(){
+        seLabel = new JLabel("Soldier:0");
+        seLabel.setBounds(870,130,150,40);
+        seLabel.setFont(new Font("Rockwell",Font.BOLD,17));
+        add(seLabel);
+    }
 
     public static JLabel getStatusLabel() {return statusLabel;}
     public static JLabel getRedPointLabel() {return RedPointLabel;}
-    public static void setRedPointLabel(JLabel redPointLabel) {RedPointLabel = redPointLabel;}
     public static JLabel getBlackPointLabel() {return BlackPointLabel;}
-    public static void setBlackPointLabel(JLabel blackPointLabel) {BlackPointLabel = blackPointLabel;}
+
+    public static JLabel getAeLabel() {return AeLabel;}
+    public static JLabel getaeLabel() {return aeLabel;}
+    public static JLabel getPeLabel() {return PeLabel;}
+    public static JLabel getpeLabel() {return peLabel;}
+    public static JLabel getCeLabel() {return CeLabel;}
+    public static JLabel getceLabel() {return ceLabel;}
+    public static JLabel getGeLabel() {return GeLabel;}
+    public static JLabel getgeLabel() {return geLabel;}
+    public static JLabel getHeLabel() {return HeLabel;}
+    public static JLabel getheLabel() {return heLabel;}
+    public static JLabel getMeLabel() {return MeLabel;}
+    public static JLabel getmeLabel() {return meLabel;}
+    public static JLabel getSeLabel() {return SeLabel;}
+    public static JLabel getseLabel() {return seLabel;}
+
 
     /**
      * 在游戏窗体中增加一个按钮，如果按下的话就会显示Hello, world!
@@ -316,6 +438,13 @@ public class ChessGameFrame extends JFrame {//JFrame
         RestartButton.addActionListener((e -> {
 
             Data.clickNumber=0;
+            Data.Ae=0;Data.ae=0;Data.Pe=0;Data.pe=0;Data.Ce=0;Data.ce=0;Data.Ge=0;Data.ge=0;Data.He=0;Data.he=0;Data.Me=0;Data.me=0;
+            Data.Se=0;Data.se=0;
+            chessboard.clickController.changeAeLabel();chessboard.clickController.changeaeLabel();chessboard.clickController.changePeLabel();
+            chessboard.clickController.changepeLabel();chessboard.clickController.changeCeLabel();chessboard.clickController.changeceLabel();
+            chessboard.clickController.changeGeLabel();chessboard.clickController.changegeLabel();chessboard.clickController.changeHeLabel();
+            chessboard.clickController.changeheLabel();chessboard.clickController.changeMeLabel();chessboard.clickController.changemeLabel();
+            chessboard.clickController.changeSeLabel();chessboard.clickController.changeseLabel();
 
             SquareComponent[][] squareComponents=new SquareComponent[8][4];
             for (int i = 0; i < 8; i++) {

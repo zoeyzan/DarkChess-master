@@ -30,44 +30,11 @@ public class ClickController {
 
     public void onClick(SquareComponent squareComponent) {
         //判断第一次点击
-//        if (isCheating) {
-//            clickNumber = clickNumber+1;
-//            if(clickNumber==1){
-//                if(first.getChessColor().getColor()==Color.RED){
-//                    chessboard.setStartColor(ChessColor.RED);
-//                    chessboard.setCurrentColor(ChessColor.BLACK);
-//                    ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
-//                } else if (first.getChessColor().getColor()==Color.BLACK) {
-//                    chessboard.setStartColor(ChessColor.BLACK);
-//                    chessboard.setCurrentColor(ChessColor.RED);
-//                    ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
-//                }
-//            }
-//
-//            squareComponent.setReversal(true);
-////            System.out.println(squareComponent.isReversal);
-//            squareComponent.repaint();
-//        }
-//        if (!isCheating) {
             if (first == null) {
                 if (handleFirst(squareComponent)) {
                     squareComponent.setSelected(true);
                     first = squareComponent;
                     first.repaint();
-//                    Data.clickNumber = Data.clickNumber+1;
-//                    if(Data.clickNumber==1){
-//                        if(first.getChessColor().getColor()==Color.RED){
-//                            chessboard.setStartColor(ChessColor.RED);
-//                            chessboard.setCurrentColor(ChessColor.BLACK);
-//                            System.out.println("I'm in the RED if");
-//                            ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
-//                        } else if (first.getChessColor().getColor()==Color.BLACK) {
-//                            chessboard.setStartColor(ChessColor.BLACK);
-//                            chessboard.setCurrentColor(ChessColor.RED);
-//                            System.out.println("I'm in the Black if");
-//                            ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
-//                        }
-//                    }
                 }
             } else {
                 if (first == squareComponent) { // 再次点击取消选取
@@ -88,20 +55,149 @@ public class ClickController {
                             if (first.getChessColor().getColor() == Color.BLACK) {
                                 Data.RedPoint += ((ChessComponent) squareComponent).getPoints();
                                 chessboard.clickController.changeRedPoints();
+                                //找出被吃的棋子是什么棋子并且给被吃计数器加一；被吃的数据存在Data里面
+                                String Name = ((ChessComponent) squareComponent).getName();
+//                                String Name = first.getName();
+                                if(Name.equals("a")){
+                                    Data.ae = Data.ae+1;
+                                    chessboard.clickController.changeaeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("p")) {
+                                    Data.pe = Data.pe+1;
+                                    chessboard.clickController.changepeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("c")) {
+                                    Data.ce = Data.ce+1;
+                                    chessboard.clickController.changeceLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("g")) {
+                                    Data.ge=Data.ge+1;
+                                    chessboard.clickController.changegeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("h")) {
+                                    Data.he=Data.he+1;
+                                    chessboard.clickController.changeheLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("m")) {
+                                    Data.me=Data.me+1;
+                                    chessboard.clickController.changemeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("s")) {
+                                    Data.se=Data.se+1;
+                                    chessboard.clickController.changeseLabel();
+                                    System.out.println("I'm in!");
+                                }
                             }
                             if (first.getChessColor().getColor() == Color.RED) {
                                 Data.BlackPoint += ((ChessComponent) squareComponent).getPoints();
                                 chessboard.clickController.changeBlackPoints();
+                                String Name = ((ChessComponent) squareComponent).getName();
+//                                String Name = first.getName();
+                                if(Name.equals("A")){
+                                    Data.Ae = Data.Ae+1;
+                                    chessboard.clickController.changeAeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("P")) {
+                                    Data.Pe = Data.Pe+1;
+                                    chessboard.clickController.changePeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("C")) {
+                                    Data.Ce = Data.Ce+1;
+                                    chessboard.clickController.changeCeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("G")) {
+                                    Data.Ge=Data.Ge+1;
+                                    chessboard.clickController.changeGeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("H")) {
+                                    Data.He=Data.He+1;
+                                    chessboard.clickController.changeHeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("M")) {
+                                    Data.Me=Data.Me+1;
+                                    chessboard.clickController.changeMeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("S")) {
+                                    Data.Se=Data.Se+1;
+                                    chessboard.clickController.changeSeLabel();
+                                    System.out.println("I'm in!");
+                                }
+
                             }
                         }//写炮打到自己的没翻开的棋子
                         if(first.getChessColor()!=squareComponent.getChessColor()){
                             if (first.getChessColor().getColor() == Color.BLACK) {
                                 Data.BlackPoint += ((ChessComponent) squareComponent).getPoints();
                                 chessboard.clickController.changeBlackPoints();
+
+                                String Name = ((ChessComponent) squareComponent).getName();
+//                                String Name = first.getName();
+                                if(Name.equals("a")){
+                                    Data.ae = Data.ae+1;
+                                    chessboard.clickController.changeaeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("p")) {
+                                    Data.pe = Data.pe+1;
+                                    chessboard.clickController.changepeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("c")) {
+                                    Data.ce = Data.ce+1;
+                                    chessboard.clickController.changeceLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("g")) {
+                                    Data.ge=Data.ge+1;
+                                    chessboard.clickController.changegeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("h")) {
+                                    Data.he=Data.he+1;
+                                    chessboard.clickController.changeheLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("m")) {
+                                    Data.me=Data.me+1;
+                                    chessboard.clickController.changemeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("s")) {
+                                    Data.se=Data.se+1;
+                                    chessboard.clickController.changeseLabel();
+                                    System.out.println("I'm in!");
+                                }
                             }
                             if (first.getChessColor().getColor() == Color.RED) {
                                 Data.RedPoint += ((ChessComponent) squareComponent).getPoints();
                                 chessboard.clickController.changeRedPoints();
+
+                                String Name = ((ChessComponent) squareComponent).getName();
+//                                String Name = first.getName();
+                                if(Name.equals("A")){
+                                    Data.Ae = Data.Ae+1;
+                                    chessboard.clickController.changeAeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("P")) {
+                                    Data.Pe = Data.Pe+1;
+                                    chessboard.clickController.changePeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("C")) {
+                                    Data.Ce = Data.Ce+1;
+                                    chessboard.clickController.changeCeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("G")) {
+                                    Data.Ge=Data.Ge+1;
+                                    chessboard.clickController.changeGeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("H")) {
+                                    Data.He=Data.He+1;
+                                    chessboard.clickController.changeHeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("M")) {
+                                    Data.Me=Data.Me+1;
+                                    chessboard.clickController.changeMeLabel();
+                                    System.out.println("I'm in!");
+                                } else if (Name.equals("S")) {
+                                    Data.Se=Data.Se+1;
+                                    chessboard.clickController.changeSeLabel();
+                                    System.out.println("I'm in!");
+                                }
+
                             }
                         }
                     }
@@ -109,10 +205,76 @@ public class ClickController {
                         if (first.getChessColor().getColor() == Color.BLACK) {
                             Data.BlackPoint += ((ChessComponent) squareComponent).getPoints();
                             chessboard.clickController.changeBlackPoints();
+
+                            String Name = ((ChessComponent) squareComponent).getName();
+//                            String Name = first.getName();
+                            if(Name.equals("a")){
+                                Data.ae = Data.ae+1;
+                                chessboard.clickController.changeaeLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("p")) {
+                                Data.pe = Data.pe+1;
+                                chessboard.clickController.changepeLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("c")) {
+                                Data.ce = Data.ce+1;
+                                chessboard.clickController.changeceLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("g")) {
+                                Data.ge=Data.ge+1;
+                                chessboard.clickController.changegeLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("h")) {
+                                Data.he=Data.he+1;
+                                chessboard.clickController.changeheLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("m")) {
+                                Data.me=Data.me+1;
+                                chessboard.clickController.changemeLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("s")) {
+                                Data.se=Data.se+1;
+                                chessboard.clickController.changeseLabel();
+                                System.out.println("I'm in!");
+                            }
+
                         }
                         if (first.getChessColor().getColor() == Color.RED) {
                             Data.RedPoint += ((ChessComponent) squareComponent).getPoints();
                             chessboard.clickController.changeRedPoints();
+
+                            String Name = squareComponent.getName();
+//                            String Name = first.getName();
+                            if(Name.equals("A")){
+                                Data.Ae = Data.Ae+1;
+                                chessboard.clickController.changeAeLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("P")) {
+                                Data.Pe = Data.Pe+1;
+                                chessboard.clickController.changePeLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("C")) {
+                                Data.Ce = Data.Ce+1;
+                                chessboard.clickController.changeCeLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("G")) {
+                                Data.Ge=Data.Ge+1;
+                                chessboard.clickController.changeGeLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("H")) {
+                                Data.He=Data.He+1;
+                                chessboard.clickController.changeHeLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("M")) {
+                                Data.Me=Data.Me+1;
+                                chessboard.clickController.changeMeLabel();
+                                System.out.println("I'm in!");
+                            } else if (Name.equals("S")) {
+                                Data.Se=Data.Se+1;
+                                chessboard.clickController.changeSeLabel();
+                                System.out.println("I'm in!");
+                            }
+
                         }
                     }
                     first = null;
@@ -196,6 +358,49 @@ public class ClickController {
 
     public void changeBlackPoints() {
         ChessGameFrame.getBlackPointLabel().setText(String.format("Klavier Points:%d", Data.BlackPoint));
+    }
+
+    public void changeAeLabel(){
+        ChessGameFrame.getAeLabel().setText(String.format("Advisor:%d",Data.Ae));
+    }
+    public void changeaeLabel(){
+        ChessGameFrame.getaeLabel().setText(String.format("Advisor:%d",Data.ae));
+    }
+    public void changePeLabel(){
+        ChessGameFrame.getPeLabel().setText(String.format("Cannon:%d",Data.Pe));
+    }
+    public void changepeLabel(){
+        ChessGameFrame.getpeLabel().setText(String.format("Cannon:%d",Data.pe));
+    }
+    public void changeCeLabel(){
+        ChessGameFrame.getCeLabel().setText(String.format("Chariot:%d",Data.Ce));
+    }
+    public void changeceLabel(){
+        ChessGameFrame.getceLabel().setText(String.format("Chariot:%d",Data.ce));
+    }
+    public void changeGeLabel(){
+        ChessGameFrame.getGeLabel().setText(String.format("General:%d",Data.Ge));
+    }
+    public void changegeLabel(){
+        ChessGameFrame.getgeLabel().setText(String.format("General:%d",Data.ge));
+    }
+    public void changeHeLabel(){
+        ChessGameFrame.getHeLabel().setText(String.format("Horse:%d",Data.He));
+    }
+    public void changeheLabel(){
+        ChessGameFrame.getheLabel().setText(String.format("Horse:%d",Data.he));
+    }
+    public void changeMeLabel(){
+        ChessGameFrame.getMeLabel().setText(String.format("Minister:%d",Data.Me));
+    }
+    public void changemeLabel(){
+        ChessGameFrame.getmeLabel().setText(String.format("Minister:%d",Data.me));
+    }
+    public void changeSeLabel(){
+        ChessGameFrame.getSeLabel().setText(String.format("Soldier:%d",Data.Se));
+    }
+    public void changeseLabel(){
+        ChessGameFrame.getseLabel().setText(String.format("Soldier:%d",Data.se));
     }
 
 }
