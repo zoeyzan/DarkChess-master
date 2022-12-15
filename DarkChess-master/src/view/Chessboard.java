@@ -257,6 +257,11 @@ public class Chessboard extends JComponent {
                 loadChessBoard[i][j]=chessData.get(i).charAt(j);
             }
         }
+        if(chessData.get(8).equals("B")) setCurrentColor(ChessColor.BLACK);
+        if(chessData.get(8).equals("R")) setCurrentColor(ChessColor.RED);
+        for(int i=0;i<chessData.size()-9;i++){
+            step.add(chessData.get(i+9));
+        }
         System.out.println(Arrays.toString(loadChessBoard));
         chessData.forEach(System.out::println);//这两行只是看一下有没有导进去
         initialBoardByChar(loadChessBoard);

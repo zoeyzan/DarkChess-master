@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class GameController {
         }
         return null;
     }
+
     public void saveGame() throws IOException {
         String path;
         JFileChooser fileChooser = new JFileChooser();
