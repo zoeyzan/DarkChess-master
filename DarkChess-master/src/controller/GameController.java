@@ -112,9 +112,9 @@ public class GameController {
                 writer.write("\n");
             }
             if (chessboard.getCurrentColor() == ChessColor.RED) {
-                writer.write("r\n");
+                writer.write("R\n");
             } else {
-                writer.write("b\n");
+                writer.write("B\n");
             }
             for (int i = 0; i < chessboard.step.size(); i++) {
                 writer.write(String.format("%s\n", chessboard.step.get(i)));

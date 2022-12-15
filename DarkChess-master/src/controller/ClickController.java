@@ -35,6 +35,22 @@ public class ClickController {
                     squareComponent.setSelected(true);
                     first = squareComponent;
                     first.repaint();
+                    chessboard.step.add(String.format("%d%d%s",squareComponent.getChessboardPoint().getX(),squareComponent.getChessboardPoint().getY(),squareComponent.getName()));
+//                    Data.clickNumber = Data.clickNumber+1;
+//                    if(Data.clickNumber==1){
+//                        if(first.getChessColor().getColor()==Color.RED){
+//                            chessboard.setStartColor(ChessColor.RED);
+//                            chessboard.setCurrentColor(ChessColor.BLACK);
+//                            System.out.println("I'm in the RED if");
+//                            ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
+//                        } else if (first.getChessColor().getColor()==Color.BLACK) {
+//                            chessboard.setStartColor(ChessColor.BLACK);
+//                            chessboard.setCurrentColor(ChessColor.RED);
+//                            System.out.println("I'm in the Black if");
+//                            ChessGameFrame.getStatusLabel().setText(String.format("%s's TURN", chessboard.getCurrentColor().getName()));
+//                        }
+//                    }
+
                 }
             } else {
                 if (first == squareComponent) { // 再次点击取消选取
