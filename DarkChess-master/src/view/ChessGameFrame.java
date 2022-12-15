@@ -263,86 +263,92 @@ public class ChessGameFrame extends JFrame {//JFrame
         add(BlackPointLabel);
     }
     //~~~~~~~~~~~~~~~~~
+
+    /**
+     * 注意！因为小王吃掉的棋子跑到小王这边去了，被吃的棋子显示反了
+     * 所以我把他两标签调换了！！！！！
+     * 加图的时候记得反着加！！！小王的label要加黑色的棋子！！
+     */
     private void addAeLabel(){
         AeLabel = new JLabel("Advisor:0");
-        AeLabel.setBounds(10,10,150,40);
+        AeLabel.setBounds(870,10,150,40);
         AeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(AeLabel);
     }
 
     private void addPeLabel(){
         PeLabel = new JLabel("Cannon:0");
-        PeLabel.setBounds(10,30,150,40);
+        PeLabel.setBounds(870,30,150,40);
         PeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(PeLabel);
     }
     private void addCeLabel(){
         CeLabel = new JLabel("Chariot:0");
-        CeLabel.setBounds(10,50,150,40);
+        CeLabel.setBounds(870,50,150,40);
         CeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(CeLabel);
     }
     private void addGeLabel(){
         GeLabel = new JLabel("General:0");
-        GeLabel.setBounds(10,70,150,40);
+        GeLabel.setBounds(870,70,150,40);
         GeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(GeLabel);
     }private void addHeLabel(){
         HeLabel = new JLabel("Chariot:0");
-        HeLabel.setBounds(10,90,150,40);
+        HeLabel.setBounds(870,90,150,40);
         HeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(HeLabel);
     }
     private void addMeLabel(){
         MeLabel = new JLabel("Minister:0");
-        MeLabel.setBounds(10,110,150,40);
+        MeLabel.setBounds(870,110,150,40);
         MeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(MeLabel);
     }
     private void addSeLabel(){
         SeLabel = new JLabel("Soldier:0");
-        SeLabel.setBounds(10,130,150,40);
+        SeLabel.setBounds(870,130,150,40);
         SeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(SeLabel);
     }
     private void addaeLabel(){
         aeLabel = new JLabel("Advisor:0");
-        aeLabel.setBounds(870,10,150,40);
+        aeLabel.setBounds(10,10,150,40);
         aeLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(aeLabel);
     }
     private void addpeLabel(){
         peLabel = new JLabel("Cannon:0");
-        peLabel.setBounds(870,30,150,40);
+        peLabel.setBounds(10,30,150,40);
         peLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(peLabel);
     }
     private void addceLabel(){
         ceLabel = new JLabel("Chariot:0");
-        ceLabel.setBounds(870,50,150,40);
+        ceLabel.setBounds(10,50,150,40);
         ceLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(ceLabel);
     }
     private void addgeLabel(){
         geLabel = new JLabel("General:0");
-        geLabel.setBounds(870,70,150,40);
+        geLabel.setBounds(10,70,150,40);
         geLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(geLabel);
     }private void addheLabel(){
         heLabel = new JLabel("Chariot:0");
-        heLabel.setBounds(870,90,150,40);
+        heLabel.setBounds(10,90,150,40);
         heLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(heLabel);
     }
     private void addmeLabel(){
         meLabel = new JLabel("Minister:0");
-        meLabel.setBounds(870,110,150,40);
+        meLabel.setBounds(10,110,150,40);
         meLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(meLabel);
     }
     private void addseLabel(){
         seLabel = new JLabel("Soldier:0");
-        seLabel.setBounds(870,130,150,40);
+        seLabel.setBounds(10,130,150,40);
         seLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(seLabel);
     }
