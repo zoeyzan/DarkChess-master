@@ -54,6 +54,7 @@ public class ClickController {
                     squareComponent.setSelected(true);
                     first = squareComponent;
                     first.repaint();
+                    chessboard.step.add(String.format("%d%d%s",squareComponent.getChessboardPoint().getX(),squareComponent.getChessboardPoint().getY(),squareComponent.getName()));
 //                    Data.clickNumber = Data.clickNumber+1;
 //                    if(Data.clickNumber==1){
 //                        if(first.getChessColor().getColor()==Color.RED){
