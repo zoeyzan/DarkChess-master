@@ -266,47 +266,6 @@ public class Chessboard extends JComponent {
         chessData.forEach(System.out::println);//这两行只是看一下有没有导进去
         initialBoardByChar(loadChessBoard);
     }
-//    public void saveGame(){
-//        saveBoardInChar(squareComponents);
-//    }
-//     public void saveBoardInChar(SquareComponent[][] squareComponents){
-//        char[][] saveChessBoard=new char[9][4];
-//         for (int i = 0; i < squareComponents.length-1; i++) {
-//             for (int j = 0; j < squareComponents[i].length; j++) {
-//                 if(squareComponents[i][j] instanceof CannonChessComponent){
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='p';
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='P';
-//                 }
-//                 if(squareComponents[i][j] instanceof ChariotChessComponent){
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='c';
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='C';
-//                 }
-//                 if(squareComponents[i][j] instanceof SoldierChessComponent){
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='s';
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='S';
-//                 }
-//                 if(squareComponents[i][j] instanceof GeneralChessComponent){
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='g';
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='G';
-//                 }
-//                 if(squareComponents[i][j] instanceof AdvisorChessComponent){
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='a';
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='A';
-//                 }
-//                 if(squareComponents[i][j] instanceof MinisterChessComponent){
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='m';
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='M';
-//                 }
-//                 if(squareComponents[i][j] instanceof HorseChessComponent){
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.RED) saveChessBoard[i][j]='h';
-//                     if(squareComponents[i][j].getChessColor()==ChessColor.BLACK) saveChessBoard[i][j]='H';
-//                 }
-//             }
-//         }
-//         if(getCurrentColor().equals(ChessColor.BLACK)) saveChessBoard[8][0]='B';
-//         if(getCurrentColor().equals(ChessColor.RED)) saveChessBoard[8][0]='R';
-//         //储存当前的行棋方
-//     }
     public void chooseWinner(int RedPoint,int BlackPoint){
         if(RedPoint>=60) win=1;
         if(BlackPoint>=60) win=2;

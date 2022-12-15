@@ -2,9 +2,11 @@ package controller;
 
 import chessComponent.*;
 import model.ChessColor;
+import model.ChessboardPoint;
 import view.Chessboard;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -31,16 +33,134 @@ public class GameController {
     public GameController(Chessboard chessboard) {
         this.chessboard = chessboard;
     }
+    private Point calculatePoint(int row, int col) {
+        return new Point(col * chessboard.getCHESS_SIZE() + 3, row * chessboard.getCHESS_SIZE() + 3);
+    }
 
-    public List<String> loadGameFromFile(String path) {
+    public void loadGameFromFile(String path) {
         try {
-            List<String> chessData = Files.readAllLines(Path.of(path));
-            chessboard.loadGame(chessData);
-            return chessData;
+            List<String> chessData = Files.readAllLines(Paths.get(path));
+//            restart();
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 4; j++) {
+                    SquareComponent squareComponent = switch (chessData.get(i).charAt(j)) {
+                        case 'c' ->
+                                new ChariotChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'C' ->
+                                new ChariotChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 's' ->
+                                new SoldierChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'S' ->
+                                new SoldierChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'p' ->
+                                new CannonChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'P' ->
+                                new CannonChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'h' ->
+                                new HorseChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'H' ->
+                                new HorseChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'a' ->
+                                new AdvisorChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'A' ->
+                                new AdvisorChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'g' ->
+                                new GeneralChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'G' ->
+                                new GeneralChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'm' ->
+                                new MinisterChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case 'M' ->
+                                new MinisterChessComponent(new ChessboardPoint(i, j), calculatePoint(i, j), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                        case '_' ->
+                                new EmptySlotComponent(new ChessboardPoint(i,j),calculatePoint(i,j),chessboard.clickController,chessboard.getCHESS_SIZE());
+                        default -> null;
+                    };
+                }
+            }
+            /*
+              这一部分是按照存档来行棋，但是还没写好，可能会注释掉
+             */
+            for (int i = 0; i < chessData.size() - 9; i++) {
+                SquareComponent chess1 = getChessboard().getChessComponents()[chessData.get(i + 9).charAt(0)][chessData.get(i + 9).charAt(1) - 48];
+                SquareComponent chess2 = getChessboard().getChessComponents()[chessData.get(i + 9).charAt(2) - 48][chessData.get(i + 9).charAt(3) - 48];
+                if (chessData.get(i + 9).charAt(4) == 'C') {
+                    chessboard.remove(chess1);
+                    chess1 = new ChariotChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+                if (chessData.get(i + 9).charAt(4) == 'c') {
+                    chessboard.remove(chess1);
+                    chess1 = new ChariotChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+                if (chessData.get(i + 9).charAt(4) == 'S') {
+                    chessboard.remove(chess1);
+                    chess1 = new SoldierChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+                if (chessData.get(i + 9).charAt(4) == 's') {
+                    chessboard.remove(chess1);
+                    chess1 = new SoldierChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+                if (chessData.get(i + 9).charAt(4) == 'G') {
+                    chessboard.remove(chess1);
+                    chess1 = new GeneralChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+                if (chessData.get(i + 9).charAt(4) == 'g') {
+                    chessboard.remove(chess1);
+                    chess1 = new GeneralChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+                if (chessData.get(i + 9).charAt(4) == 'A') {
+                    chessboard.remove(chess1);
+                    chess1 = new AdvisorChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+                if (chessData.get(i + 9).charAt(4) == 'a') {
+                    chessboard.remove(chess1);
+                    chess1 = new AdvisorChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+                if (chessData.get(i + 9).charAt(4) == 'P') {
+                    chessboard.remove(chess1);
+                    chess1 = new CannonChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+                if (chessData.get(i + 9).charAt(4) == 'p') {
+                    chessboard.remove(chess1);
+                    chess1 = new CannonChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+                if (chessData.get(i + 9).charAt(4) == 'M') {
+                    chessboard.remove(chess1);
+                    chess1 = new MinisterChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+                if (chessData.get(i + 9).charAt(4) == 'm') {
+                    chessboard.remove(chess1);
+                    chess1 = new MinisterChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.RED, chessboard.clickController, chessboard.getCHESS_SIZE());
+                    chessboard.add(chess1);
+                }
+
+                chess1.repaint();
+                chess2.repaint();
+                chessboard.swapChessComponents(chess1, chess2);
+                chessboard.clickController.swapPlayer();
+            }
+            if (chessData.get(8).equals("B")) {
+                chessboard.setCurrentColor(ChessColor.BLACK);
+            } else if (chessData.get(8).equals("R")) {
+                chessboard.setCurrentColor(ChessColor.RED);
+            }
+            for(int i=0;i<chessData.size()-9;i++){
+                chessboard.step.add(chessData.get(i+9));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
     }
 
     public void saveGame() throws IOException {

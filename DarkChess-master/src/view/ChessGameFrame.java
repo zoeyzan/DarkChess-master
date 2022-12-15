@@ -461,14 +461,6 @@ public class ChessGameFrame extends JFrame {//JFrame
                     SquareComponent.isCheating=false;
                 }
             }
-//            chessboard.clearChessComponents();
-//            if(chessboard.getStartColor()==ChessColor.RED){
-//                chessboard.setCurrentColor(ChessColor.RED);
-//                statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
-//            } else if (chessboard.getStartColor()==ChessColor.BLACK) {
-//                chessboard.setCurrentColor(ChessColor.BLACK);
-//                statusLabel.setText(String.format("%s'sTURN",chessboard.getCurrentColor().getName()));
-//            }
 
             Data.RedPoint=0;
             chessboard.clickController.changeRedPoints();
