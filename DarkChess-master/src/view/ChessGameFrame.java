@@ -359,7 +359,7 @@ public class ChessGameFrame extends JFrame {//JFrame
 
     private void addSaveButton(){
         JButton SaveButton = new JButton("Save");
-        SaveButton.setBounds(140,450,100,60);
+        SaveButton.setBounds(140,460,100,60);
         SaveButton.setFont(new Font("Rockwell",Font.BOLD,20));
         SaveButton.setBackground(Color.LIGHT_GRAY);
         add(SaveButton);
