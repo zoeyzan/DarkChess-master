@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -543,8 +544,22 @@ public class ChessGameFrame extends JFrame {//JFrame
                                 JOptionPane.showConfirmDialog(null, "错误代码:104", "提示", JOptionPane.DEFAULT_OPTION);
                                 return;
                             }
-
-                        } catch (IOException ex) {
+                            List<String> step=new ArrayList<>();
+                            for (int i = 0; i < chessData.size()-17; i++) {
+                                step.add(chessData.get(i+17));//把所有的步骤存下来
+                            }
+                            for (int i = 0; i < step.size(); i++) {
+                                if (step.get(i).length() == 4) {
+                                    int row1 = step.get(i).charAt(0), row2 = step.get(i).charAt(2);
+                                    int col1 = step.get(i).charAt(1), col2 = step.get(i).charAt(3);
+                                    if (!chessData.get(8).equals("B") && !chessData.get(8).equals("R")) {
+                                        JOptionPane.showConfirmDialog(null, "错误代码:105", "提示", JOptionPane.DEFAULT_OPTION);
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                            catch (IOException ex) {
                             ex.printStackTrace();
                         }
                         gameController.loadGameFromFile(path);
