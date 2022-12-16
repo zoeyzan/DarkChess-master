@@ -73,16 +73,16 @@ public class ChessGameFrame extends JFrame {//JFrame
         btnR.addActionListener((e -> {
             pan.removeAll();
             addChessboard();
-            chessboard.setCurrentColor(ChessColor.RED);
-            chessboard.setStartColor(ChessColor.RED);
+//            chessboard.setCurrentColor(ChessColor.RED);
+//            chessboard.setStartColor(ChessColor.RED);
             ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
             JLabel label1=new JLabel(bg1);
             label1.setSize(bg1.getIconWidth(),bg1.getIconHeight());
             getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
             number = number+1;
             setLayout(null);
-
-            addLabel();
+            addSaveButton();
+            addLabel();addAeLabel();addPeLabel();addCeLabel();addGeLabel();addHeLabel();addMeLabel();addSeLabel();addaeLabel();addpeLabel();addceLabel();addgeLabel();addheLabel();addmeLabel();addseLabel();
             addRedPointLabel();
             addBlackPointLabel();
             addLoadButton();
@@ -102,8 +102,8 @@ public class ChessGameFrame extends JFrame {//JFrame
             getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
             number = number+1;
             setLayout(null);
-
-            addLabel();
+            addSaveButton();
+            addLabel();addAeLabel();addPeLabel();addCeLabel();addGeLabel();addHeLabel();addMeLabel();addSeLabel();addaeLabel();addpeLabel();addceLabel();addgeLabel();addheLabel();addmeLabel();addseLabel();
             addRedPointLabel();
             addBlackPointLabel();
             addLoadButton();
