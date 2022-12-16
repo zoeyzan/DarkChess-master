@@ -543,6 +543,7 @@ public class ChessGameFrame extends JFrame {//JFrame
                                 JOptionPane.showConfirmDialog(null, "错误代码:104", "提示", JOptionPane.DEFAULT_OPTION);
                                 return;
                             }
+
                         } catch (IOException ex) {
                             ex.printStackTrace();
                         }

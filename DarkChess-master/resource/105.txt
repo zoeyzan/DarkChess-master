@@ -15,6 +15,6 @@ Mhsc
 CcsA
 ShSS
 aSpP
-73P
-53A
-7353P
+73
+53
+7353

@@ -94,8 +94,9 @@ public class GameController {
               这一部分是按照存档来行棋，但是还没写好，可能会注释掉
              */
             for (int i = 0; i < chessData.size() - 17; i++) {
-                SquareComponent chess1 = getChessboard().getChessComponents()[chessData.get(i + 17).charAt(0)][chessData.get(i + 17).charAt(1) - 48];
-                SquareComponent chess2 = getChessboard().getChessComponents()[chessData.get(i + 17).charAt(2) - 48][chessData.get(i + 17).charAt(3) - 48];
+//                SquareComponent chess1=chessboard.getChessC;
+                SquareComponent chess1 = getChessboard().getChessComponents()[chessData.get(i + 17).charAt(0)- chessboard.getCHESS_SIZE()][chessData.get(i + 17).charAt(1) - chessboard.getCHESS_SIZE()];
+                SquareComponent chess2 = getChessboard().getChessComponents()[chessData.get(i + 17).charAt(2) - chessboard.getCHESS_SIZE()][chessData.get(i + 17).charAt(3) - chessboard.getCHESS_SIZE()];
                 if (chessData.get(i + 17).charAt(4) == 'C') {
                     chessboard.remove(chess1);
                     chess1 = new ChariotChessComponent(chess1.getChessboardPoint(), chess1.getLocation(), ChessColor.BLACK, chessboard.clickController, chessboard.getCHESS_SIZE());
