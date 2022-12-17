@@ -33,7 +33,7 @@ public class DialogRed extends JDialog {
         pan.setLayout(null);
         //3.之后把组件和面板添加到窗口面板就可以；
         JButton restartbtn=new JButton("restart");
-        restartbtn.setBounds(50,50,80,50);
+        restartbtn.setBounds(100,100,80,50);
         restartbtn.setVisible(true);
 
         setTitle("Congratulations to Apollo!");
@@ -41,8 +41,8 @@ public class DialogRed extends JDialog {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        getLayeredPane().add(restartbtn);//1
-        pan.add(restartbtn);//4
+        getLayeredPane().add(restartbtn);//1,试过了行不通
+        pan.add(restartbtn);//4，试过了行不通
         restartbtn.addActionListener((e -> {
             //语句和ChessGameFrame里面的restart是一样的
             Data.clickNumber=0;
@@ -80,7 +80,7 @@ public class DialogRed extends JDialog {
             number = number+1;
             this.dispose();
         }));
-        pan.add(restartbtn);//2
+        pan.add(restartbtn);//2，行不通
         getLayeredPane().add(restartbtn);//3
     }
 }

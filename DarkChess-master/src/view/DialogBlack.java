@@ -41,7 +41,7 @@ public class DialogBlack extends JDialog {
 //        congratulation.setBounds(10,10,100,50);
 //        pan.add(congratulation);
         JButton restartbtn=new JButton("restart");
-        restartbtn.setBounds(30,20,80,50);
+        restartbtn.setBounds(100,100,80,50);
         restartbtn.setVisible(true);
         getLayeredPane().add(restartbtn);//1
         pan.add(restartbtn);//4
