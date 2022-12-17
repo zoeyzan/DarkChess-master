@@ -11,7 +11,10 @@ import chessComponent.EmptySlotComponent;
 import model.ChessColor;
 import view.ChessGameFrame;
 import view.Chessboard;
+import view.DialogBlack;
+import view.DialogRed;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class ClickController {
@@ -303,8 +306,15 @@ public class ClickController {
             }
         System.out.println(Data.RedPoint);
         System.out.println(Data.BlackPoint);
-        if (Data.BlackPoint >= 60) System.out.println("Black win!");//todo:写一个方法让游戏结束【弹窗】
-        if (Data.RedPoint >= 60) System.out.printf("Red win!");
+        if (Data.BlackPoint >= 60) {
+            System.out.println("Black win!");
+            new DialogBlack();
+        }//todo:写一个方法让游戏结束【弹窗】
+        if (Data.RedPoint >= 60){
+            System.out.printf("Red win!");
+            new DialogRed();
+        }
+
     }
 
 

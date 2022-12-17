@@ -440,7 +440,7 @@ public class ChessGameFrame extends JFrame {//JFrame
             return true;
         }else return false;
     }
-    private void addRestartButton(){
+    public void addRestartButton(){
         JButton RestartButton = new JButton("Restart");
         RestartButton.addActionListener((e -> {
 
@@ -576,4 +576,11 @@ public class ChessGameFrame extends JFrame {//JFrame
 
     }
 
+    public Chessboard getChessboard() {
+        return chessboard;
+    }
+
+    public static int getNumber() {
+        return number;
+    }
 }

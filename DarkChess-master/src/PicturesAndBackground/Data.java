@@ -1,4 +1,6 @@
 package PicturesAndBackground;
+import view.ChessGameFrame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
@@ -6,6 +8,7 @@ import java.util.ArrayList;
 
 public class Data {
 
+    public static ChessGameFrame gameFrame ;
     public static int clickNumber = 0;
     //以下是被吃子的数据存储地方
     public static int Ae = 0;//Advisor,红小黑大
