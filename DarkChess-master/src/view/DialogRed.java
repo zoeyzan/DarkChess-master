@@ -5,6 +5,7 @@ import model.ChessColor;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
 
 import static view.ChessGameFrame.number;
 
@@ -15,26 +16,33 @@ public class DialogRed extends JDialog {
 
     public DialogRed(){
         this.setVisible(true);
-        this.setBounds(400,200,400,200);
-        this.setModal(true);
+//        this.setBounds(400,200,400,200);
+        this.setModal(false);
 //        Container container = this.getContentPane();
 //        container.setLayout(null);
         //如果仿照frame里面的写法，甚至可以在弹窗里面加图片，，
         //1.把图片添加到标签里（把标签的大小设为和图片大小相同），把标签放在分层面板的最底层；
-
+        URL ApolloWinsURL = Data.class.getResource("Pictures/ApolloWins.png");
+        ImageIcon ApolloWins = new ImageIcon(ApolloWinsURL);
+        JLabel ApolloWinsLabel = new JLabel(ApolloWins);
+        ApolloWinsLabel.setSize(ApolloWins.getIconWidth(),ApolloWins.getIconHeight());
+        getLayeredPane().add(ApolloWinsLabel,new Integer(Integer.MIN_VALUE));
         //2.把窗口面板设为内容面板并设为透明、流动布局。
         pan = (JPanel)getContentPane();
         pan.setOpaque(false);
         pan.setLayout(null);
         //3.之后把组件和面板添加到窗口面板就可以；
-        setTitle("Congratulations to Apollo!");
-        JLabel congratulation = new JLabel("HerrForehead I Love You!\n            ----Klavier");
-        congratulation.setFont(new Font("Rockwell",Font.BOLD,20));
-        congratulation.setBounds(10,10,100,50);
-        pan.add(congratulation);
         JButton restartbtn=new JButton("restart");
-        restartbtn.setBounds(50,100,80,50);
+        restartbtn.setBounds(50,50,80,50);
         restartbtn.setVisible(true);
+
+        setTitle("Congratulations to Apollo!");
+        this.setBounds(400,200,ApolloWins.getIconWidth(),ApolloWins.getIconHeight());
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        getLayeredPane().add(restartbtn);//1
+        pan.add(restartbtn);//4
         restartbtn.addActionListener((e -> {
             //语句和ChessGameFrame里面的restart是一样的
             Data.clickNumber=0;
@@ -72,6 +80,7 @@ public class DialogRed extends JDialog {
             number = number+1;
             this.dispose();
         }));
-        pan.add(restartbtn);
+        pan.add(restartbtn);//2
+        getLayeredPane().add(restartbtn);//3
     }
 }

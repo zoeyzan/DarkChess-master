@@ -71,48 +71,29 @@ public class ChessGameFrame extends JFrame {//JFrame
         btnR.setBounds(230,435,128,117);
         btnB.setBounds(660,435,95,124);
         btnR.addActionListener((e -> {
-            pan.removeAll();
-            addChessboard();
-//            chessboard.setCurrentColor(ChessColor.RED);
-//            chessboard.setStartColor(ChessColor.RED);
+            pan.removeAll();addChessboard();
             ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
             JLabel label1=new JLabel(bg1);
             label1.setSize(bg1.getIconWidth(),bg1.getIconHeight());
-            getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
-            number = number+1;
+            getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));number = number+1;
             setLayout(null);
             addSaveButton();
             addLabel();addAeLabel();addPeLabel();addCeLabel();addGeLabel();addHeLabel();addMeLabel();addSeLabel();addaeLabel();addpeLabel();addceLabel();addgeLabel();addheLabel();addmeLabel();addseLabel();
-            addRedPointLabel();
-            addBlackPointLabel();
-            addLoadButton();
-            addCheatButton();
-            addRestartButton();
+            addRedPointLabel();addBlackPointLabel();addLoadButton();addCheatButton();addRestartButton();
             getLayeredPane().repaint();
         }));
 
         btnB.addActionListener((e -> {
-            pan.removeAll();
-            addChessboard();
-            chessboard.setCurrentColor(ChessColor.BLACK);
-            chessboard.setStartColor(ChessColor.BLACK);
+            pan.removeAll();addChessboard();
             ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
             JLabel label1=new JLabel(bg1);
             label1.setSize(bg1.getIconWidth(),bg1.getIconHeight());
-            getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
-            number = number+1;
-            setLayout(null);
-            addSaveButton();
+            getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));number = number+1;
+            setLayout(null);addSaveButton();
             addLabel();addAeLabel();addPeLabel();addCeLabel();addGeLabel();addHeLabel();addMeLabel();addSeLabel();addaeLabel();addpeLabel();addceLabel();addgeLabel();addheLabel();addmeLabel();addseLabel();
-            addRedPointLabel();
-            addBlackPointLabel();
-            addLoadButton();
-            addCheatButton();
-            addRestartButton();
+            addRedPointLabel();addBlackPointLabel();addLoadButton();addCheatButton();addRestartButton();
             getLayeredPane().repaint();
         }));
-
-
 
 //      URL buttonURL = Data.class.getResource("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\button.jpg");
         URL buttonURL = Data.class.getResource("Pictures/button.jpg");
@@ -136,8 +117,6 @@ public class ChessGameFrame extends JFrame {//JFrame
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-
-
 //        setTitle("2022 CS109 Project Demo"); //设置标题
         setTitle("Ace Attorney: Dark Chess Apollo vs Klavier");
         this.WIDTH = width;
