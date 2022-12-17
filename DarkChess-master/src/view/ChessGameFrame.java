@@ -523,7 +523,6 @@ public class ChessGameFrame extends JFrame {//JFrame
                     if (part[part.length - 1].equals("txt")) {
                         try {
                             List<String> chessData = Files.readAllLines(Paths.get(path));
-                            gameController.loadGameFromFile(path);
                             for (int i = 0; i < 8; i++) {
                                 if (chessData.get(i).length() != 4) {
                                     JOptionPane.showConfirmDialog(null, "错误代码:102", "提示", JOptionPane.DEFAULT_OPTION);
@@ -545,20 +544,11 @@ public class ChessGameFrame extends JFrame {//JFrame
                                 JOptionPane.showConfirmDialog(null, "错误代码:104", "提示", JOptionPane.DEFAULT_OPTION);
                                 return;
                             }
-                            List<String> step=new ArrayList<>();
-                            for (int i = 0; i < chessData.size()-17; i++) {
-                                step.add(chessData.get(i+17));//把所有的步骤存下来
+                            if(chessData.size()>10) {
+                                JOptionPane.showConfirmDialog(null, "错误代码:105", "提示", JOptionPane.DEFAULT_OPTION);
+                                return;
                             }
-                            for (int i = 0; i < step.size(); i++) {
-                                if (step.get(i).length() == 4) {
-                                    SquareComponent chess1=chessboard.getChessComponents()[step.get(i).charAt(0)][step.get(i).charAt(1)];
-                                    SquareComponent chess2=chessboard.getChessComponents()[step.get(i).charAt(2)][step.get(i).charAt(3)];
-                                    if(chess1.canMoveTo(chessboard.squareComponents,chess2.getChessboardPoint())){
-                                        JOptionPane.showConfirmDialog(null, "错误代码:105", "提示", JOptionPane.DEFAULT_OPTION);
-                                        return;
-                                    }
-                                }
-                            }
+
                         }
                             catch (IOException ex) {
                             ex.printStackTrace();
