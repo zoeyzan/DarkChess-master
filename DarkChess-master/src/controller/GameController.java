@@ -25,6 +25,7 @@ import java.util.List;
  */
 public class GameController {
     private Chessboard chessboard;
+    private Chessboard originchessboard;
 
     public Chessboard getChessboard() {
         return chessboard;
@@ -146,6 +147,9 @@ public class GameController {
                 if(chessData.get(i+17).length()==2){
                     chess1.setReversal(true);
                 }
+                /*
+
+                 */
                 if(chessData.get(i+17).length()==4) {
 
 

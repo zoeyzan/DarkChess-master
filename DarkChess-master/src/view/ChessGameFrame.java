@@ -507,7 +507,6 @@ public class ChessGameFrame extends JFrame {//JFrame
         button.setFont(new Font("Rockwell", Font.BOLD, 20));
         button.setBackground(Color.LIGHT_GRAY);
         add(button);
-// TODO:  105行棋步骤的存储
         button.addActionListener(e -> {
             System.out.println("Click load");
             String path = JOptionPane.showInputDialog(this, "Input Path here");
@@ -524,6 +523,7 @@ public class ChessGameFrame extends JFrame {//JFrame
                     if (part[part.length - 1].equals("txt")) {
                         try {
                             List<String> chessData = Files.readAllLines(Paths.get(path));
+                            gameController.loadGameFromFile(path);
                             for (int i = 0; i < 8; i++) {
                                 if (chessData.get(i).length() != 4) {
                                     JOptionPane.showConfirmDialog(null, "错误代码:102", "提示", JOptionPane.DEFAULT_OPTION);
@@ -532,8 +532,9 @@ public class ChessGameFrame extends JFrame {//JFrame
                                     //103
                                     for (int j = 0; j < 4; j++) {
                                         char chess = chessData.get(i).charAt(j);
+
                                         if (chess != 'c' && chess != 'C' && chess != 'P' && chess != 'p' && chess != 'M' &&
-                                                chess != 'm' && chess != 'A' && chess != 'a' && chess != 'g' && chess != 'G' && chess != 'h' && chess != 'H' && chess != 'k') {
+                                                chess != 'm' && chess != 'A' && chess != 'a' && chess != 'g' && chess != 'G' && chess != 'h' && chess != 'H' && chess != 's'&&chess!='S'&&chess!='_') {
                                             JOptionPane.showConfirmDialog(null, "错误代码:103", "提示", JOptionPane.DEFAULT_OPTION);
                                             return;
                                         }
@@ -550,9 +551,9 @@ public class ChessGameFrame extends JFrame {//JFrame
                             }
                             for (int i = 0; i < step.size(); i++) {
                                 if (step.get(i).length() == 4) {
-                                    int row1 = step.get(i).charAt(0), row2 = step.get(i).charAt(2);
-                                    int col1 = step.get(i).charAt(1), col2 = step.get(i).charAt(3);
-                                    if (!chessData.get(8).equals("B") && !chessData.get(8).equals("R")) {
+                                    SquareComponent chess1=chessboard.getChessComponents()[step.get(i).charAt(0)][step.get(i).charAt(1)];
+                                    SquareComponent chess2=chessboard.getChessComponents()[step.get(i).charAt(2)][step.get(i).charAt(3)];
+                                    if(chess1.canMoveTo(chessboard.squareComponents,chess2.getChessboardPoint())){
                                         JOptionPane.showConfirmDialog(null, "错误代码:105", "提示", JOptionPane.DEFAULT_OPTION);
                                         return;
                                     }
