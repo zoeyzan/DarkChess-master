@@ -473,6 +473,7 @@ public class ChessGameFrame extends JFrame {//JFrame
 //            getLayeredPane().removeAll();
             getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
             number = number+1;
+            chessboard.clickController.pursuing=false;
             SwingUtilities.invokeLater(() -> {
                 //看看行不行
                 Data.bgm.run=false;

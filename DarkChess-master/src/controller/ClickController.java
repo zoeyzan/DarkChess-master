@@ -21,6 +21,7 @@ import java.awt.*;
 public class ClickController {
     private final Chessboard chessboard;
     private SquareComponent first;
+    public boolean pursuing = false;
 //    public int clickNumber = 0;
 
 //    SoundPool yl= new SoundPool(Data.yl1);
@@ -521,6 +522,17 @@ public class ClickController {
             }
         System.out.println(Data.RedPoint);
         System.out.println(Data.BlackPoint);
+        if((Data.BlackPoint>=45&&Data.BlackPoint<60)||(Data.RedPoint>=45&&Data.RedPoint<60)){
+            if(pursuing==false){
+                pursuing=true;
+                Data.bgm.run=false;
+                AudioPlay.audioPlay gaming = new AudioPlay.audioPlay(Data.Pursue);
+                Data.bgm=gaming;
+                gaming.run=true;
+                gaming.start();
+            }
+            
+        }
         if (Data.BlackPoint >= 60) {
             System.out.println("Black win!");
 
