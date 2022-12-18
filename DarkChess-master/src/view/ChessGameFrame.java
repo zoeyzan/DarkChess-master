@@ -1,6 +1,7 @@
 package view;
 
 
+import PicturesAndBackground.AudioPlay;
 import PicturesAndBackground.Data;
 import chessComponent.ChessComponent;
 import chessComponent.SquareComponent;
@@ -127,7 +128,12 @@ public class ChessGameFrame extends JFrame {//JFrame
         setLocationRelativeTo(null); // Center the window.
 //        getContentPane().setBackground(Color.WHITE);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //设置程序关闭按键，如果点击右上方的叉就游戏全部关闭了
-
+//        AudioPlay.audioPlay court = new AudioPlay.audioPlay(Data.courtPath1);
+//        court.run = true;
+//        court.start();
+        /**
+         * 可以放音乐但因为用的是一个线程所以java卡死了，出来了音乐但是出不来图和所有的组件
+         */
     }
     public boolean RedStart(){
         if(chessboard.getStartColor()==ChessColor.RED){
@@ -171,31 +177,16 @@ public class ChessGameFrame extends JFrame {//JFrame
 //                chessboard.setStartColor(ChessColor.BLACK);
 //            }
             chessboard.setCurrentColor(ChessColor.NONE);
-            addLabel();
-            addRedPointLabel();
-            addBlackPointLabel();
-
-            addAeLabel();
-            addPeLabel();
-            addCeLabel();
-            addGeLabel();
-            addHeLabel();
-            addMeLabel();
-            addSeLabel();
-            addaeLabel();
-            addpeLabel();
-            addceLabel();
-            addgeLabel();
-            addheLabel();
-            addmeLabel();
-            addseLabel();
+            addLabel();addRedPointLabel();addBlackPointLabel();
+            addAeLabel();addPeLabel();addCeLabel();addGeLabel();addHeLabel();addMeLabel();addSeLabel();addaeLabel();addpeLabel();addceLabel();
+            addgeLabel();addheLabel();addmeLabel();addseLabel();
 //            addHelloButton();
-            addLoadButton();
-            addSaveButton();
-            addCheatButton();
-            addRestartButton();
+            addLoadButton();addSaveButton();
+            addCheatButton();addRestartButton();
             getLayeredPane().repaint();
             Data.clickNumber = 0;
+
+
         }
     }
 

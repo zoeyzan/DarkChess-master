@@ -82,5 +82,7 @@ public class DialogRed extends JDialog {
         }));
         pan.add(restartbtn);//2，行不通
         getLayeredPane().add(restartbtn);//3
+        pan.repaint();
+        getLayeredPane().repaint();
     }
 }

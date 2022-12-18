@@ -84,5 +84,7 @@ public class DialogBlack extends JDialog {
         }));
         pan.add(restartbtn);//2
         getLayeredPane().add(restartbtn);//3
+        pan.repaint();
+        getLayeredPane().repaint();
     }
 }
