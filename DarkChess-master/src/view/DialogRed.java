@@ -30,7 +30,7 @@ public class DialogRed extends JDialog {
         //2.把窗口面板设为内容面板并设为透明、流动布局。
         pan = (JPanel)getContentPane();
         pan.setOpaque(false);
-        pan.setLayout(null);
+//        pan.setLayout(null);
         //3.之后把组件和面板添加到窗口面板就可以；
         JButton restartbtn=new JButton("restart");
         restartbtn.setBounds(100,100,80,50);
