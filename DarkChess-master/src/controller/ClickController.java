@@ -525,8 +525,8 @@ public class ClickController {
             System.out.println("Black win!");
 
             Data.bgm.run=false;
-            Data.bgm.stop();
             AudioPlay.audioPlay ylxllg = new AudioPlay.audioPlay(Data.ylxLLG);
+            Data.bgm=ylxllg;
             ylxllg.run=true;
             ylxllg.start();
             new DialogBlack();
@@ -534,8 +534,8 @@ public class ClickController {
         if (Data.RedPoint >= 60){
             System.out.printf("Red win!");
             Data.bgm.run=false;
-            Data.bgm.stop();
             AudioPlay.audioPlay wnxXzkt = new AudioPlay.audioPlay(Data.wnxxzkt);
+            Data.bgm=wnxXzkt;
             wnxXzkt.run=true;
             wnxXzkt.start();
             new DialogRed();

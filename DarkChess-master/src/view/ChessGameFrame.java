@@ -473,10 +473,6 @@ public class ChessGameFrame extends JFrame {//JFrame
             getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
             number = number+1;
             SwingUtilities.invokeLater(() -> {
-                AudioPlay.audioPlay ylxllg = new AudioPlay.audioPlay(Data.ylxLLG);
-                ylxllg.run=false;
-                AudioPlay.audioPlay wnxXzkt = new AudioPlay.audioPlay(Data.wnxxzkt);
-                wnxXzkt.run=false;
                 //看看行不行
                 Data.bgm.run=false;
                 AudioPlay.audioPlay gaming = new AudioPlay.audioPlay(Data.Gaming);

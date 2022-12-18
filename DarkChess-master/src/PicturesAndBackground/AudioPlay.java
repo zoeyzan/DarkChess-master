@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class AudioPlay {
-    public static class audioPlay extends Thread{
+    public static class audioPlay extends Thread  {
         public String path;
         private AudioInputStream audioStream;
         private AudioFormat audioFormat;
@@ -50,8 +50,11 @@ public class AudioPlay {
                 ex.printStackTrace();
             }
         }
+
         public void run(){
             playMusic(path);
         }
+
     }
-}
+    }
+
