@@ -13,7 +13,7 @@ public class AudioPlay {
         public boolean run = true;
         public audioPlay(String path) {
             this.path = path;
-            playMusic(path);
+//            playMusic(path);
         }
         private void playMusic(String path){
             try{
