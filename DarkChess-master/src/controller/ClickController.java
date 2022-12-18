@@ -3,6 +3,7 @@ package controller;
 
 //import PicturesAndBackground.AceGameFrame;
 
+import PicturesAndBackground.AudioPlay;
 import PicturesAndBackground.Data;
 import PicturesAndBackground.SoundPool;
 import chessComponent.CannonChessComponent;
@@ -23,8 +24,11 @@ public class ClickController {
     private SquareComponent first;
 //    public int clickNumber = 0;
 
-    SoundPool yl;
-    SoundPool wnx;
+    SoundPool yl= new SoundPool(Data.yl1);
+    AudioPlay.audioPlay ylx = new AudioPlay.audioPlay(Data.yl1);
+    SoundPool wnx= new SoundPool(Data.wnx1);
+    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+    AudioPlay.audioPlay swap1 = new AudioPlay.audioPlay(Data.swap);
 
     public boolean isCheating;
 
@@ -74,7 +78,10 @@ public class ClickController {
                     /**
                      * 这里！！放了音乐！不行就注释掉
                      */
-                    new SoundPool(Data.swap).start();
+//                    new SoundPool(Data.swap).start();
+//                    swap1.run=true;
+//                    swap1.start();
+//                    swap1.run=false;
                     //计分
 
                     if (first instanceof CannonChessComponent && !(squareComponent.isReversal())) {
@@ -120,9 +127,12 @@ public class ClickController {
                                 /**
                                  * 这里！！放了音乐！不行就注释掉
                                  */
-                                yl = new SoundPool(Data.yl1);
-                                yl.start();
-                                yl.run();
+//                                yl = new SoundPool(Data.yl1);
+//                                yl.start();
+//                                yl.run();
+//                                ylx.run=true;
+//                                ylx.start();
+//                                ylx.run=false;
                               }
                             if (first.getChessColor().getColor() == Color.RED) {
                                 Data.BlackPoint += ((ChessComponent) squareComponent).getPoints();
@@ -161,9 +171,12 @@ public class ClickController {
                                 /**
                                  * 这里！！放了音乐！不行就注释掉
                                  */
-                                wnx = new SoundPool(Data.wnx1);
-                                wnx.start();
-                                wnx.run();
+//                                wnx = new SoundPool(Data.wnx1);
+//                                wnx.start();
+//                                wnx.run();
+//                                wnxfj.run=true;
+//                                wnxfj.start();
+//                                wnxfj.run=false;
                                 /**
                                  * 没声音。。。
                                  */
@@ -208,9 +221,12 @@ public class ClickController {
                                 /**
                                  * 这里！！放了音乐！不行就注释掉
                                  */
-                                yl = new SoundPool(Data.yl1);
-                                yl.start();
-                                yl.run();
+//                                yl = new SoundPool(Data.yl1);
+//                                yl.start();
+//                                yl.run();
+//                                ylx.run=true;
+//                                ylx.start();
+//                                ylx.run=false;
                             }
                             if (first.getChessColor().getColor() == Color.RED) {
                                 Data.RedPoint += ((ChessComponent) squareComponent).getPoints();
@@ -250,9 +266,12 @@ public class ClickController {
                                 /**
                                  * 这里！！放了音乐！不行就注释掉
                                  */
-                                wnx = new SoundPool(Data.wnx1);
-                                wnx.start();
-                                wnx.run();
+//                                wnx = new SoundPool(Data.wnx1);
+//                                wnx.start();
+//                                wnx.run();
+//                                wnxfj.run=true;
+//                                wnxfj.start();
+//                                wnxfj.run=false;
                             }
                         }
                     }
@@ -295,9 +314,12 @@ public class ClickController {
                             /**
                              * 这里！！放了音乐！不行就注释掉
                              */
-                            yl = new SoundPool(Data.yl1);
-                            yl.start();
-                            yl.run();
+//                            yl = new SoundPool(Data.yl1);
+//                            yl.start();
+//                            yl.run();
+//                            ylx.run=true;
+//                            ylx.start();
+//                            ylx.run=false;
                         }
                         if (first.getChessColor().getColor() == Color.RED) {
                             Data.RedPoint += ((ChessComponent) squareComponent).getPoints();
@@ -337,9 +359,12 @@ public class ClickController {
                             /**
                              * 这里！！放了音乐！不行就注释掉
                              */
-                            wnx = new SoundPool(Data.wnx1);
-                            wnx.start();
-                            wnx.run();
+//                            wnx = new SoundPool(Data.wnx1);
+//                            wnx.start();
+//                            wnx.run();
+//                            wnxfj.run=true;
+//                            wnxfj.start();
+//                            wnxfj.run=false;
                         }
                     }
                     first = null;
