@@ -10,6 +10,9 @@ public class Data {
 
     //关于歌的路径我存在这里，方便用
     public static String courtPath1 = "C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\courtWav.wav";
+    public static String yl1 = "C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\KlavierObjectionWav.wav";
+    public static String wnx1 = "C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\ApolloObjectionWav.wav";
+    public static String swap = "C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\paWav.wav";
     public static ChessGameFrame gameFrame ;
     public static int clickNumber = 0;
     //以下是被吃子的数据存储地方
