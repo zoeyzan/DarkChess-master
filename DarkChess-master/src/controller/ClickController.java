@@ -5,18 +5,17 @@ package controller;
 
 import PicturesAndBackground.AudioPlay;
 import PicturesAndBackground.Data;
-import PicturesAndBackground.SoundPool;
 import chessComponent.CannonChessComponent;
 import chessComponent.ChessComponent;
 import chessComponent.SquareComponent;
 import chessComponent.EmptySlotComponent;
+import com.sun.tools.javac.Main;
 import model.ChessColor;
 import view.ChessGameFrame;
 import view.Chessboard;
 import view.DialogBlack;
 import view.DialogRed;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class ClickController {
@@ -24,9 +23,9 @@ public class ClickController {
     private SquareComponent first;
 //    public int clickNumber = 0;
 
-    SoundPool yl= new SoundPool(Data.yl1);
-
-    SoundPool wnx= new SoundPool(Data.wnx1);
+//    SoundPool yl= new SoundPool(Data.yl1);
+//
+//    SoundPool wnx= new SoundPool(Data.wnx1);
 
 
 
@@ -172,49 +171,49 @@ public class ClickController {
                                     Data.ae = Data.ae+1;
                                     chessboard.clickController.changeaeLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxholdit);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("p")) {
                                     Data.pe = Data.pe+1;
                                     chessboard.clickController.changepeLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxholdit);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("c")) {
                                     Data.ce = Data.ce+1;
                                     chessboard.clickController.changeceLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxholdit);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("g")) {
                                     Data.ge=Data.ge+1;
                                     chessboard.clickController.changegeLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxholdit);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("h")) {
                                     Data.he=Data.he+1;
                                     chessboard.clickController.changeheLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxholdit);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("m")) {
                                     Data.me=Data.me+1;
                                     chessboard.clickController.changemeLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxholdit);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("s")) {
                                     Data.se=Data.se+1;
                                     chessboard.clickController.changeseLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxholdit);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 }
@@ -234,7 +233,7 @@ public class ClickController {
                                  * 没声音。。。
                                  */
                             }
-                        }//写炮打到自己的没翻开的棋子
+                        }//写炮打到对方的没翻开的棋子
                         if(first.getChessColor()!=squareComponent.getChessColor()){
                             if (first.getChessColor().getColor() == Color.BLACK) {
                                 Data.BlackPoint += ((ChessComponent) squareComponent).getPoints();
@@ -315,49 +314,49 @@ public class ClickController {
                                     Data.Ae = Data.Ae+1;
                                     chessboard.clickController.changeAeLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxtakethat);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("P")) {
                                     Data.Pe = Data.Pe+1;
                                     chessboard.clickController.changePeLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxtakethat);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("C")) {
                                     Data.Ce = Data.Ce+1;
                                     chessboard.clickController.changeCeLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxtakethat);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("G")) {
                                     Data.Ge=Data.Ge+1;
                                     chessboard.clickController.changeGeLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxtakethat);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("H")) {
                                     Data.He=Data.He+1;
                                     chessboard.clickController.changeHeLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxtakethat);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("M")) {
                                     Data.Me=Data.Me+1;
                                     chessboard.clickController.changeMeLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxtakethat);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 } else if (Name.equals("S")) {
                                     Data.Se=Data.Se+1;
                                     chessboard.clickController.changeSeLabel();
                                     System.out.println("I'm in!");
-                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnx1);
+                                    AudioPlay.audioPlay wnxfj = new AudioPlay.audioPlay(Data.wnxtakethat);
                                     wnxfj.run=true;
                                     wnxfj.start();
                                 }
@@ -524,11 +523,23 @@ public class ClickController {
         System.out.println(Data.BlackPoint);
         if (Data.BlackPoint >= 60) {
             System.out.println("Black win!");
+
+            Data.bgm.run=false;
+            Data.bgm.stop();
+            AudioPlay.audioPlay ylxllg = new AudioPlay.audioPlay(Data.ylxLLG);
+            ylxllg.run=true;
+            ylxllg.start();
             new DialogBlack();
         }//todo:写一个方法让游戏结束【弹窗】
         if (Data.RedPoint >= 60){
             System.out.printf("Red win!");
+            Data.bgm.run=false;
+            Data.bgm.stop();
+            AudioPlay.audioPlay wnxXzkt = new AudioPlay.audioPlay(Data.wnxxzkt);
+            wnxXzkt.run=true;
+            wnxXzkt.start();
             new DialogRed();
+
         }
 
     }

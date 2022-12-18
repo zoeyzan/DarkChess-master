@@ -13,6 +13,16 @@ public class Data {
     public static String yl1 = "C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\KlavierWAVwav.wav";
     public static String wnx1 = "C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\ApolloObjectionWAVwav.wav";
     public static String swap = "C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\paWAVwav.wav";
+    public static String wnxxzkt = "C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\Apolloxzkt.wav";
+    public static String wnxholdit = "C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\ApolloHoldItWav.wav";
+    public static String wnxtakethat ="C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\ApolloTakeThatWav.wav";
+
+    public static String ylxLLG ="C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\LoveLoveGuilty.wav";
+    public static String Gaming ="C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\gaming.wav";
+    public static String normalGaming ="C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\NormalGaming.wav";
+    public static String CheatingMusic="C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\CheatingMusic.wav";
+
+    public static AudioPlay.audioPlay bgm;
     public static ChessGameFrame gameFrame ;
     public static int clickNumber = 0;
     //以下是被吃子的数据存储地方

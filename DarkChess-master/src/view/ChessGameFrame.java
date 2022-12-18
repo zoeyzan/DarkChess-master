@@ -133,7 +133,16 @@ public class ChessGameFrame extends JFrame {//JFrame
 //        court.start();
         /**
          * 可以放音乐但因为用的是一个线程所以java卡死了，出来了音乐但是出不来图和所有的组件
+         * 但是我想试试这个
+         * 我草，成功了
          */
+        SwingUtilities.invokeLater(() -> {
+            AudioPlay.audioPlay court = new AudioPlay.audioPlay(Data.courtPath1);
+            Data.bgm = court;
+            court.run = true;
+            court.start();
+        });
+
     }
     public boolean RedStart(){
         if(chessboard.getStartColor()==ChessColor.RED){
@@ -186,6 +195,11 @@ public class ChessGameFrame extends JFrame {//JFrame
             getLayeredPane().repaint();
             Data.clickNumber = 0;
 
+            Data.bgm.run=false;
+            AudioPlay.audioPlay gaming = new AudioPlay.audioPlay(Data.normalGaming);
+            Data.bgm=gaming;
+            gaming.run=true;
+            gaming.start();
 
         }
     }
@@ -378,6 +392,11 @@ public class ChessGameFrame extends JFrame {//JFrame
                         squareComponents[i][j].repaint();
                     }
                 }
+                Data.bgm.run=false;
+                AudioPlay.audioPlay gaming = new AudioPlay.audioPlay(Data.CheatingMusic);
+                Data.bgm=gaming;
+                gaming.run=true;
+                gaming.start();
             } else if (firstCheat()==false) {
                 ImageIcon bg1=new ImageIcon("C:\\Users\\27365\\IdeaProjects\\test1\\project\\src\\PicturesAndBackground\\Pictures\\background.jpg");
                 JLabel label1=new JLabel(bg1);
@@ -393,7 +412,13 @@ public class ChessGameFrame extends JFrame {//JFrame
                         squareComponents[i][j].repaint();
                     }
                 }
+                Data.bgm.run=false;
+                AudioPlay.audioPlay gaming = new AudioPlay.audioPlay(Data.Gaming);
+                Data.bgm=gaming;
+                gaming.run=true;
+                gaming.start();
             }
+
 
         }));
         URL braceletURL = Data.class.getResource("Pictures/bracelet.png");
@@ -447,6 +472,18 @@ public class ChessGameFrame extends JFrame {//JFrame
 //            getLayeredPane().removeAll();
             getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE+number));
             number = number+1;
+            SwingUtilities.invokeLater(() -> {
+                AudioPlay.audioPlay ylxllg = new AudioPlay.audioPlay(Data.ylxLLG);
+                ylxllg.run=false;
+                AudioPlay.audioPlay wnxXzkt = new AudioPlay.audioPlay(Data.wnxxzkt);
+                wnxXzkt.run=false;
+                //看看行不行
+                Data.bgm.run=false;
+                AudioPlay.audioPlay gaming = new AudioPlay.audioPlay(Data.Gaming);
+                Data.bgm=gaming;
+                gaming.run = true;
+                gaming.start();
+            });
         }));
         RestartButton.setLocation(800,400);
         RestartButton.setSize(90, 30);
