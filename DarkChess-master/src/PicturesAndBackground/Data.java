@@ -21,6 +21,7 @@ public class Data {
     public static String Gaming ="C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\gaming.wav";
     public static String normalGaming ="C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\NormalGaming.wav";
     public static String CheatingMusic="C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\CheatingMusic.wav";
+    public static String Gaming2="C:\\Users\\27365\\Desktop\\project\\java\\DarkChess-master\\DarkChess-master\\src\\PicturesAndBackground\\music\\Gaming2.wav";
 
     public static AudioPlay.audioPlay bgm;
     public static ChessGameFrame gameFrame ;

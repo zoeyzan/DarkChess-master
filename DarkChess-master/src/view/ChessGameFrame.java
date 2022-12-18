@@ -196,7 +196,8 @@ public class ChessGameFrame extends JFrame {//JFrame
             Data.clickNumber = 0;
 
             Data.bgm.run=false;
-            AudioPlay.audioPlay gaming = new AudioPlay.audioPlay(Data.normalGaming);
+//            AudioPlay.audioPlay gaming = new AudioPlay.audioPlay(Data.normalGaming);
+            AudioPlay.audioPlay gaming = new AudioPlay.audioPlay(Data.Gaming2);
             Data.bgm=gaming;
             gaming.run=true;
             gaming.start();
@@ -475,7 +476,7 @@ public class ChessGameFrame extends JFrame {//JFrame
             SwingUtilities.invokeLater(() -> {
                 //看看行不行
                 Data.bgm.run=false;
-                AudioPlay.audioPlay gaming = new AudioPlay.audioPlay(Data.Gaming);
+                AudioPlay.audioPlay gaming = new AudioPlay.audioPlay(Data.Gaming2);
                 Data.bgm=gaming;
                 gaming.run = true;
                 gaming.start();
