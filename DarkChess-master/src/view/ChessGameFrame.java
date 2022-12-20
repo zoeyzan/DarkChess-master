@@ -338,6 +338,9 @@ public class ChessGameFrame extends JFrame {//JFrame
         seLabel.setFont(new Font("Rockwell",Font.BOLD,17));
         add(seLabel);
     }
+    public boolean test(){
+        return false;
+    }
 
     public static JLabel getStatusLabel() {return statusLabel;}
     public static JLabel getRedPointLabel() {return RedPointLabel;}
@@ -559,7 +562,7 @@ public class ChessGameFrame extends JFrame {//JFrame
                                 JOptionPane.showConfirmDialog(null, "错误代码:104", "提示", JOptionPane.DEFAULT_OPTION);
                                 return;
                             }
-                            if(false){
+                            if(test()){
                                 JOptionPane.showConfirmDialog(null, "错误代码:105", "提示", JOptionPane.DEFAULT_OPTION);
                                 return;
                             }
