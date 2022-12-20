@@ -559,7 +559,11 @@ public class ChessGameFrame extends JFrame {//JFrame
                                 JOptionPane.showConfirmDialog(null, "错误代码:104", "提示", JOptionPane.DEFAULT_OPTION);
                                 return;
                             }
-                            if(chessData.size()>10) {
+                            gameController.loadGameFromFile(String.valueOf(Paths.get(path)));
+                            for (int i = 0; i < chessData.size(); i++) {
+                                if(chessData.get(i)!=)
+                            }
+                            if(chessData.) {
                                 JOptionPane.showConfirmDialog(null, "错误代码:105", "提示", JOptionPane.DEFAULT_OPTION);
                                 return;
                             }

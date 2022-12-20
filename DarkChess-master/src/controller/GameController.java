@@ -316,7 +316,6 @@ public class GameController {
 
     }
 
-    // TODO: 2022/12/12 撤銷已經寫好了 你待會弄個button上去 我也不知道為啥變成繁體字
     public void undo() {
         int size = getChessboard().step.size();
         if (size > 0) {
