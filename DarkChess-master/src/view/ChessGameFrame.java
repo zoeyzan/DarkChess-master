@@ -236,14 +236,14 @@ public class ChessGameFrame extends JFrame {//JFrame
     }
     private void addRedPointLabel(){
         RedPointLabel = new JLabel("Apollo Points:0");
-        RedPointLabel.setLocation(100,10);
+        RedPointLabel.setLocation(140,25);
         RedPointLabel.setSize(200,60);
         RedPointLabel.setFont(new Font("Rockwell",Font.BOLD,20));
         add(RedPointLabel);
     }
     private void addBlackPointLabel(){
         BlackPointLabel = new JLabel("Klavier Points:0");
-        BlackPointLabel.setLocation(700,10);
+        BlackPointLabel.setLocation(680,25);
         BlackPointLabel.setSize(200,60);
         BlackPointLabel.setFont(new Font("Rockwell",Font.BOLD,20));
         add(BlackPointLabel);
