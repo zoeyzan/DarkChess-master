@@ -425,7 +425,7 @@ public class ChessGameFrame extends JFrame {//JFrame
         URL braceletURL = Data.class.getResource("Pictures/bracelet.png");
         Icon bracelet = new ImageIcon(braceletURL);
         CheatButton.setIcon(bracelet);
-        CheatButton.setLocation(10,400);
+        CheatButton.setLocation(30,420);
         CheatButton.setSize(122, 95);
         CheatButton.setFont(new Font("Rockwell", Font.BOLD, 20));
         CheatButton.setBackground(Color.LIGHT_GRAY);
@@ -437,7 +437,7 @@ public class ChessGameFrame extends JFrame {//JFrame
         }else return false;
     }
     public void addRestartButton(){
-        JButton RestartButton = new JButton("Restart");
+        JButton RestartButton = new JButton();
         RestartButton.addActionListener((e -> {
 
             Data.clickNumber=0;
@@ -483,17 +483,23 @@ public class ChessGameFrame extends JFrame {//JFrame
                 gaming.start();
             });
         }));
-        RestartButton.setLocation(800,400);
-        RestartButton.setSize(90, 30);
-        RestartButton.setFont(new Font("Rockwell", Font.BOLD, 20));
+        RestartButton.setLocation(190,420);
+//        URL lshzURL = Data.class.getResource("Picture/lshz.png");
+        Icon lshz = new ImageIcon(Data.lshzURL);
+        RestartButton.setIcon(lshz);
+        RestartButton.setSize(81, 81);
+//        RestartButton.setFont(new Font("Rockwell", Font.BOLD, 20));
         RestartButton.setBackground(Color.LIGHT_GRAY);
         add(RestartButton);
     }
 
     private void addSaveButton(){
-        JButton SaveButton = new JButton("Save");
-        SaveButton.setBounds(140,460,100,60);
-        SaveButton.setFont(new Font("Rockwell",Font.BOLD,20));
+        JButton SaveButton = new JButton();
+        URL SaveURL = Data.class.getResource("Pictures/save1.png");
+        Icon Save = new ImageIcon(SaveURL);
+        SaveButton.setIcon(Save);
+        SaveButton.setBounds(800,460,100,63);
+
         SaveButton.setBackground(Color.LIGHT_GRAY);
         add(SaveButton);
         SaveButton.addActionListener(e -> {
@@ -505,11 +511,15 @@ public class ChessGameFrame extends JFrame {//JFrame
         });
     }
     private void addLoadButton() {
-        JButton button = new JButton("Load");
+        JButton button = new JButton();
+        URL LoadURL = Data.class.getResource("Pictures/load1.png");
+        Icon Load = new ImageIcon(LoadURL);
+        button.setIcon(Load);
+        button.setBounds(800,460,138,62);
 //        button.setLocation(WIDTH * 3 / 5, HEIGHT / 10 + 240);
-        button.setLocation(140,400);
+        button.setLocation(800,400);
         button.setSize(100, 60);
-        button.setFont(new Font("Rockwell", Font.BOLD, 20));
+//        button.setFont(new Font("Rockwell", Font.BOLD, 20));
         button.setBackground(Color.LIGHT_GRAY);
         add(button);
         button.addActionListener(e -> {
